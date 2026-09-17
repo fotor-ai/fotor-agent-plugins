@@ -1,6 +1,6 @@
 # Fotor for Codex
 
-Version **0.1.0-test.1**, configured for the **test** MCP service.
+Version **0.1.0-test.2**, configured for the **test** MCP service.
 
 This test build verifies installation, OAuth, ping, and calculator calls. Image and video operations are deferred until matching MCP tools are available.
 

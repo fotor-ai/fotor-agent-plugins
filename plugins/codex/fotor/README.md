@@ -5,7 +5,7 @@
 | Metadata | Value |
 | --- | --- |
 | Plugin | `fotor` |
-| Version | `0.1.0-test.1` |
+| Version | `0.1.0-test.2` |
 | Environment | `test` |
 | MCP endpoint | `https://test-mcp.fotor.com/mcp` |
 | Publisher | Fotor |
