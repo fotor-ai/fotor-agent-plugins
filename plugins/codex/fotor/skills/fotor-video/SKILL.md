@@ -1,6 +1,6 @@
 ---
 name: fotor-video
-description: Generate videos with Fotor from text, first or last frames, or supported image/video/audio references, and open the Fotor video Agent page when requested. Still-image requests belong to fotor-image; connection and model questions belong to fotor-connect.
+description: Generate videos with Fotor from text, first or last frames, or supported image/video/audio references. Still-image requests belong to fotor-image; website access, connection, and model questions belong to fotor-connect.
 ---
 
 # Fotor Video
@@ -32,4 +32,4 @@ Preserve the user's subject, action, camera motion, and source constraints. Obta
 
 Submit once, retain the returned ID, and follow the shared `get_task` lifecycle. Deliver the actual completed result; a submitted or processing task is not a finished video. Report audio/visual quality only after inspection.
 
-If the user asks to enter the Fotor video Agent website, follow the shared `get_video_agent_url` handoff instead of submitting a generation task. Return the one-time link immediately, with its expiry, for the user to open; do not preview or navigate to it yourself.
+Website access belongs to `fotor-connect`. For a request that also includes opening the video Agent page, follow the shared [website connection flow](../../references/mcp-integration.md#connect-to-the-website); navigation and generation remain separate requested operations.

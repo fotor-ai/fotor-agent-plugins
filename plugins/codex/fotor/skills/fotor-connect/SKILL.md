@@ -1,20 +1,22 @@
 ---
 name: fotor-connect
-description: Connect to Fotor MCP, check its authentication and available tools, or query supported models and parameters. Use for Fotor connection or capability questions; generation requests belong to fotor-image or fotor-video.
+description: Connect to the Fotor website, check only its MCP connection, introduce its features, or query models and parameters. Use for Fotor connection, website access, and capability requests; media creation belongs to fotor-image or fotor-video.
 ---
 
-# Fotor Connection and Models
+# Fotor Connection and Features
 
-Read [MCP integration and runtime workflow](../../references/mcp-integration.md) for environment selection, authentication, and the current tool contract.
+Read [connection routing and authentication](../../references/mcp-integration.md#route-the-request) before connecting. Preserve the installed MCP endpoint and keep credentials in the host's supported store.
 
-## Connect and check
+## Choose the connection scope
 
-Confirm the installed plugin's selected MCP endpoint and enabled state. Use the host's supported MCP discovery and OAuth flow when needed; let the user complete interactive authorization in their chosen browser. Keep credentials in the client's supported store and preserve the configured environment.
+- **Connect to Fotor / open the Fotor website:** Follow [Connect to the website](../../references/mcp-integration.md#connect-to-the-website). Reuse valid MCP credentials; when authorization is needed, use an external browser and wait for client-confirmed success before opening the returned website link in a visible in-app browser.
+- **Connect to Fotor MCP / check MCP connectivity:** Authenticate if needed, discover the tools, and call `list_models` for a read-only check. Report the actual outcome and endpoint; finish without requesting a website link.
+- **Introduce features / query models:** Answer the requested capability question without opening the website. Use the current tool descriptions for features; use model queries for model choices and parameters.
 
-Once tools are available, call `list_models` without filters for a read-only connection check. Report the endpoint, authentication outcome, and actual query result. Installation or tool discovery alone does not prove that a call succeeded. If discovery or authentication fails, report that specific failure rather than trying another environment or claiming a connection.
+These intent rules also apply to equivalent wording in other languages. An explicit MCP-only or no-website instruction takes precedence over the ordinary website connection flow. Generation requests alone do not request website navigation.
 
-## Query capabilities
+## Explain features and models
 
-Use `media_type` and `mode` filters for the user's operation, then query the selected `model_id` for details. Explain supported settings and defaults from the response; do not treat an empty filtered catalog as a connection error or hardcode a preferred model, model count, or tool count.
+For the starter prompt, "Connect to Fotor and introduce its main features.", complete the website connection flow and give a brief feature overview: image generation/editing, video generation from supported inputs, and querying submitted tasks, limited to tools actually available. Report MCP and website outcomes separately if either is incomplete. Describe supported capabilities without claiming successful media execution.
 
-Keep connection checks to discovery and model queries. Do not submit media, query arbitrary task IDs, or create website handoff links as a health check. A successful model query verifies MCP access, not the upstream generation service or image/video quality.
+For a model question, use `media_type` and `mode` filters, then query the selected `model_id` for supported parameters and defaults. Show model lists when requested; an internal connection probe does not require displaying its catalog. An empty filtered catalog means no matching models, not a failed connection.
