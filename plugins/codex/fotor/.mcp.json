@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "fotor": {
+      "type": "http",
+      "url": "https://test-mcp.fotor.com/mcp"
+    }
+  }
+}

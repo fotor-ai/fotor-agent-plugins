@@ -1,0 +1,20 @@
+{
+  "name": "fotor-codex",
+  "interface": {
+    "displayName": "Fotor for Codex"
+  },
+  "plugins": [
+    {
+      "name": "fotor",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codex/fotor"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

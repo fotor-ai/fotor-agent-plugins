@@ -1,15 +1,27 @@
-# Fotor Agent Plugins
+# Fotor for Codex
 
-This repository distributes installable Fotor plugins for AI coding agents.
+Version **0.1.0-test.1**, configured for the **test** MCP service.
 
-## Release channels
+This test build verifies installation, OAuth, ping, and calculator calls. Image and video operations are deferred until matching MCP tools are available.
 
-The `main` branch is reserved for reviewed production distributions. This initial baseline contains this notice and the Apache-2.0 License; it does not yet contain an installable plugin.
+## Installation
 
-Test builds, when available, are published on `release/test`. Select that branch explicitly when installing a test build. Production candidates are reviewed through pull requests before a human merges them into `main`.
+```bash
+codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --ref release/test
+codex plugin add fotor@fotor-codex
+```
 
-Codex is the first validation target. Claude Code and image/video acceptance are deferred until the corresponding integrations are ready.
+If this private repository requires Git authentication, configure a credential helper before installation. When replacing an existing `fotor-codex` registration, inspect its source and use the client's marketplace remove/add commands to select this source explicitly.
 
-## License
+Open a new Codex task after installation. Verify the installed version and endpoint `https://test-mcp.fotor.com/mcp`, then complete OAuth with `codex mcp login fotor` if needed. The client keeps credentials outside the plugin package.
 
-[Apache-2.0](LICENSE)
+See the [plugin guide](plugins/codex/fotor/README.md) for connection behavior and the [Apache-2.0 license](LICENSE).
+
+## Updates
+
+```bash
+codex plugin marketplace upgrade fotor-codex
+codex plugin add fotor@fotor-codex
+```
+
+A branch-pinned installation keeps its selected branch. To change channels, explicitly replace the marketplace registration, reinstall, and verify the endpoint in a new task.
