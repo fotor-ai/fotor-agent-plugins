@@ -1,20 +1,35 @@
 ---
 name: fotor-video
-description: Generate or edit videos with Fotor when the user chooses Fotor for video creation, image-to-video, or changes to an existing video. Still-image requests belong to fotor-image.
+description: Generate videos with Fotor from text, first or last frames, or supported image/video/audio references, and open the Fotor video Agent page when requested. Still-image requests belong to fotor-image; connection and model questions belong to fotor-connect.
 ---
 
 # Fotor Video
 
-Before executing a Fotor video request, read [MCP integration and runtime workflow](../../references/mcp-integration.md). It defines connection discovery, asset handling, task recovery, and result delivery.
+Read [MCP integration and runtime workflow](../../references/mcp-integration.md) before execution. It defines discovery, asset URLs, task recovery, and the one-time website handoff.
 
-## Define the operation
+## Choose the workflow
 
-- **Generate:** Identify the subject, action, visual style, and camera behavior. Carry through requested duration, aspect ratio, and audio preferences only using supported parameters.
-- **Animate an image:** Identify the source image and intended motion. Use this mode only when the connected Fotor tools support image-to-video, and preserve the user's stated appearance constraints.
-- **Edit:** Identify the source video, requested modifications, and relevant time ranges. Keep requested duration, audio, and unchanged sections intact where the tool supports those constraints. Explain capability limits that would change the requested result.
+For a generation request, use `list_models` with `media_type: video` and the intended mode, then query the selected `model_id` for details.
 
-Obtain missing source assets and required settings before submission. Distinguish creating a new clip from editing an existing one when choosing the tool; a text prompt alone does not establish that a tool supports video editing.
+| Input and intent | Mode | Submission tool and inputs |
+| --- | --- | --- |
+| Text prompt | `text_to_video` | `submit_text_to_video_task` |
+| Starting image and motion | `first_frame_video` | `submit_first_frame_video_task`, `image_url` |
+| Ordered starting and ending images | `first_last_frame_video` | `submit_first_last_frame_video_task`, `start_image_url` and `end_image_url` |
+| Image, video, and/or audio references | `multimodal_reference_video` | `submit_multimodal_video_task`, supported URL arrays |
 
-## Complete the request
+Preserve the user's subject, action, camera motion, and source constraints. Obtain missing assets before submission. Reference-guided generation can use an existing video, but these tools do not establish timeline editing, trimming, precise time-range replacement, or post-generation dubbing.
 
-Follow the shared runtime workflow, retaining the task identifier for asynchronous operations. Return the completed video through an available preview or its result link. Report the actual job state if it is still running or failed, and describe visual or audio quality only when you inspected it. If execution is unavailable, provide a clearly labeled preparation brief and identify the missing capability.
+## Match the model contract
+
+- Use supported native resolutions, aspect ratios, and duration values. `duration=0` selects the model's default duration; explain an unsupported explicit request before changing it.
+- Supply a concrete supported `aspect_ratio` for first-frame and first/last-frame tools. Honor the model's `explicit_aspect_ratio_modes`; multimodal inputs containing images but no videos also require checking this rule.
+- For multimodal mode, supply at least one reference and check `reference_types`. An empty list means multimodal reference video is unsupported. Preserve reference order and send accessible HTTPS URLs.
+- `audio_urls` provides reference audio; `audio_enable` independently requests generated output audio. Enable output audio only when `native_audio` confirms support. Reference audio does not imply output audio support.
+- Use at most eight audio references and honor any smaller `max_audio_references` value. When `audio_requires_visual_reference` is true, audio must accompany an image or video. Encode literal commas in audio URLs as `%2C` without re-encoding already escaped values.
+
+## Finish the request
+
+Submit once, retain the returned ID, and follow the shared `get_task` lifecycle. Deliver the actual completed result; a submitted or processing task is not a finished video. Report audio/visual quality only after inspection.
+
+If the user asks to enter the Fotor video Agent website, follow the shared `get_video_agent_url` handoff instead of submitting a generation task. Return the one-time link immediately, with its expiry, for the user to open; do not preview or navigate to it yourself.

@@ -1,19 +1,21 @@
 ---
 name: fotor-image
-description: Generate or edit images with Fotor when the user chooses Fotor for image creation or changes to an existing image. Video requests belong to fotor-video.
+description: Generate or edit images with Fotor when the user chooses Fotor for image creation or changes to an existing image. Video requests belong to fotor-video; connection and model questions belong to fotor-connect.
 ---
 
 # Fotor Image
 
-Before executing a Fotor image request, read [MCP integration and runtime workflow](../../references/mcp-integration.md). It defines connection discovery, asset handling, task recovery, and result delivery.
+Read [MCP integration and runtime workflow](../../references/mcp-integration.md) before execution. It defines model discovery, remote assets, submission recovery, and result delivery.
 
-## Define the operation
+## Choose the image operation
 
-- **Generate:** Turn the user's subject, composition, style, and output preferences into inputs supported by the available image-generation tool. Preserve explicit dimensions or aspect ratio. Ask only for information required by the tool or essential to the requested result.
-- **Edit:** Identify the source image, requested changes, and elements to preserve. Use the editing operation and any masks or reference inputs it actually supports. Ask for the source image if it is missing; keep unrelated content consistent with the user's request.
+Use `list_models` with `media_type: image` and the requested mode, then query the chosen `model_id` for its parameter details.
 
-Select supported settings from the actual tool schema. If a requested edit or format is unavailable, explain that limitation before proposing a supported option. Treat an existing image edit as an edit to the provided asset rather than an unrelated new generation.
+- **Generate:** Select `text_to_image` and call `submit_image_task` with no reference images (`image_urls` empty or omitted). Preserve the requested subject, composition, style, and supported output preferences.
+- **Edit/reference:** Select `image_to_image` and supply the source HTTPS image URLs in `image_urls`. Describe the requested changes and what must remain consistent. If the source is missing or only a local path is available, resolve the asset input before submission.
 
-## Complete the request
+Select `resolution`, `aspect_ratio`, and `quality` from the model details, using reported defaults for unspecified settings. The tool's optional `extra` fields support background and output-format preferences; send only values supported by the current schema and chosen model. Explain unsupported constraints rather than inventing masks, arbitrary dimensions, or a post-generation upscale step.
 
-Follow the shared runtime workflow through completion. Show the returned image when the host supports it, otherwise provide its result link. Describe changes based on the tool result and any image you inspected. If execution is unavailable, return a clearly labeled preparation brief and identify the missing capability.
+## Submit and deliver
+
+Submit once through `submit_image_task`, retain the returned task ID, and use `get_task` according to the shared lifecycle. If submission is uncertain, preserve any known ID and avoid duplicate generation. Deliver the real completed image through an available preview or its result link; do not describe visual changes as verified until you have inspected the image.

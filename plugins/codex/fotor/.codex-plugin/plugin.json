@@ -1,6 +1,6 @@
 {
   "name": "fotor",
-  "version": "0.1.0-test.2",
+  "version": "0.1.0-test.3",
   "description": "Connect Codex to Fotor's test MCP service.",
   "author": {
     "name": "Fotor",
@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Fotor",
-    "shortDescription": "Connect to Fotor MCP and discover available tools.",
-    "longDescription": "This test build verifies installation, OAuth, ping, and calculator calls. Image and video operations are deferred until matching MCP tools are available.",
+    "shortDescription": "Discover Fotor models and create images and videos.",
+    "longDescription": "Connect to Fotor's test MCP service to discover model capabilities, generate or edit images, and generate videos from supported references. Available models and options are provided by the connected service.",
     "developerName": "Fotor",
     "category": "Productivity",
     "capabilities": [],
@@ -28,7 +28,9 @@
     "composerIcon": "./assets/logo.svg",
     "logo": "./assets/logo.svg",
     "defaultPrompt": [
-      "Connect to Fotor and show the available tools."
+      "Connect to Fotor and show the available models.",
+      "Use Fotor to generate or edit an image.",
+      "Use Fotor to generate a video from supported references."
     ]
   },
   "mcpServers": "./.mcp.json"

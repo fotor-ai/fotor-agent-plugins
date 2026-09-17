@@ -1,8 +1,8 @@
 # Fotor for Codex
 
-Version **0.1.0-test.2**, configured for the **test** MCP service.
+Version **0.1.0-test.3**, configured for the **test** MCP service.
 
-This test build verifies installation, OAuth, ping, and calculator calls. Image and video operations are deferred until matching MCP tools are available.
+The test service has passed Codex OAuth, tool discovery, and read-only model queries. Media submission and task-query tools are exposed; actual image/video execution has not been accepted. Installing this build does not establish host acceptance.
 
 ## Installation
 
@@ -13,7 +13,9 @@ codex plugin add fotor@fotor-codex
 
 If this private repository requires Git authentication, configure a credential helper before installation. When replacing an existing `fotor-codex` registration, inspect its source and use the client's marketplace remove/add commands to select this source explicitly.
 
-Open a new Codex task after installation. Verify the installed version and endpoint `https://test-mcp.fotor.com/mcp`, then complete OAuth with `codex mcp login fotor` if needed. The client keeps credentials outside the plugin package.
+Run marketplace source changes outside another checkout containing the same catalog. Open a new Codex task after installation. Verify the installed version and endpoint `https://test-mcp.fotor.com/mcp`, then complete OAuth with `codex mcp login fotor` if needed. The client keeps credentials outside the plugin package.
+
+For a read-only connection check, discover the actual tools and call `list_models`. Use media/mode filters and a selected model ID to inspect supported parameters. Generation, task lookup, and website sign-in links are separate actions; a model query does not verify upstream media execution.
 
 See the [plugin guide](plugins/codex/fotor/README.md) for connection behavior and the [Apache-2.0 license](LICENSE).
 
