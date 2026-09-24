@@ -1,6 +1,6 @@
 {
   "name": "fotor",
-  "version": "0.1.0-test.4",
+  "version": "0.1.0-test.5",
   "description": "Connect Codex to Fotor's test MCP service.",
   "author": {
     "name": "Fotor",
@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Fotor",
-    "shortDescription": "Discover Fotor models and create images and videos.",
-    "longDescription": "Connect to Fotor's test MCP service to discover model capabilities, generate or edit images, and generate videos from supported references. Available models and options are provided by the connected service.",
+    "shortDescription": "Upload media, create images and videos, and process images.",
+    "longDescription": "Connect to Fotor's test MCP service to discover model capabilities, upload local media, generate or edit images, upscale images, remove backgrounds, generate videos from supported references, and query credits or open a top-up page. Available models and options are provided by the connected service.",
     "developerName": "Fotor",
     "category": "Productivity",
     "capabilities": [],

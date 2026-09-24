@@ -5,7 +5,7 @@ description: Generate videos with Fotor from text, first or last frames, or supp
 
 # Fotor Video
 
-Read [MCP integration and runtime workflow](../../references/mcp-integration.md) before execution. It defines discovery, asset URLs, task recovery, and the one-time website handoff.
+Read [MCP integration and runtime workflow](../../references/mcp-integration.md) before execution. It defines discovery, task recovery, and the one-time website handoff. For local references or client-accessible attachments, follow the shared [media upload workflow](../../references/media-upload.md); use existing accessible HTTPS references directly.
 
 ## Choose the workflow
 
@@ -30,6 +30,6 @@ Preserve the user's subject, action, camera motion, and source constraints. Obta
 
 ## Finish the request
 
-Submit once, retain the returned ID, and follow the shared `get_task` lifecycle. Deliver the actual completed result; a submitted or processing task is not a finished video. Report audio/visual quality only after inspection.
+Submit once, retain the returned ID, and follow the shared `get_task` lifecycle, including `submission_uncertain` recovery and the returned `credits_increment`. Upload success alone does not establish generation success. Deliver the actual completed result; a submitted or processing task is not a finished video. Report audio/visual quality only after inspection.
 
-Website access belongs to `fotor-connect`. For a request that also includes opening the video Agent page, follow the shared [website connection flow](../../references/mcp-integration.md#connect-to-the-website); navigation and generation remain separate requested operations.
+Website access belongs to `fotor-connect`. For a request that also includes connecting to the Fotor website, follow the shared [website connection flow](../../references/mcp-integration.md#connect-to-the-website); navigation and generation remain separate requested operations.
