@@ -1,0 +1,38 @@
+{
+  "name": "fotor",
+  "version": "0.1.0",
+  "description": "Connect Codex to Fotor's production MCP service.",
+  "author": {
+    "name": "Fotor",
+    "url": "https://fotor.com"
+  },
+  "homepage": "https://fotor.com",
+  "repository": "https://github.com/fotor-ai/fotor-agent-plugins",
+  "license": "Apache-2.0",
+  "keywords": [
+    "fotor",
+    "image",
+    "video",
+    "generation",
+    "editing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Fotor",
+    "shortDescription": "Upload media, create images and videos, and process images.",
+    "longDescription": "Connect to Fotor's production MCP service to discover model capabilities, upload local media, generate or edit images, upscale images, remove backgrounds, generate videos from supported references, and query credits or open a top-up page. Available models and options are provided by the connected service.",
+    "developerName": "Fotor",
+    "category": "Productivity",
+    "capabilities": [],
+    "websiteURL": "https://fotor.com",
+    "composerIcon": "./assets/logo.svg",
+    "logo": "./assets/logo.svg",
+    "defaultPrompt": [
+      "Connect to Fotor and introduce its main features.",
+      "Use Fotor to generate an image from my description.",
+      "Use Fotor to edit this image.",
+      "Use Fotor to generate a video from my references."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}
