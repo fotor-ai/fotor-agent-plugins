@@ -8,7 +8,7 @@ This package selects the **test** environment at `https://test-mcp.fotor.com/mcp
 | --- | --- | --- | --- |
 | test | `https://test-mcp.fotor.com/mcp` | `https://test-www.fotor.com/` | `https://test-api.fotor.com/api/user/mcp/browser-handoff` |
 
-Earlier Codex OAuth and model-query checks passed against the test service. Current service source exposes get_website_url and get_credits; test deployment has been reported updated. Authenticated discovery, website login, and credits/top-up workflows still need live acceptance. Uploads, image processing, and generation also require separate acceptance. Installing this build does not establish host acceptance.
+Earlier test OAuth and model queries passed. The last recorded test discovery attempt on 2026-09-24 timed out, so current test connectivity remains unverified. New-build host installation, automatic website login, credit/top-up actions, uploads, and media execution still require separate acceptance.
 
 Use the runtime routing, authentication, and website flow below. Keep credentials in the client's supported store. An installed package or a successful model query does not establish website login, successful uploads, image processing, upstream generation, or media quality.
 

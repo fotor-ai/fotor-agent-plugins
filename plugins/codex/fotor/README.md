@@ -1,32 +1,120 @@
 # Fotor for Codex
 
-<img src="assets/logo.svg" alt="Fotor logo" width="96" />
+<img src="assets/logo.svg" width="72" alt="Fotor logo" />
 
-| Metadata | Value |
+Create images and videos, upload media, and process images with Fotor in Codex.
+
+| Package | Value |
 | --- | --- |
-| Plugin | `fotor` |
-| Version | `0.1.0-test.5` |
+| Plugin | `fotor@fotor-codex` |
+| Version | `0.1.0-test.6` |
 | Environment | `test` |
-| MCP endpoint | `https://test-mcp.fotor.com/mcp` |
 | Publisher | Fotor |
 | Source | [GitHub](https://github.com/fotor-ai/fotor-agent-plugins) |
 | License | [Apache-2.0](LICENSE) |
 
-Earlier Codex OAuth and model-query checks passed against the test service. Current service source exposes get_website_url and get_credits; test deployment has been reported updated. Authenticated discovery, website login, and credits/top-up workflows still need live acceptance. Uploads, image processing, and generation also require separate acceptance. Installing this build does not establish host acceptance.
+**MCP service:** `https://test-mcp.fotor.com/mcp`.
+## Codex setup
 
-## Install and connect
+### Installation
+
+Use Codex with plugin support and Git read access to the private repository. Install the complete marketplace package; no build or source synchronization is required. For an existing marketplace with another source, use [Switch release channel](#switch-release-channel).
+
+#### Test channel
+
+Use the test branch for prerelease validation.
 
 ```bash
 codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --ref release/test
 codex plugin add fotor@fotor-codex
 ```
 
-For an existing marketplace registration, explicitly select the intended source using the client's remove/add commands. Open a new task after installation, discover the actual tools, and verify the selected MCP endpoint. Reuse valid client-stored credentials. When authorization is needed, run the supported OAuth flow (for example, `codex mcp login fotor`) in an external browser and wait for client-confirmed success. Website browser login is a separate session.
+### Connect
 
-Ask "Connect to Fotor and introduce its main features" to authenticate MCP, call `get_website_url`, validate its handoff endpoint, and open the returned link once in a visible in-app browser. The response contains `handoff_url` and `expires_in`; verify the final website environment and authenticated state after navigation before reporting login success. Follow the [website connection flow](references/mcp-integration.md#connect-to-the-website), including its manual fallback. Explicit MCP-only checks and feature/model questions omit website navigation.
+Verify the installed version, enabled state, and selected endpoint before signing in:
 
-The package bundles website connection, feature/model discovery, local-media uploads, image generation/editing, standalone image upscaling and background removal, and video generation workflows. Available operations and inputs are determined by the service's actual tool schemas. For read-only MCP checks, use `list_models` when available. Inspect model details for model-based generation/editing; uploads and fixed image-processing operations need no model choice. Follow the shared [upload workflow](references/media-upload.md) for local files: only a confirmed PUT upload makes its `file_url` ready for use. Website connection requests authorize the handoff; uploads, image processing, and generation follow the specific operation requested by the user. Read [MCP integration and runtime workflow](references/mcp-integration.md) before using Fotor tools. Skill names and counts may evolve independently of this distribution layout.
+```bash
+codex plugin list --marketplace fotor-codex --json
+```
 
-The installation package contains its manifest, MCP declaration, license, resources, and workflow instructions. Installation requires no build or source synchronization step.
+The installed `.mcp.json` and any standalone Fotor MCP override must select the intended environment. Open a new Codex task and ask:
 
-For balance and recharge requests, use the [credits workflow](references/credits.md). A positive balance query returns only the balance; zero balance or an explicit top-up request selects the recharge page unless the user forbids web actions. Opening that page does not perform a payment.
+```text
+Connect to Fotor and introduce its main features.
+```
+
+Reuse valid credentials. If sign-in is required, complete the client's OAuth flow in an external browser and wait for client-confirmed success. The [website connection workflow](references/mcp-integration.md#connect-to-the-website) then uses one visible in-app browser visit and verifies the resulting website environment and login state. Browser limitations have a manual fallback; credentials stay in the client's supported store.
+
+Ask **Check only the Fotor MCP connection** for a read-only check. Feature and model questions alone do not open the website or query credits.
+
+### Updates
+
+```bash
+codex plugin marketplace upgrade fotor-codex
+codex plugin add fotor@fotor-codex
+codex plugin list --marketplace fotor-codex --json
+```
+
+Updates retain the selected source branch. Open a new task afterward and verify its version and effective MCP endpoint.
+
+### Switch release channel
+
+Choose the destination and run only its replacement sequence, outside other checkouts containing the same marketplace catalog.
+
+<details>
+<summary>Channel replacement commands</summary>
+
+#### Test channel
+
+Use the test branch for prerelease validation.
+
+```bash
+codex plugin marketplace remove fotor-codex
+codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --ref release/test
+codex plugin add fotor@fotor-codex
+codex plugin list --marketplace fotor-codex --json
+```
+
+#### Production candidate (before merge)
+
+Use this versioned branch while an existing production candidate is under review.
+
+```bash
+codex plugin marketplace remove fotor-codex
+codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --ref release/v0.1.0
+codex plugin add fotor@fotor-codex
+codex plugin list --marketplace fotor-codex --json
+```
+
+#### Stable production (after merge)
+
+Use the default branch only after the production release has been merged into `main`.
+
+```bash
+codex plugin marketplace remove fotor-codex
+codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git
+codex plugin add fotor@fotor-codex
+codex plugin list --marketplace fotor-codex --json
+```
+
+</details>
+
+Verify the destination version and effective MCP configuration before signing in. Keep production and test authorization separate.
+
+## Workflows
+
+| Request | Guide |
+| --- | --- |
+| Connect, discover models, generate media, or check a submitted task | [MCP integration](references/mcp-integration.md) |
+| Upload local media or prepare references for creation | [Media upload workflow](references/media-upload.md) |
+| Check credits or open the recharge entry | [Credits and top-up](references/credits.md) |
+
+The service's current schemas determine available models, input types, and parameters. Model-based generation uses model discovery; uploads, dedicated image upscaling, and background removal use their own contracts. A standalone upload ends after confirmed transfer. Creation continues only with usable inputs and the operation requested by the user.
+
+Credit queries are independent of ordinary connection and generation. A positive balance query ends with the balance; zero balance or an explicit top-up request selects the recharge entry subject to user browsing restrictions. Payment remains under the user's control.
+
+## Verification status
+
+Earlier test OAuth and model queries passed. The last recorded test discovery attempt on 2026-09-24 timed out, so current test connectivity remains unverified. New-build host installation, automatic website login, credit/top-up actions, uploads, and media execution still require separate acceptance.
+
+The package is self-contained: its manifest, MCP declaration, license, skills, assets, and references remain usable when installed independently. Skill names and counts may evolve.
