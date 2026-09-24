@@ -8,7 +8,7 @@ This package selects the **production** environment at `https://mcp.fotor.com/mc
 | --- | --- | --- | --- |
 | production | `https://mcp.fotor.com/mcp` | `https://www.fotor.com/` | `https://api.fotor.com/api/user/mcp/browser-handoff` |
 
-This build selects the production service. Production connectivity and media operations require separate acceptance; packaging does not establish availability.
+Production OAuth, authenticated tool discovery, and read-only model queries passed on 2026-09-24. New-build host installation, automatic website login, credit/top-up actions, uploads, and media execution still require separate acceptance.
 
 Use the runtime routing, authentication, and website flow below. Keep credentials in the client's supported store. An installed package or a successful model query does not establish website login, successful uploads, image processing, upstream generation, or media quality.
 
