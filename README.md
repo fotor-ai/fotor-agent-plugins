@@ -49,18 +49,9 @@ Available models, parameters, and operations come from the connected Fotor servi
 
 Use a Codex version with plugin support and Git access to this private repository. Configure Git authentication through a credential helper before installing. If `fotor-codex` is already registered from another source, follow [Switch release channel](#switch-release-channel).
 
-#### Production candidate (before merge)
+#### Production release
 
-Use this versioned branch while an existing production candidate is under review.
-
-```bash
-codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --ref release/v0.1.0
-codex plugin add fotor@fotor-codex
-```
-
-#### Stable production (after merge)
-
-Use the default branch only after the production release has been merged into `main`.
+Install the released plugin from the default `main` branch. No branch selector is required.
 
 ```bash
 codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git
@@ -103,37 +94,26 @@ Open a new task and verify the version, enabled state, and endpoint. An update k
 Use one source for the `fotor-codex` marketplace. Choose the destination first, then run **one** of the replacement sequences below. Run source changes outside another checkout containing the same marketplace catalog.
 
 <details>
-<summary>Choose test, a production candidate, or stable production</summary>
+<summary>Choose the production or test release channel</summary>
 
-#### Test channel
+#### Production release
 
-Use the test branch for prerelease validation.
-
-```bash
-codex plugin marketplace remove fotor-codex
-codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --ref release/test
-codex plugin add fotor@fotor-codex
-codex plugin list --marketplace fotor-codex --json
-```
-
-#### Production candidate (before merge)
-
-Use this versioned branch while an existing production candidate is under review.
-
-```bash
-codex plugin marketplace remove fotor-codex
-codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --ref release/v0.1.0
-codex plugin add fotor@fotor-codex
-codex plugin list --marketplace fotor-codex --json
-```
-
-#### Stable production (after merge)
-
-Use the default branch only after the production release has been merged into `main`.
+Install the released plugin from the default `main` branch. No branch selector is required.
 
 ```bash
 codex plugin marketplace remove fotor-codex
 codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git
+codex plugin add fotor@fotor-codex
+codex plugin list --marketplace fotor-codex --json
+```
+
+#### Test release
+
+Install the test build from `release/test` for prerelease validation.
+
+```bash
+codex plugin marketplace remove fotor-codex
+codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --ref release/test
 codex plugin add fotor@fotor-codex
 codex plugin list --marketplace fotor-codex --json
 ```
