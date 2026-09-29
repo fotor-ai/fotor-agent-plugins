@@ -47,7 +47,7 @@ Available models, parameters, and operations come from the connected Fotor servi
 
 ### Installation
 
-Use a Codex version with plugin support and Git access to this private repository. Configure Git authentication through a credential helper before installing. If `fotor-codex` is already registered from another source, follow [Switch release channel](#switch-release-channel).
+Use a Codex version with plugin support and Git access to this public repository. GitHub sign-in is not required to install the public package. If `fotor-codex` is already registered from another source, follow [Switch release channel](#switch-release-channel).
 
 #### Production release
 
@@ -127,7 +127,7 @@ After switching, open a new task and verify the destination version and effectiv
 <details>
 <summary>Repository access, stale installations, and sign-in</summary>
 
-- **Repository access:** confirm your Git credential helper can read this private repository. Keep credentials outside repository URLs and plugin files.
+- **Repository access:** confirm Git can reach this public repository. GitHub access and Fotor MCP authorization are separate; keep credentials outside repository URLs and plugin files.
 - **Unexpected version or endpoint:** inspect the marketplace source, reinstall, and start a new task. Check both the installed MCP declaration and any standalone Fotor override.
 - **Authorization required:** use the selected server's native sign-in flow in an external browser. For a matching standalone server named `fotor`, the CLI provides `codex mcp login fotor`.
 - **Website or media operation fails:** retain the actual error and task ID when present. Connection, browser login, and media execution have separate outcomes; see the workflow references below.
