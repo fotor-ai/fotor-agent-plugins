@@ -19,7 +19,7 @@ Create images and videos, upload media, and process images with Fotor in Codex.
 
 ### Installation
 
-Use Codex with plugin support and Git read access to the private repository. Install the complete marketplace package; no build or source synchronization is required. For an existing marketplace with another source, use [Switch release channel](#switch-release-channel).
+Use Codex with plugin support and Git read access to the public repository; GitHub sign-in is not required. Install the complete marketplace package; no build or source synchronization is required. For an existing marketplace with another source, use [Switch release channel](#switch-release-channel).
 
 #### Test release
 
