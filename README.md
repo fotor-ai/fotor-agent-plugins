@@ -7,7 +7,7 @@
 <p align="center">Create images and videos with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.1.0-test.6&amp;color=087f8c&amp;style=flat-square" alt="Version 0.1.0-test.6" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.1.1-test.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.1.1-test.1" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" alt="test channel" />
   <img src="https://img.shields.io/static/v1?label=agent&amp;message=Codex&amp;color=24292f&amp;style=flat-square" alt="Available for Codex" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
@@ -66,14 +66,14 @@ codex plugin add fotor@fotor-codex
    codex plugin list --marketplace fotor-codex --json
    ```
 
-2. Confirm version **0.1.0-test.6** and the **test** MCP endpoint `https://test-mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must select the intended environment.
+2. Confirm version **0.1.1-test.1** and the **test** MCP endpoint `https://test-mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must select the intended environment.
 3. Open a new Codex task and ask:
 
    ```text
    Connect to Fotor and introduce its main features.
    ```
 
-Valid credentials are reused. When authorization is needed, complete Codex's sign-in flow in an external browser and wait for client confirmation. The plugin then uses the website sign-in link in a visible in-app browser. See the [connection workflow](plugins/codex/fotor/references/mcp-integration.md#connect-to-the-website) for verification and manual fallback.
+Valid credentials are reused. When authorization is needed, complete Codex's sign-in flow in an external browser, then choose "Signed in and authorized; open Fotor in the in-app browser" in the localized confirmation prompt. You can also choose to keep waiting or cancel. After Codex confirms authorization, the plugin opens the website sign-in link in a visible in-app browser. See the [connection workflow](plugins/codex/fotor/references/mcp-integration.md#connect-to-the-website) for verification and manual fallback.
 
 For a read-only check without opening the website, ask: **Check only the Fotor MCP connection.**
 

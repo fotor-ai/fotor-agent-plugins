@@ -7,7 +7,7 @@ Create images and videos, upload media, and process images with Fotor in Codex.
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor@fotor-codex` |
-| Version | `0.1.0-test.6` |
+| Version | `0.1.1-test.1` |
 | Environment | `test` |
 | Publisher | Fotor |
 | Source | [GitHub](https://github.com/fotor-ai/fotor-agent-plugins) |
@@ -44,7 +44,7 @@ The installed `.mcp.json` and any standalone Fotor MCP override must select the 
 Connect to Fotor and introduce its main features.
 ```
 
-Reuse valid credentials. If sign-in is required, complete the client's OAuth flow in an external browser and wait for client-confirmed success. The [website connection workflow](references/mcp-integration.md#connect-to-the-website) then uses one visible in-app browser visit and verifies the resulting website environment and login state. Browser limitations have a manual fallback; credentials stay in the client's supported store.
+Reuse valid credentials. If sign-in is required, complete the client's OAuth flow in an external browser, then choose to continue in the localized confirmation prompt; waiting and cancellation are also available. Continue only after the client confirms authorization. The [website connection workflow](references/mcp-integration.md#connect-to-the-website) then uses one visible in-app browser visit and verifies the resulting website environment and login state. Browser limitations have a manual fallback; credentials stay in the client's supported store.
 
 Ask **Check only the Fotor MCP connection** for a read-only check. Feature and model questions alone do not open the website or query credits.
 
