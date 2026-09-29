@@ -5,11 +5,15 @@ description: Connect to the Fotor website, check only its MCP connection, introd
 
 # Fotor Connection and Features
 
-Read [connection routing and authentication](../../references/mcp-integration.md#route-the-request) before connecting. Preserve the installed MCP endpoint and keep credentials in the host's supported store.
+Read [connection routing and authentication](../../references/mcp-integration.md#route-the-request) before connecting. For transient connection, discovery, or read-only probe failures, follow [bounded connection recovery](../../references/mcp-integration.md#bounded-connection-recovery) before reporting failure. Preserve the installed MCP endpoint and keep credentials in the host's supported store.
+
+## Missing tools or authentication failures
+
+Check native authorization before suggesting a reload or new chat. In Codex, read [native authorization diagnosis](../../references/codex-authentication.md) for host-native status, permission recovery, and login routes. If execution restrictions prevent a native check, use the host permission mechanism or connection UI before repeating it; skills require no script interpreter. A confirmed login requirement enters external OAuth even when every Fotor tool is absent. Unknown status requires bounded diagnosis and an explicit reauthorization choice; it is not proof of logout. Other hosts use their own native authentication controls.
 
 ## Choose the connection scope
 
-- **Connect to Fotor / open the Fotor website:** Follow [Connect to the website](../../references/mcp-integration.md#connect-to-the-website). Reuse valid MCP credentials; when authorization is needed, use an external browser and wait for client-confirmed success before calling `get_website_url`, validating the handoff endpoint, and consuming the website link once in a visible in-app browser. The response has no `target_url`; verify the final website environment and login state after navigation. Website login does not depend on credit balance.
+- **Connect to Fotor / open the Fotor website:** Follow [Connect to the website](../../references/mcp-integration.md#connect-to-the-website). Reuse valid MCP credentials; when authorization is needed, use an external browser, collect the [OAuth completion choice](../../references/mcp-integration.md#oauth-completion-choice), and verify client-confirmed success before calling `get_website_url`, validating the handoff endpoint, and consuming the website link once in a visible in-app browser. The response has no `target_url`; verify the final website environment and login state after navigation. Website login does not depend on credit balance.
 - **Connect to Fotor MCP / check MCP connectivity:** Authenticate if needed, discover the tools, and call `list_models` when available for a read-only check. If absent, report the unavailable probe without treating it as an authentication failure. Report the actual outcome and endpoint; finish without requesting a website link.
 - **Introduce features / query models:** Answer the requested capability question without opening the website. Use the current tool descriptions for features; use model queries for model choices and parameters.
 

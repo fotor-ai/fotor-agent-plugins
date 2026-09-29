@@ -1,6 +1,6 @@
 {
   "name": "fotor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Connect Codex to Fotor's production MCP service.",
   "author": {
     "name": "Fotor",

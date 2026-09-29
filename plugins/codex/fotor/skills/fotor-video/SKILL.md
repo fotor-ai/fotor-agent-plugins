@@ -24,9 +24,29 @@ Preserve the user's subject, action, camera motion, and source constraints. Obta
 
 - Use supported native resolutions, aspect ratios, and duration values. `duration=0` selects the model's default duration; explain an unsupported explicit request before changing it.
 - Supply a concrete supported `aspect_ratio` for first-frame and first/last-frame tools. Honor the model's `explicit_aspect_ratio_modes`; multimodal inputs containing images but no videos also require checking this rule.
-- For multimodal mode, supply at least one reference and check `reference_types`. An empty list means multimodal reference video is unsupported. Preserve reference order and send accessible HTTPS URLs.
+- For multimodal mode, supply at least one reference and check `reference_types`. An empty list means multimodal reference video is unsupported. Preserve reference order and send accessible HTTPS URLs. Construct the prompt with the [reference markers](#reference-markers-in-video-prompts) below.
 - `audio_urls` provides reference audio; `audio_enable` independently requests generated output audio. Enable output audio only when `native_audio` confirms support. Reference audio does not imply output audio support.
 - Use at most eight audio references and honor any smaller `max_audio_references` value. When `audio_requires_visual_reference` is true, audio must accompany an image or video. Encode literal commas in audio URLs as `%2C` without re-encoding already escaped values.
+
+## Reference markers in video prompts
+
+For `multimodal_reference_video`, identify reference materials in the submitted `prompt` with these exact markers:
+
+| Reference type | Marker | First reference |
+| --- | --- | --- |
+| Image | `<<<image_n>>>` | `<<<image_1>>>` |
+| Video | `<<<video_n>>>` | `<<<video_1>>>` |
+| Audio | `<<<audio_n>>>` | `<<<audio_1>>>` |
+
+`n` is a decimal index starting at **1**, numbered separately for each media type in its submitted reference order. Keep the lowercase type, underscore, and three angle brackets on each side literal in the tool's prompt text. The markers refer to the media supplied through the tool's URL inputs; those inputs still carry the actual accessible HTTPS URLs.
+
+Before submission, verify that every marker maps to a supplied reference of the matching type. If the selected references or their order change, update the prompt's mapping. Resolve a missing reference before submitting a prompt that uses its marker.
+
+Example for a model supporting two images, one video, and one audio reference:
+
+```text
+Use the character in <<<image_1>>> and the setting in <<<image_2>>>. Follow the camera motion in <<<video_1>>> and the rhythm of <<<audio_1>>>.
+```
 
 ## Finish the request
 
