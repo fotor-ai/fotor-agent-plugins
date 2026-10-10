@@ -29,6 +29,8 @@
 
 This distribution includes the Codex plugin. Additional agent integrations will be documented when released.
 
+Both release channels connect to Fotor's production service and website. The test channel previews plugin changes; it uses your production account and credits.
+
 ## Features
 
 | Capability | What you can do |
@@ -66,7 +68,7 @@ codex plugin add fotor@fotor-codex
    codex plugin list --marketplace fotor-codex --json
    ```
 
-2. Confirm version **0.1.2** and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must select the intended environment.
+2. Confirm version **0.1.2**, release channel **production**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
 3. Open a new Codex task and ask:
 
    ```text
@@ -120,7 +122,7 @@ codex plugin list --marketplace fotor-codex --json
 
 </details>
 
-After switching, open a new task and verify the destination version and effective MCP endpoint. Authorize the destination environment when needed; keep its credentials separate from the other environment.
+After switching, open a new task and verify the destination version and production MCP endpoint. Reuse valid production authorization. If a legacy installation or standalone override uses a different service, stop and update that configuration through the host's controls before connecting; do not migrate its credentials automatically.
 
 ### Troubleshooting
 
