@@ -1,6 +1,6 @@
 {
   "name": "fotor",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Connect Codex to Fotor's production MCP service.",
   "author": {
     "name": "Fotor",
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "Fotor",
     "shortDescription": "Upload media, create images and videos, and process images.",
-    "longDescription": "Connect to Fotor's production MCP service to discover model capabilities, upload local media, generate or edit images, upscale images, remove backgrounds, generate videos from supported references, and query credits or open a top-up page. Available models and options are provided by the connected service.",
+    "longDescription": "Connect to Fotor's production MCP service to discover model capabilities, upload local media, generate or edit images, upscale images, remove backgrounds, generate videos from supported references, and query credits or get pricing links. Available models and options are provided by the connected service.",
     "developerName": "Fotor",
     "category": "Productivity",
     "capabilities": [],
