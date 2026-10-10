@@ -8,9 +8,9 @@ This package selects the **test** environment at `https://test-mcp.fotor.com/mcp
 | --- | --- | --- | --- |
 | test | `https://test-mcp.fotor.com/mcp` | `https://test-www.fotor.com/` | `https://test-api.fotor.com/api/user/mcp/browser-handoff` |
 
-Earlier test OAuth and model queries passed. The last recorded test discovery attempt on 2026-09-24 timed out, so current test connectivity remains unverified. New-build host installation, automatic website login, credit/top-up actions, uploads, and media execution still require separate acceptance.
+Package checks cover files, references, and configuration. Verify installation, MCP authorization and calls, website login, credit links, uploads, and media execution separately in the selected host and environment. A release or model query does not establish successful website login or completed media results.
 
-Use the runtime routing, authentication, and website flow below. Keep credentials in the client's supported store. An installed package or a successful model query does not establish website login, successful uploads, image processing, upstream generation, or media quality.
+Use the runtime routing, authentication, and website flow below. Keep credentials in the client's supported store and report actual outcomes for the requested operation.
 
 ## Runtime workflow
 
@@ -61,7 +61,7 @@ Apply this policy only to read-only OAuth metadata retrieval, MCP connection/too
 
 Confirmed invalid credentials, denied permissions, invalid parameters, environment mismatches, certificate-validation errors, and genuinely absent tools are not transient retries. Stop this recovery loop and explain the specific condition; use the supported authorization flow only when missing/invalid credentials or an explicit reauthorization request warrant it. User cancellation stops recovery immediately.
 
-This budget covers automatic MCP connection recovery, not website navigation or media execution. Keep website/top-up ticket creation and consumption, upload requests/transfers, media submissions, and task queries outside this retry loop. Their existing workflows retain their own stopping conditions; in particular, preserve uncertain submissions and the one-time-link replacement limit.
+This budget covers automatic MCP connection recovery, not website navigation, credit queries, or media execution. Keep website ticket creation and consumption, upload requests/transfers, media submissions, and task queries outside this retry loop. Their existing workflows retain their own stopping conditions; in particular, preserve uncertain submissions and the website-link replacement limit. Pricing links follow the separate [credits workflow](credits.md).
 
 ### Connect to the website
 
@@ -73,11 +73,11 @@ This budget covers automatic MCP connection recovery, not website navigation or 
 
 ### One-time browser links
 
-Apply this section only when the website or credits workflow selected a browser/link action. Website and top-up links have distinct purposes. This plugin's connection and selected top-up flows use one final visible in-app navigation. The service descriptions instead prescribe a user-clicked link to prevent early consumption; the plugin's selected browser action is the intended final visit, never a pre-opening check. Honor an explicit user preference for manual delivery and any host restriction; use the manual fallback when direct navigation is unavailable.
+Apply this section only to `get_website_url.handoff_url`. This plugin's selected website connection flow uses one final visible in-app navigation. The service description instead prescribes a user-clicked link to prevent early consumption; the plugin's selected browser action is the intended final visit, never a pre-opening check. Honor an explicit user preference for manual delivery and any host restriction; use the manual fallback when direct navigation is unavailable. Ordinary pricing URLs use the separate [pricing-link rules](credits.md#validate-and-deliver-pricing-links).
 
 - Parse the returned URL before use. It must have the exact HTTPS origin and path of the selected environment's [login handoff endpoint](#connection), no username/password or fragment, and one nonempty `code` query parameter only. Check URL components rather than hostname substrings. Reject an unknown environment or mismatch without fetching the address, rewriting the host, or switching services.
 - Immediately navigate once in a visible in-app browser. Do not first fetch, preview, probe, or open the ticket in a hidden tab. After navigation, treat it as consumed and never offer it as a reusable login link.
-- When the required browser is unavailable, explain the limitation and present the complete unused link for immediate manual opening. For website links, include the returned lifetime; credits links do not expose an expiry field. Manual completion stays pending until confirmed. Honor explicit user restrictions on browsing or link disclosure; do not silently switch browsers.
+- When the required browser is unavailable, explain the limitation and present the complete unused link with its returned lifetime for immediate manual opening. Manual completion stays pending until confirmed. Honor explicit user restrictions on browsing or link disclosure; do not silently switch browsers.
 - If a link expired or a failed navigation may have consumed it, resolve the cause or establish a manual route before requesting one replacement for the still-requested action. Stop after a repeated failure. Record outcomes without credentials, authorization codes, or one-time URLs in repository files or diagnostic logs.
 
 ### Discover capabilities and choose a model
@@ -97,7 +97,7 @@ Inspect the connected service's actual tool descriptions and input schemas. The 
 | `submit_multimodal_video_task` | Use supported image, video, and/or audio references |
 | `get_task` | Query an existing image-processing, image-generation, or video task by `task_id` |
 | `get_website_url` | Obtain an environment-bound, one-time website login link for the verified MCP user |
-| `get_credits` | Query available balance and obtain a top-up link; apply the [credits workflow](credits.md) |
+| `get_credits` | Query available balance and obtain a regular pricing-page link; apply the [credits workflow](credits.md) |
 
 For model-based generation/editing, start with `list_models`, optionally filtering by `media_type` and `mode`. Uploads and fixed image-processing operations use their own tool contracts without model selection. Filters combine with AND; an empty filtered result is not evidence of a failed connection. Then query `list_models` with the chosen `model_id` before submitting. Model IDs, available modes, and catalog sizes can change; an unknown or retired ID requires a new selection, not an invented replacement.
 
@@ -110,6 +110,8 @@ Generation references and image-processing inputs must be accessible HTTPS URLs.
 Use native model resolutions and supported output options for generation. Explicit image upscaling uses `submit_image_upscale_task`; its current positive, finite ratio defaults to 2 and its output width and height are capped at 2048 pixels. Background removal uses `submit_background_removal_task` for a transparent image. Neither fixed operation requires a model ID or prompt. These tools do not establish masks, video upscaling, timeline/range editing, or dubbing. Run a sequence of operations only when requested, waiting for each required result before the next submission.
 
 ### Submission, recovery, and results
+
+For an explicit `insufficient_credits` submission error, follow [insufficient credits during media submission](credits.md#insufficient-credits-during-media-submission). This applies to image generation, fixed image processing, and every video submission mode; it does not make balance queries a prerequisite.
 
 1. Submit the requested operation once and retain its returned `task_id`, environment, and selected model or fixed `operation`. A submitted task is not a completed artifact.
 2. Query that task with `get_task`. Each call performs one lookup; the client may repeat queries at reasonable intervals within the active task's execution budget. The tool does not start background polling.

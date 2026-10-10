@@ -7,7 +7,7 @@
 <p align="center">Create images and videos with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.1.1-test.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.1.1-test.1" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.1.2-test.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.1.2-test.1" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" alt="test channel" />
   <img src="https://img.shields.io/static/v1?label=agent&amp;message=Codex&amp;color=24292f&amp;style=flat-square" alt="Available for Codex" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
@@ -38,7 +38,7 @@ This distribution includes the Codex plugin. Additional agent integrations will 
 | **Media uploads** | Upload local images, videos, and audio for reuse. |
 | **Image processing** | Upscale images and remove backgrounds. |
 | **Website connection** | Open Fotor with your authorized MCP identity. |
-| **Credits** | Check your balance and open the top-up page. |
+| **Credits** | Check your balance and get a pricing-page link when needed. |
 | **Task results** | Check submitted tasks and retrieve available results. |
 
 Available models, parameters, and operations come from the connected Fotor service.
@@ -66,7 +66,7 @@ codex plugin add fotor@fotor-codex
    codex plugin list --marketplace fotor-codex --json
    ```
 
-2. Confirm version **0.1.1-test.1** and the **test** MCP endpoint `https://test-mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must select the intended environment.
+2. Confirm version **0.1.2-test.1** and the **test** MCP endpoint `https://test-mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must select the intended environment.
 3. Open a new Codex task and ask:
 
    ```text
@@ -141,9 +141,9 @@ After switching, open a new task and verify the destination version and effectiv
 - [Media upload workflow](plugins/codex/fotor/references/media-upload.md)
 - [Credits and top-up workflow](plugins/codex/fotor/references/credits.md)
 
-### Verification status
+### Verification scope
 
-Earlier test OAuth and model queries passed. The last recorded test discovery attempt on 2026-09-24 timed out, so current test connectivity remains unverified. New-build host installation, automatic website login, credit/top-up actions, uploads, and media execution still require separate acceptance.
+Package checks cover files, references, and configuration. Verify installation, MCP authorization and calls, website login, credit links, uploads, and media execution separately in the selected host and environment. A release or model query does not establish successful website login or completed media results.
 
 ## License
 
