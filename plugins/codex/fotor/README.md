@@ -7,13 +7,16 @@ Create images and videos, upload media, and process images with Fotor in Codex.
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor@fotor-codex` |
-| Version | `0.1.1` |
-| Environment | `production` |
+| Version | `0.1.2` |
+| Release channel | `production` |
+| Service environment | `production` |
 | Publisher | Fotor |
 | Source | [GitHub](https://github.com/fotor-ai/fotor-agent-plugins) |
 | License | [Apache-2.0](LICENSE) |
 
 **MCP service:** `https://mcp.fotor.com/mcp`.
+
+Both release channels use Fotor's production service and website, including your production account and credits. The test suffix identifies a plugin prerelease.
 
 ## Codex setup
 
@@ -38,7 +41,7 @@ Verify the installed version, enabled state, and selected endpoint before signin
 codex plugin list --marketplace fotor-codex --json
 ```
 
-The installed `.mcp.json` and any standalone Fotor MCP override must select the intended environment. Open a new Codex task and ask:
+The installed `.mcp.json` and any standalone Fotor MCP override must select the production endpoint above. Open a new Codex task and ask:
 
 ```text
 Connect to Fotor and introduce its main features.
@@ -89,7 +92,7 @@ codex plugin list --marketplace fotor-codex --json
 
 </details>
 
-Verify the destination version and effective MCP configuration before signing in. Keep production and test authorization separate.
+Verify the destination version and production MCP configuration before signing in. Reuse valid production authorization. Stop on a legacy non-production configuration and update it through the host's controls before connecting; do not automatically migrate credentials.
 
 ## Workflows
 
@@ -97,14 +100,14 @@ Verify the destination version and effective MCP configuration before signing in
 | --- | --- |
 | Connect, discover models, generate media, or check a submitted task | [MCP integration](references/mcp-integration.md) |
 | Upload local media or prepare references for creation | [Media upload workflow](references/media-upload.md) |
-| Check credits or open the recharge entry | [Credits and top-up](references/credits.md) |
+| Check credits or get a pricing-page link | [Credits and top-up](references/credits.md) |
 
 The service's current schemas determine available models, input types, and parameters. Model-based generation uses model discovery; uploads, dedicated image upscaling, and background removal use their own contracts. A standalone upload ends after confirmed transfer. Creation continues only with usable inputs and the operation requested by the user.
 
-Credit queries are independent of ordinary connection and generation. A positive balance query ends with the balance; zero balance or an explicit top-up request selects the recharge entry subject to user browsing restrictions. Payment remains under the user's control.
+Credit queries are independent of ordinary connection and generation. The [credits workflow](references/credits.md) reports the balance and selects a pricing link below 100 credits or on an explicit recharge request, respecting balance-only and no-link restrictions. Let the user click the link; it does not sign them in and does not trigger automatic browser navigation. Payment remains under the user's control.
 
-## Verification status
+## Verification scope
 
-Production OAuth, authenticated tool discovery, and read-only model queries passed on 2026-09-24. New-build host installation, automatic website login, credit/top-up actions, uploads, and media execution still require separate acceptance.
+Package checks cover files, references, and configuration. Verify installation, MCP authorization and calls, website login, credit links, uploads, and media execution separately in the selected host and environment. A release or model query does not establish successful website login or completed media results.
 
 The package is self-contained: its manifest, MCP declaration, license, skills, assets, and references remain usable when installed independently. Skill names and counts may evolve.

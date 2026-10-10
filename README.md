@@ -7,7 +7,7 @@
 <p align="center">Create images and videos with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.1.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.1.1" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.1.2&amp;color=087f8c&amp;style=flat-square" alt="Version 0.1.2" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" alt="production channel" />
   <img src="https://img.shields.io/static/v1?label=agent&amp;message=Codex&amp;color=24292f&amp;style=flat-square" alt="Available for Codex" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
@@ -29,6 +29,8 @@
 
 This distribution includes the Codex plugin. Additional agent integrations will be documented when released.
 
+Both release channels connect to Fotor's production service and website. The test channel previews plugin changes; it uses your production account and credits.
+
 ## Features
 
 | Capability | What you can do |
@@ -38,7 +40,7 @@ This distribution includes the Codex plugin. Additional agent integrations will 
 | **Media uploads** | Upload local images, videos, and audio for reuse. |
 | **Image processing** | Upscale images and remove backgrounds. |
 | **Website connection** | Open Fotor with your authorized MCP identity. |
-| **Credits** | Check your balance and open the top-up page. |
+| **Credits** | Check your balance and get a pricing-page link when needed. |
 | **Task results** | Check submitted tasks and retrieve available results. |
 
 Available models, parameters, and operations come from the connected Fotor service.
@@ -66,7 +68,7 @@ codex plugin add fotor@fotor-codex
    codex plugin list --marketplace fotor-codex --json
    ```
 
-2. Confirm version **0.1.1** and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must select the intended environment.
+2. Confirm version **0.1.2**, release channel **production**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
 3. Open a new Codex task and ask:
 
    ```text
@@ -120,7 +122,7 @@ codex plugin list --marketplace fotor-codex --json
 
 </details>
 
-After switching, open a new task and verify the destination version and effective MCP endpoint. Authorize the destination environment when needed; keep its credentials separate from the other environment.
+After switching, open a new task and verify the destination version and production MCP endpoint. Reuse valid production authorization. If a legacy installation or standalone override uses a different service, stop and update that configuration through the host's controls before connecting; do not migrate its credentials automatically.
 
 ### Troubleshooting
 
@@ -141,9 +143,9 @@ After switching, open a new task and verify the destination version and effectiv
 - [Media upload workflow](plugins/codex/fotor/references/media-upload.md)
 - [Credits and top-up workflow](plugins/codex/fotor/references/credits.md)
 
-### Verification status
+### Verification scope
 
-Production OAuth, authenticated tool discovery, and read-only model queries passed on 2026-09-24. New-build host installation, automatic website login, credit/top-up actions, uploads, and media execution still require separate acceptance.
+Package checks cover files, references, and configuration. Verify installation, MCP authorization and calls, website login, credit links, uploads, and media execution separately in the selected host and environment. A release or model query does not establish successful website login or completed media results.
 
 ## License
 

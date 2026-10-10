@@ -28,6 +28,8 @@ For standalone upscaling, `upscale_ratio` defaults to `2.0` and must be finite a
 
 Submit the requested operation once, retain its returned task ID and model or operation, and use `get_task` according to the shared lifecycle. `submission_uncertain` may mean the task was created and charged; preserve any known ID and avoid automatic resubmission. Report `credits_increment` only as returned, including zero or unknown values.
 
+For an explicit `insufficient_credits` error from any image operation, follow the shared [submission credit-error workflow](../../references/credits.md#insufficient-credits-during-media-submission) to report it and deliver an available pricing link without retrying the submission.
+
 For an explicitly requested sequence, such as generate then upscale, finish the first task and obtain its actual result URL before submitting the next operation. Preserve each task ID and stop the chain if a required result is missing or failed. Generation alone does not request automatic upscaling or background removal.
 
 Deliver the real completed image through an available preview or result link. Describe visual quality or transparency as verified only after inspecting the result.

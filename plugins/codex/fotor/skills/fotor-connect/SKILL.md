@@ -5,7 +5,7 @@ description: Connect to the Fotor website, check only its MCP connection, introd
 
 # Fotor Connection and Features
 
-Read [connection routing and authentication](../../references/mcp-integration.md#route-the-request) before connecting. For transient connection, discovery, or read-only probe failures, follow [bounded connection recovery](../../references/mcp-integration.md#bounded-connection-recovery) before reporting failure. Preserve the installed MCP endpoint and keep credentials in the host's supported store.
+Read [connection configuration](../../references/mcp-integration.md#connection) and [routing and authentication](../../references/mcp-integration.md#route-the-request) before connecting. Both release channels use production; check the installed endpoint and host overrides before any service call. For transient connection, discovery, or read-only probe failures, follow [bounded connection recovery](../../references/mcp-integration.md#bounded-connection-recovery) before reporting failure. Keep credentials in the host's supported store.
 
 ## Missing tools or authentication failures
 
@@ -21,6 +21,6 @@ These intent rules also apply to equivalent wording in other languages. An expli
 
 ## Explain features and models
 
-For the starter prompt, "Connect to Fotor and introduce its main features.", complete the website connection flow and give a brief feature overview: local image/video/audio uploads, image generation/editing, standalone image upscaling and background removal, video generation from supported inputs, querying submitted tasks, and credit balance/top-up access, limited to tools actually available. Mentioning credits does not call `get_credits`. Report MCP and website outcomes separately if either is incomplete. Describe supported capabilities without claiming successful media execution.
+For the starter prompt, "Connect to Fotor and introduce its main features.", complete the website connection flow and give a brief feature overview: local image/video/audio uploads, image generation/editing, standalone image upscaling and background removal, video generation from supported inputs, querying submitted tasks, and credit balance checks with pricing links, limited to tools actually available. Mentioning credits does not call `get_credits`. Report MCP and website outcomes separately if either is incomplete. Describe supported capabilities without claiming successful media execution.
 
 For a model question, use `media_type` and `mode` filters, then query the selected `model_id` for supported parameters and defaults. Show model lists when requested; an internal connection probe does not require displaying its catalog. An empty filtered catalog means no matching models, not a failed connection.
