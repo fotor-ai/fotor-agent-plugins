@@ -7,13 +7,16 @@ Create images and videos, upload media, and process images with Fotor in Codex.
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor@fotor-codex` |
-| Version | `0.1.2-test.1` |
-| Environment | `test` |
+| Version | `0.1.2-test.2` |
+| Release channel | `test` |
+| Service environment | `production` |
 | Publisher | Fotor |
 | Source | [GitHub](https://github.com/fotor-ai/fotor-agent-plugins) |
 | License | [Apache-2.0](LICENSE) |
 
-**MCP service:** `https://test-mcp.fotor.com/mcp`.
+**MCP service:** `https://mcp.fotor.com/mcp`.
+
+Both release channels use Fotor's production service and website, including your production account and credits. The test suffix identifies a plugin prerelease.
 
 ## Codex setup
 
@@ -38,7 +41,7 @@ Verify the installed version, enabled state, and selected endpoint before signin
 codex plugin list --marketplace fotor-codex --json
 ```
 
-The installed `.mcp.json` and any standalone Fotor MCP override must select the intended environment. Open a new Codex task and ask:
+The installed `.mcp.json` and any standalone Fotor MCP override must select the production endpoint above. Open a new Codex task and ask:
 
 ```text
 Connect to Fotor and introduce its main features.
@@ -89,7 +92,7 @@ codex plugin list --marketplace fotor-codex --json
 
 </details>
 
-Verify the destination version and effective MCP configuration before signing in. Keep production and test authorization separate.
+Verify the destination version and production MCP configuration before signing in. Reuse valid production authorization. Stop on a legacy non-production configuration and update it through the host's controls before connecting; do not automatically migrate credentials.
 
 ## Workflows
 

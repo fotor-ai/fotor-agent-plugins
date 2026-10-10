@@ -5,7 +5,7 @@ description: Connect to the Fotor website, check only its MCP connection, introd
 
 # Fotor Connection and Features
 
-Read [connection routing and authentication](../../references/mcp-integration.md#route-the-request) before connecting. For transient connection, discovery, or read-only probe failures, follow [bounded connection recovery](../../references/mcp-integration.md#bounded-connection-recovery) before reporting failure. Preserve the installed MCP endpoint and keep credentials in the host's supported store.
+Read [connection configuration](../../references/mcp-integration.md#connection) and [routing and authentication](../../references/mcp-integration.md#route-the-request) before connecting. Both release channels use production; check the installed endpoint and host overrides before any service call. For transient connection, discovery, or read-only probe failures, follow [bounded connection recovery](../../references/mcp-integration.md#bounded-connection-recovery) before reporting failure. Keep credentials in the host's supported store.
 
 ## Missing tools or authentication failures
 

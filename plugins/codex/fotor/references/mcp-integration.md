@@ -2,11 +2,11 @@
 
 ## Connection
 
-This package selects the **test** environment at `https://test-mcp.fotor.com/mcp` using Streamable HTTP. Preserve this environment throughout a task and its assets.
+This **test release channel** package connects to the **production service** at `https://mcp.fotor.com/mcp` using Streamable HTTP. Both release channels use the production account, website, and credits. Preserve this service throughout a task and its assets.
 
 | Environment | MCP endpoint | Website target | Login handoff endpoint |
 | --- | --- | --- | --- |
-| test | `https://test-mcp.fotor.com/mcp` | `https://test-www.fotor.com/` | `https://test-api.fotor.com/api/user/mcp/browser-handoff` |
+| production | `https://mcp.fotor.com/mcp` | `https://www.fotor.com/` | `https://api.fotor.com/api/user/mcp/browser-handoff` |
 
 Package checks cover files, references, and configuration. Verify installation, MCP authorization and calls, website login, credit links, uploads, and media execution separately in the selected host and environment. A release or model query does not establish successful website login or completed media results.
 
@@ -27,7 +27,7 @@ Equivalent wording in other languages follows the same routing. Uploads, image p
 
 ### Authenticate MCP
 
-1. Confirm the installed endpoint and enabled state. If Fotor tools are absent or a call fails authentication, diagnose native authorization before choosing a reload/new-chat fallback. In Codex, follow [native authorization diagnosis](codex-authentication.md), which remains usable without Fotor remote tools; other hosts use their native connection controls. Reuse usable credentials through the host's supported MCP client. A confirmed missing/invalid authorization enters OAuth; unknown status remains inconclusive and uses the explicit choice in that workflow after bounded diagnosis. If the user forbids all browser use and authentication is needed, explain that requirement and stop. Otherwise, start OAuth only for missing/invalid credentials or explicit reauthorization, preserving existing credentials on network errors.
+1. Confirm the installed endpoint and enabled state. Both release channels require the production MCP endpoint in the Connection section. If the package or a host override selects another service, stop and explain that the installation/configuration needs updating through the host's controls; do not contact that service, silently change endpoints, or migrate its credentials. If Fotor tools are absent or a call fails authentication, diagnose native authorization before choosing a reload/new-chat fallback. In Codex, follow [native authorization diagnosis](codex-authentication.md), which remains usable without Fotor remote tools; other hosts use their native connection controls. Reuse usable production credentials through the host's supported MCP client. A confirmed missing/invalid authorization enters OAuth; unknown status remains inconclusive and uses the explicit choice in that workflow after bounded diagnosis. If the user forbids all browser use and authentication is needed, explain that requirement and stop. Otherwise, start OAuth only for missing/invalid credentials or explicit reauthorization, preserving existing credentials on network errors.
 2. When OAuth is needed, start the host's supported login flow for the selected server and open its authorization URL in an external browser. Let the user complete login and consent. If external-browser automation is unavailable, explain that limitation and give the user the authorization link to open externally; keep the callback flow active. Do not silently use the in-app browser for OAuth.
 3. After opening the external authorization page or supplying the manual external link, collect the [OAuth completion choice](#oauth-completion-choice). Keep the callback flow active while awaiting the answer.
 4. When this request started OAuth, proceed only after an explicit continue choice and client-confirmed authorization success. If the callback is pending, explain the delay and wait within the client's login timeout. OAuth cancellation, login expiry, or denied authorization stops the flow before website handoff. A user reporting completion or a login page loading is not proof that credentials were obtained.

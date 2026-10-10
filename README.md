@@ -7,7 +7,7 @@
 <p align="center">Create images and videos with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.1.2-test.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.1.2-test.1" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.1.2-test.2&amp;color=087f8c&amp;style=flat-square" alt="Version 0.1.2-test.2" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" alt="test channel" />
   <img src="https://img.shields.io/static/v1?label=agent&amp;message=Codex&amp;color=24292f&amp;style=flat-square" alt="Available for Codex" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
@@ -28,6 +28,8 @@
 | Claude Code | Planned | Installation instructions will accompany its release. |
 
 This distribution includes the Codex plugin. Additional agent integrations will be documented when released.
+
+Both release channels connect to Fotor's production service and website. The test channel previews plugin changes; it uses your production account and credits.
 
 ## Features
 
@@ -66,7 +68,7 @@ codex plugin add fotor@fotor-codex
    codex plugin list --marketplace fotor-codex --json
    ```
 
-2. Confirm version **0.1.2-test.1** and the **test** MCP endpoint `https://test-mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must select the intended environment.
+2. Confirm version **0.1.2-test.2**, release channel **test**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
 3. Open a new Codex task and ask:
 
    ```text
@@ -120,7 +122,7 @@ codex plugin list --marketplace fotor-codex --json
 
 </details>
 
-After switching, open a new task and verify the destination version and effective MCP endpoint. Authorize the destination environment when needed; keep its credentials separate from the other environment.
+After switching, open a new task and verify the destination version and production MCP endpoint. Reuse valid production authorization. If a legacy installation or standalone override uses a different service, stop and update that configuration through the host's controls before connecting; do not migrate its credentials automatically.
 
 ### Troubleshooting
 
