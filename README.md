@@ -7,7 +7,7 @@
 <p align="center">Create images and videos with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.2.0-test.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.2.0-test.1" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.2.0-test.2&amp;color=087f8c&amp;style=flat-square" alt="Version 0.2.0-test.2" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" alt="test channel" />
   <img src="https://img.shields.io/static/v1?label=agent&amp;message=Codex+and+Claude+Code&amp;color=24292f&amp;style=flat-square" alt="Included: Codex and Claude Code" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
@@ -68,7 +68,7 @@ codex plugin add fotor@fotor-codex
    codex plugin list --marketplace fotor-codex --json
    ```
 
-2. Confirm version **0.2.0-test.1**, release channel **test**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
+2. Confirm version **0.2.0-test.2**, release channel **test**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
 3. Open a new Codex task and ask:
 
    ```text
@@ -152,7 +152,7 @@ claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.gi
 claude plugin install fotor@fotor-claude-code --scope user
 ```
 
-Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-claude-code`, version **0.2.0-test.1**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
+Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-claude-code`, version **0.2.0-test.2**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
 
 ### Claude Code connection
 
