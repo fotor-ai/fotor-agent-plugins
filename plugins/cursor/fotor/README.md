@@ -8,7 +8,7 @@ Create images and videos, upload media, process images, connect to the website, 
 | --- | --- |
 | Plugin | `fotor` |
 | Marketplace | `fotor-ai` |
-| Version | `0.3.0-test.1` |
+| Version | `0.3.0-test.2` |
 | Release channel | `test` |
 | Service environment | `production` |
 | Source | [GitHub](https://github.com/fotor-ai/fotor-agent-plugins) |
@@ -44,7 +44,7 @@ For CLI local loading, start a new native session:
 agent --plugin-dir /absolute/path/to/fotor
 ```
 
-Verify version **0.3.0-test.1**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
+Verify version **0.3.0-test.2**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
 
 ### Cursor connection
 
