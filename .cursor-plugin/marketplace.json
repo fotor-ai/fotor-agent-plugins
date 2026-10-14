@@ -1,0 +1,16 @@
+{
+  "name": "fotor-ai",
+  "owner": {
+    "name": "Fotor"
+  },
+  "metadata": {
+    "description": "Fotor media workflows, website connection, and credits for Cursor IDE and CLI."
+  },
+  "plugins": [
+    {
+      "name": "fotor",
+      "source": "./plugins/cursor/fotor",
+      "description": "Connect to Fotor, upload media, create or process images, generate videos, and check credits."
+    }
+  ]
+}
