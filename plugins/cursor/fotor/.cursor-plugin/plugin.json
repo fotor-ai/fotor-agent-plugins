@@ -1,7 +1,7 @@
 {
   "name": "fotor",
-  "version": "0.3.0",
-  "description": "Connect Cursor to Fotor's production MCP service.",
+  "version": "0.3.1",
+  "description": "Connect to Fotor's production MCP service.",
   "author": {
     "name": "Fotor"
   },
