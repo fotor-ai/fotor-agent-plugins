@@ -6,8 +6,8 @@ Create images and videos, upload media, and process images with Fotor in Codex.
 
 | Package | Value |
 | --- | --- |
-| Plugin | `fotor@fotor-codex` |
-| Version | `0.2.0` |
+| Plugin | `fotor@fotor-ai` |
+| Version | `0.3.0` |
 | Release channel | `production` |
 | Service environment | `production` |
 | Publisher | Fotor |
@@ -30,7 +30,7 @@ Install the released plugin from the default `main` branch. No branch selector i
 
 ```bash
 codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git
-codex plugin add fotor@fotor-codex
+codex plugin add fotor@fotor-ai
 ```
 
 ### Connect
@@ -38,7 +38,7 @@ codex plugin add fotor@fotor-codex
 Verify the installed version, enabled state, and selected endpoint before signing in:
 
 ```bash
-codex plugin list --marketplace fotor-codex --json
+codex plugin list --marketplace fotor-ai --json
 ```
 
 The installed `.mcp.json` and any standalone Fotor MCP override must select the production endpoint above. Open a new Codex task and ask:
@@ -54,12 +54,29 @@ Ask **Check only the Fotor MCP connection** for a read-only check. Feature and m
 ### Updates
 
 ```bash
-codex plugin marketplace upgrade fotor-codex
-codex plugin add fotor@fotor-codex
-codex plugin list --marketplace fotor-codex --json
+codex plugin marketplace upgrade fotor-ai
+codex plugin add fotor@fotor-ai
+codex plugin list --marketplace fotor-ai --json
 ```
 
 Updates retain the selected source branch. Open a new task afterward and verify its version and effective MCP endpoint.
+
+### Codex marketplace migration
+
+Existing `fotor-codex` installations need this one-time migration; ordinary updates within `fotor-ai` use the Updates section.
+
+Migration changes the installation identity. Before removing anything, record the old source/ref, scope, version and enabled state, and confirm the destination catalog actually declares `fotor-ai`. A source still declaring `fotor-codex` cannot install `fotor@fotor-ai`. Preserve required plugin data using supported host controls. Never copy tokens or clear credentials to make a migration work.
+
+Outside other catalog-bearing checkouts, remove only the old Fotor installation and its registration:
+
+```bash
+codex plugin remove fotor@fotor-codex
+codex plugin marketplace remove fotor-codex
+```
+
+Removal deletes the old installed cache. Then run the Installation commands above for the verified destination. Check `codex plugin list --marketplace fotor-ai --json` and the marketplace listing: only one Fotor installation should be enabled, with the intended version, source and production MCP declaration. Open a new task. If migration fails, remove any partial new installation and restore the recorded old source/ref and plugin through native controls. Skip removals already completed; inspect current state before repeating the sequence.
+
+Credential reuse across the identity change requires separate verification; do not promise that a successful installation preserves authorization.
 
 ### Switch release channel
 
@@ -73,10 +90,10 @@ Choose the destination and run only its replacement sequence, outside other chec
 Install the released plugin from the default `main` branch. No branch selector is required.
 
 ```bash
-codex plugin marketplace remove fotor-codex
+codex plugin marketplace remove fotor-ai
 codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git
-codex plugin add fotor@fotor-codex
-codex plugin list --marketplace fotor-codex --json
+codex plugin add fotor@fotor-ai
+codex plugin list --marketplace fotor-ai --json
 ```
 
 #### Test release
@@ -84,10 +101,10 @@ codex plugin list --marketplace fotor-codex --json
 Install the test build from `release/test` for prerelease validation.
 
 ```bash
-codex plugin marketplace remove fotor-codex
+codex plugin marketplace remove fotor-ai
 codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --ref release/test
-codex plugin add fotor@fotor-codex
-codex plugin list --marketplace fotor-codex --json
+codex plugin add fotor@fotor-ai
+codex plugin list --marketplace fotor-ai --json
 ```
 
 </details>
@@ -98,6 +115,7 @@ Verify the destination version and production MCP configuration before signing i
 
 | Request | Guide |
 | --- | --- |
+| Diagnose native authorization, permissions, or the website browser | [Codex authentication](references/authentication.md) |
 | Connect, discover models, generate media, or check a submitted task | [MCP integration](references/mcp-integration.md) |
 | Upload local media or prepare references for creation | [Media upload workflow](references/media-upload.md) |
 | Check credits or get a pricing-page link | [Credits and top-up](references/credits.md) |

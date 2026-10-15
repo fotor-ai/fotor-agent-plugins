@@ -1,7 +1,7 @@
 {
-  "name": "fotor-codex",
+  "name": "fotor-ai",
   "interface": {
-    "displayName": "Fotor for Codex"
+    "displayName": "Fotor AI"
   },
   "plugins": [
     {

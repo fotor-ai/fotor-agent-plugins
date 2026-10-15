@@ -1,4 +1,10 @@
+---
+platform: codex
+---
+
 # Codex Authorization Diagnosis
+
+The package declares its Fotor service in `.mcp.json`. Check its endpoint and the owning host's overrides before connecting.
 
 Use this Codex-only workflow when Fotor tools are absent or authentication prevents a call. Other hosts use their own connection and authorization controls. Skills contain instructions and declarative resources; they do not ship or generate diagnostic scripts, require an interpreter, or install a runtime.
 
@@ -46,3 +52,9 @@ codex mcp login fotor
 Keep the installed environment and native credential store fixed. Use the host permission mechanism if required. With no CLI, use the native connection UI; do not install an interpreter or generate a replacement client. Follow [external-browser authorization and its completion choice](mcp-integration.md#authenticate-mcp), keep the callback active, and require both explicit continuation and client-confirmed success.
 
 After OAuth, rediscover tools in the original chat and use its available `list_models` probe. Use supported refresh/reconnect in that owning host when needed. A standalone CLI login saves authorization but does not promise a desktop-runtime refresh. If the host has no recovery capability, report **authorization completed; chat tools still unavailable** and provide the reload/new-session next step. Proceed to the website workflow only after current-chat readiness checks pass.
+
+## Visible website navigation
+
+OAuth uses an external browser. For a website connection, localize the Continue label as "Signed in and authorized; open Fotor in the in-app browser". Follow the shared [OAuth completion choice](mcp-integration.md#oauth-completion-choice): explicit Continue and client-confirmed success are both required. A request that reuses valid credentials skips that choice.
+
+Before requesting a handoff, prepare Codex's visible built-in browser. Use the verified link once there through an available, permitted browser control. If that route is unavailable, explain the limitation and provide the unused link for the user to open in the selected built-in browser; do not silently switch browsers. Keep website login pending until the final production website and signed-in state are confirmed. A launch or manually delivered link alone is not successful automatic login.

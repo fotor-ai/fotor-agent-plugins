@@ -1,10 +1,16 @@
+---
+platform: claude-code
+---
+
 # Claude Code Native Authentication and Browsers
+
+The package declares its Fotor service in `.mcp.json`. Check its endpoint and native host overrides before connecting.
 
 Read this reference in Claude Code when connecting to Fotor, recovering missing tools, or opening its website. Use [MCP integration](mcp-integration.md) for the shared service, routing, OAuth continuation, and retry rules. This workflow requires no bundled runtime scripts.
 
 ## Native status and permissions
 
-1. Check the installed plugin's enabled state and production endpoint. Its identity is `fotor@fotor-claude-code`; its bundled server normally appears as `plugin:fotor:fotor`. Select the actual plugin server shown by `/mcp`. A separate server called `fotor` is not evidence that the bundled server works.
+1. Check the installed plugin's enabled state and production endpoint. Its identity is `fotor@fotor-ai`; its bundled server normally appears as `plugin:fotor:fotor`. Select the actual plugin server shown by `/mcp`. A separate server called `fotor` is not evidence that the bundled server works.
 2. Use the interactive `/mcp` panel for native connection status, Authenticate, permission requests, and available reconnect controls. When the installed CLI supports them, `claude mcp get plugin:fotor:fotor` and `claude mcp login plugin:fotor:fotor` are optional native routes. A shell command observes its own process, not necessarily the active conversation's live connection. A session-only `--plugin-dir` load may not be visible to a separate CLI process; use `/mcp` in that session instead of creating another server.
 3. Respect workspace trust, plugin enablement, managed policy, and tool permission decisions. If execution is restricted, use the host's permission UI or ask the user to use `/mcp`; do not change broad permission settings. A denied permission is not missing OAuth authorization and is not a transient network retry.
 4. Classify evidence before choosing recovery:
@@ -46,6 +52,6 @@ Until that evidence is available, report **MCP connected; website login awaiting
 
 ## Installation and session boundaries
 
-The CLI acceptance baseline is 2.1.296. `claude --plugin-dir <package-directory>` is a session-only source load. Marketplace installation uses `claude plugin install fotor@fotor-claude-code`; refresh with `claude plugin marketplace update fotor-claude-code`, then `claude plugin update fotor@fotor-claude-code`, and start a new session. Local-directory sources read files in place and do not prove release-cache updates.
+The CLI acceptance baseline is 2.1.296. `claude --plugin-dir <package-directory>` is a session-only source load. Marketplace installation uses `claude plugin install fotor@fotor-ai`; refresh with `claude plugin marketplace update fotor-ai`, then `claude plugin update fotor@fotor-ai`, and start a new session. Local-directory sources read files in place and do not prove release-cache updates.
 
 Do not treat a successful manifest check, an empty content scan, or a fresh login as proof of skill execution, tool loading, or website login. Report those outcomes separately.

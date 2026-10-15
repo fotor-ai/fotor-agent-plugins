@@ -1,0 +1,21 @@
+{
+  "name": "fotor",
+  "version": "0.3.0",
+  "description": "Connect Cursor to Fotor's production MCP service.",
+  "author": {
+    "name": "Fotor"
+  },
+  "homepage": "https://fotor.com",
+  "repository": "https://github.com/fotor-ai/fotor-agent-plugins",
+  "license": "Apache-2.0",
+  "keywords": [
+    "fotor",
+    "image",
+    "video",
+    "generation",
+    "editing"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json",
+  "logo": "assets/logo.svg"
+}
