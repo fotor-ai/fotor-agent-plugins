@@ -7,7 +7,7 @@
 <p align="center">Create images and videos with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.3.0-test.2&amp;color=087f8c&amp;style=flat-square" alt="Version 0.3.0-test.2" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.3.1-test.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.3.1-test.1" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" alt="test channel" />
   <img src="https://img.shields.io/static/v1?label=agent&amp;message=Codex+and+Claude+Code+and+Cursor&amp;color=24292f&amp;style=flat-square" alt="Included: Codex and Claude Code and Cursor" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
@@ -69,7 +69,7 @@ codex plugin add fotor@fotor-ai
    codex plugin list --marketplace fotor-ai --json
    ```
 
-2. Confirm version **0.3.0-test.2**, release channel **test**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
+2. Confirm version **0.3.1-test.1**, release channel **test**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
 3. Open a new Codex task and ask:
 
    ```text
@@ -170,7 +170,7 @@ claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.gi
 claude plugin install fotor@fotor-ai --scope user
 ```
 
-Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.3.0-test.2**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
+Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.3.1-test.1**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
 
 ### Claude Code connection
 
@@ -255,7 +255,7 @@ Use `claude plugin marketplace list --json` to verify the source and branch, the
 
 ### Cursor installation
 
-This guide covers Cursor IDE and Cursor CLI. Use a complete package with `.cursor-plugin/plugin.json`, `mcp.json`, skills, references, and assets. No interpreter or build step is required. Cloud Agent acceptance is separate.
+This guide covers Cursor IDE, Cursor CLI, and Grok Bot through the same Cursor package. Use a complete package with `.cursor-plugin/plugin.json`, `mcp.json`, skills, references, and assets. No interpreter or build step is required. Cursor Cloud Agent acceptance is separate.
 
 #### Test release
 
@@ -279,15 +279,26 @@ For CLI local loading, start a new native session:
 agent --plugin-dir /absolute/path/to/fotor
 ```
 
-Verify version **0.3.0-test.2**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
+Verify version **0.3.1-test.1**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
+
+### Grok Bot installation and authorization
+
+1. Install Fotor from the `fotor-ai` marketplace in Cursor using the selected Git source above. A marketplace registration alone does not install the plugin. Use an account-level installation; local IDE folders and CLI `--plugin-dir` loads do not establish account sharing.
+2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.3.1-test.1** and source when the host exposes them; account sharing alone does not verify the loaded files.
+3. For a connection that needs authorization, choose the native **Authorize / Authenticate** action and complete login and consent in the external normal browser. Return to Grok Bot; during a chat flow, choose Continue and verify the native connection result. Reuse valid authorization when available.
+4. Confirm **Connected**, inspect available tools, and ask **Check only the Fotor MCP connection.** A successful read-only call verifies access. This request does not open a website or query balance.
+
+If Fotor is absent, check the account, installation scope and team policy through native controls. Use Grok Bot's own connector controls rather than local CLI authentication or copied tokens. Website requests use its actual visible browser and require signed-in-state evidence; an unavailable browser uses a clearly identified manual link. Use readable attachments or Bot-workspace files for uploads. See the [host-specific authentication and browser guide](plugins/cursor/fotor/references/authentication.md).
+
+After updating the account-installed plugin, recheck it in Grok Bot and use a new conversation. Removing that installation or connection can affect other clients or Bots; preserve valid credentials and inspect the scope first. Website handoff, restart/expiry reuse, and individual media workflows require separate checks; account sharing does not establish all of them.
 
 ### Cursor connection
 
 Ask **Connect to Fotor and introduce its main features.** Select the actual connection skill from the native slash menu for an explicit invocation. Ask **Check only the Fotor MCP connection** to finish without a website link.
 
-Use IDE MCP controls or CLI `/mcp` to inspect the actual plugin server. When the CLI supports them in the same loading context, `agent mcp list`, `agent mcp list-tools <identifier>`, and `agent mcp login <identifier>` provide native inspection and login. Cursor account login and Fotor MCP OAuth are separate.
+Use IDE MCP controls or CLI `/mcp` to inspect the actual plugin server; Grok Bot uses **Connect Apps** as described above. When the CLI supports them in the same loading context, `agent mcp list`, `agent mcp list-tools <identifier>`, and `agent mcp login <identifier>` provide native inspection and login. Cursor account login and Fotor MCP OAuth are separate.
 
-Reuse valid Fotor credentials. When authorization is required, complete it in an external browser, choose Continue, and wait for client-confirmed success. Website requests use the IDE's visible built-in browser or the CLI's permitted external-browser opener. If unavailable, provide the unused link for the specified browser and await confirmation. Verify the final production website and signed-in state. See [Cursor native guidance](plugins/cursor/fotor/references/authentication.md).
+Reuse valid Fotor credentials. When authorization is required, complete it in an external browser, choose Continue, and wait for client-confirmed success. Website requests use the IDE's visible built-in browser, the CLI's permitted external-browser opener, or Grok Bot's available visible browser. If unavailable, provide the unused link for the specified browser and await confirmation. Verify the final production website and signed-in state. See [Cursor and Grok Bot native guidance](plugins/cursor/fotor/references/authentication.md).
 
 ### Cursor updates
 

@@ -1,14 +1,15 @@
-# Fotor for Cursor
+# Fotor for Cursor and Grok Bot
 
 <img src="assets/logo.svg" width="72" alt="Fotor logo" />
 
-Create images and videos, upload media, process images, connect to the website, and check credits with Fotor.
+Create images and videos, upload media, process images, connect to the website, and check credits with Fotor in Cursor IDE, Cursor CLI, and Grok Bot.
 
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor` |
 | Marketplace | `fotor-ai` |
-| Version | `0.3.0-test.2` |
+| Hosts | Cursor IDE / CLI; Grok Bot through the same package |
+| Version | `0.3.1-test.1` |
 | Release channel | `test` |
 | Service environment | `production` |
 | Source | [GitHub](https://github.com/fotor-ai/fotor-agent-plugins) |
@@ -20,7 +21,7 @@ Both channels use production accounts and credits. A test suffix identifies a pl
 
 ### Cursor installation
 
-This guide covers Cursor IDE and Cursor CLI. Use a complete package with `.cursor-plugin/plugin.json`, `mcp.json`, skills, references, and assets. No interpreter or build step is required. Cloud Agent acceptance is separate.
+This guide covers Cursor IDE, Cursor CLI, and Grok Bot through the same Cursor package. Use a complete package with `.cursor-plugin/plugin.json`, `mcp.json`, skills, references, and assets. No interpreter or build step is required. Cursor Cloud Agent acceptance is separate.
 
 #### Test release
 
@@ -44,15 +45,26 @@ For CLI local loading, start a new native session:
 agent --plugin-dir /absolute/path/to/fotor
 ```
 
-Verify version **0.3.0-test.2**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
+Verify version **0.3.1-test.1**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
+
+### Grok Bot installation and authorization
+
+1. Install Fotor from the `fotor-ai` marketplace in Cursor using the selected Git source above. A marketplace registration alone does not install the plugin. Use an account-level installation; local IDE folders and CLI `--plugin-dir` loads do not establish account sharing.
+2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.3.1-test.1** and source when the host exposes them; account sharing alone does not verify the loaded files.
+3. For a connection that needs authorization, choose the native **Authorize / Authenticate** action and complete login and consent in the external normal browser. Return to Grok Bot; during a chat flow, choose Continue and verify the native connection result. Reuse valid authorization when available.
+4. Confirm **Connected**, inspect available tools, and ask **Check only the Fotor MCP connection.** A successful read-only call verifies access. This request does not open a website or query balance.
+
+If Fotor is absent, check the account, installation scope and team policy through native controls. Use Grok Bot's own connector controls rather than local CLI authentication or copied tokens. Website requests use its actual visible browser and require signed-in-state evidence; an unavailable browser uses a clearly identified manual link. Use readable attachments or Bot-workspace files for uploads. See the [host-specific authentication and browser guide](references/authentication.md).
+
+After updating the account-installed plugin, recheck it in Grok Bot and use a new conversation. Removing that installation or connection can affect other clients or Bots; preserve valid credentials and inspect the scope first. Website handoff, restart/expiry reuse, and individual media workflows require separate checks; account sharing does not establish all of them.
 
 ### Cursor connection
 
 Ask **Connect to Fotor and introduce its main features.** Select the actual connection skill from the native slash menu for an explicit invocation. Ask **Check only the Fotor MCP connection** to finish without a website link.
 
-Use IDE MCP controls or CLI `/mcp` to inspect the actual plugin server. When the CLI supports them in the same loading context, `agent mcp list`, `agent mcp list-tools <identifier>`, and `agent mcp login <identifier>` provide native inspection and login. Cursor account login and Fotor MCP OAuth are separate.
+Use IDE MCP controls or CLI `/mcp` to inspect the actual plugin server; Grok Bot uses **Connect Apps** as described above. When the CLI supports them in the same loading context, `agent mcp list`, `agent mcp list-tools <identifier>`, and `agent mcp login <identifier>` provide native inspection and login. Cursor account login and Fotor MCP OAuth are separate.
 
-Reuse valid Fotor credentials. When authorization is required, complete it in an external browser, choose Continue, and wait for client-confirmed success. Website requests use the IDE's visible built-in browser or the CLI's permitted external-browser opener. If unavailable, provide the unused link for the specified browser and await confirmation. Verify the final production website and signed-in state. See [Cursor native guidance](references/authentication.md).
+Reuse valid Fotor credentials. When authorization is required, complete it in an external browser, choose Continue, and wait for client-confirmed success. Website requests use the IDE's visible built-in browser, the CLI's permitted external-browser opener, or Grok Bot's available visible browser. If unavailable, provide the unused link for the specified browser and await confirmation. Verify the final production website and signed-in state. See [Cursor and Grok Bot native guidance](references/authentication.md).
 
 ### Cursor updates
 
@@ -109,7 +121,7 @@ agent
 ## Workflows
 
 - [Connection, model selection, and tasks](references/mcp-integration.md)
-- [Cursor native authentication](references/authentication.md)
+- [Cursor and Grok Bot native authentication](references/authentication.md)
 - [Media uploads](references/media-upload.md)
 - [Credit balance and pricing links](references/credits.md)
 
