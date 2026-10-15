@@ -9,8 +9,14 @@
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=version&amp;message=0.3.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.3.1" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" alt="production channel" />
-  <img src="https://img.shields.io/static/v1?label=agent&amp;message=Codex+and+Claude+Code+and+Cursor&amp;color=24292f&amp;style=flat-square" alt="Included: Codex and Claude Code and Cursor" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
+</p>
+
+<p align="center">
+  <a href="#codex"><img src="https://img.shields.io/static/v1?label=&amp;message=Codex&amp;color=24292f&amp;style=flat-square" alt="Codex" /></a>
+  <a href="#claude-code"><img src="https://img.shields.io/static/v1?label=&amp;message=Claude+Code&amp;color=24292f&amp;style=flat-square" alt="Claude Code" /></a>
+  <a href="#cursor"><img src="https://img.shields.io/static/v1?label=&amp;message=Cursor&amp;color=24292f&amp;style=flat-square" alt="Cursor" /></a>
+  <a href="#grok-bot-installation-and-authorization"><img src="https://img.shields.io/static/v1?label=&amp;message=Grok+Bot&amp;color=24292f&amp;style=flat-square" alt="Grok Bot" /></a>
 </p>
 
 <p align="center">
@@ -27,6 +33,7 @@
 | **Codex** | Included | [Install and connect](#codex) |
 | **Claude Code** | Included | [Install and connect](#claude-code) |
 | **Cursor** | Included | [Install and connect](#cursor) |
+| **Grok Bot** | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
 
 This snapshot includes Codex and Claude Code and Cursor. Installation and live-service acceptance are separate checks; see the verification scope below.
 
