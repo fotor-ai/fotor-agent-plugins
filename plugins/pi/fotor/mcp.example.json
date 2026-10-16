@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "fotor": {
+      "url": "https://mcp.fotor.com/mcp",
+      "exposure": "deferred",
+      "description": "Connect to Fotor's production MCP service."
+    }
+  }
+}
