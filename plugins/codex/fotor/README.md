@@ -7,7 +7,7 @@ Create images and videos, upload media, and process images with Fotor in Codex.
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor@fotor-ai` |
-| Version | `0.3.1` |
+| Version | `0.4.0` |
 | Release channel | `production` |
 | Service environment | `production` |
 | Publisher | Fotor |

@@ -37,7 +37,7 @@ For an MCP-only health check, call `list_models` when discovered and report its 
 
 ### OAuth completion choice
 
-Use the host's structured question/choice UI to ask whether the user has completed external login and authorization. Localize the question and labels to the conversation language. For a website connection, use the Continue label and browser route from the packaged [authentication guidance](authentication.md); the shared actions below remain the same.
+Use the host's structured question/choice UI when available to ask whether the user has completed external login and authorization; otherwise offer the same choices conversationally. Localize the question and labels to the conversation language. For a website connection, use the Continue label and browser route from the packaged [authentication guidance](authentication.md); the shared actions below remain the same.
 
 | Choice | Next action |
 | --- | --- |
