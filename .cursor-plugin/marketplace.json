@@ -4,7 +4,7 @@
     "name": "Fotor"
   },
   "metadata": {
-    "description": "Fotor media workflows, website connection, and credits for Cursor IDE and CLI."
+    "description": "Fotor media workflows, website connection, and credits for Cursor IDE, Cursor CLI, and Grok Bot."
   },
   "plugins": [
     {
