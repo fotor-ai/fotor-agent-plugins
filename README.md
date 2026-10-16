@@ -7,7 +7,7 @@
 <p align="center">Create images and videos with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.3.1-test.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.3.1-test.1" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.4.0-test.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.4.0-test.1" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" alt="test channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -17,12 +17,13 @@
   <a href="#claude-code"><img src="https://img.shields.io/static/v1?label=&amp;message=Claude+Code&amp;color=24292f&amp;style=flat-square" alt="Claude Code" /></a>
   <a href="#cursor"><img src="https://img.shields.io/static/v1?label=&amp;message=Cursor&amp;color=24292f&amp;style=flat-square" alt="Cursor" /></a>
   <a href="#grok-bot-installation-and-authorization"><img src="https://img.shields.io/static/v1?label=&amp;message=Grok+Bot&amp;color=24292f&amp;style=flat-square" alt="Grok Bot" /></a>
+  <a href="#pi"><img src="https://img.shields.io/static/v1?label=&amp;message=Pi&amp;color=24292f&amp;style=flat-square" alt="Pi" /></a>
 </p>
 
 <p align="center">
   <a href="#supported-agents">Agents</a> ·
   <a href="#features">Features</a> ·
-  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> ·
+  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> ·
   <a href="#documentation">Documentation</a>
 </p>
 
@@ -34,8 +35,9 @@
 | **Claude Code** | Included | [Install and connect](#claude-code) |
 | **Cursor** | Included | [Install and connect](#cursor) |
 | **Grok Bot** | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
+| **Pi** | Included | [Install and connect](#pi) |
 
-This snapshot includes Codex and Claude Code and Cursor. Installation and live-service acceptance are separate checks; see the verification scope below.
+This snapshot includes Codex and Claude Code and Cursor and Pi. Installation and live-service acceptance are separate checks; see the verification scope below.
 
 Both release channels connect to Fotor's production service and website. The test channel previews plugin changes; it uses your production account and credits.
 
@@ -76,7 +78,7 @@ codex plugin add fotor@fotor-ai
    codex plugin list --marketplace fotor-ai --json
    ```
 
-2. Confirm version **0.3.1-test.1**, release channel **test**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
+2. Confirm version **0.4.0-test.1**, release channel **test**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
 3. Open a new Codex task and ask:
 
    ```text
@@ -177,7 +179,7 @@ claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.gi
 claude plugin install fotor@fotor-ai --scope user
 ```
 
-Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.3.1-test.1**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
+Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.4.0-test.1**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
 
 ### Claude Code connection
 
@@ -286,12 +288,12 @@ For CLI local loading, start a new native session:
 agent --plugin-dir /absolute/path/to/fotor
 ```
 
-Verify version **0.3.1-test.1**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
+Verify version **0.4.0-test.1**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
 
 ### Grok Bot installation and authorization
 
 1. Install Fotor from the `fotor-ai` marketplace in Cursor using the selected Git source above. A marketplace registration alone does not install the plugin. Use an account-level installation; local IDE folders and CLI `--plugin-dir` loads do not establish account sharing.
-2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.3.1-test.1** and source when the host exposes them; account sharing alone does not verify the loaded files.
+2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.4.0-test.1** and source when the host exposes them; account sharing alone does not verify the loaded files.
 3. For a connection that needs authorization, choose the native **Authorize / Authenticate** action and complete login and consent in the external normal browser. Return to Grok Bot; during a chat flow, choose Continue and verify the native connection result. Reuse valid authorization when available.
 4. Confirm **Connected**, inspect available tools, and ask **Check only the Fotor MCP connection.** A successful read-only call verifies access. This request does not open a website or query balance.
 
@@ -359,11 +361,73 @@ agent
 </details>
 
 
+## Pi
+
+### Pi installation
+
+#### Test release
+
+Install the test build from `release/test` for prerelease validation. First verify that the selected revision contains the Pi package and root Pi manifest. Installation loads skills only; register the Fotor MCP separately.
+
+```bash
+pi install https://github.com/fotor-ai/fotor-agent-plugins@release/test
+pi list
+```
+
+Pi installs a Package, not a Marketplace entry. The root manifest selects only the Pi skills. Git installation requires Git and Pi's configured package manager even though Fotor has no dependencies or runtime scripts. A local independent package can instead be installed with `pi install /absolute/path/to/fotor`; local sources are loaded in place.
+
+### Pi MCP registration and connection
+
+Package installation does not register MCP. Inspect `/mcp` and the effective user/project configuration first; preserve a different existing `fotor` registration and resolve that choice before adding it. The [declarative example](plugins/pi/fotor/mcp.example.json) describes the production entry:
+
+```bash
+pi mcp add fotor --url https://mcp.fotor.com/mcp --exposure deferred --description "Connect to Fotor's production MCP service."
+```
+
+Use Pi's native `/mcp` sign-in or `pi mcp login fotor` when authorization is required. Complete OAuth in an external ordinary browser, choose Continue / Wait / Cancel conversationally, and verify the native callback before proceeding. Pi's model-provider login is separate. Follow [Pi authentication](plugins/pi/fotor/references/authentication.md) for tool discovery, overrides, and recovery.
+
+Ask "Connect to Fotor and introduce its main features." or invoke `/skill:fotor-connect`. The website flow opens a fresh validated link in an external ordinary browser when the host can target it; otherwise it supplies a link for immediate manual opening. A native opener's success does not prove website login. An explicit MCP-only request does not create a website link.
+
+### Pi updates
+
+Update only the recorded Fotor source, using the same installation scope:
+
+```bash
+pi update <recorded-source>
+pi list
+```
+
+`pi update --extensions` updates all installed Packages; bare `pi update` updates Pi itself. Restart Pi and verify the resolved revision, package version, actual skills and production MCP. Git tags and commit selectors remain pinned; check actual installed files after a branch update.
+
+### Pi channel
+
+Git Package identity is the repository URL without its ref. Keep one Fotor source per configuration. Record the old source and scope for recovery, remove only that Package, and install the chosen channel; retain MCP registration and authorization. Only use a channel after it contains the Pi package. Append `--local` to native install/remove commands only when using project scope.
+
+#### Production release
+
+Install the released plugin from the default `main` branch. No branch selector is required. First verify that the selected revision contains the Pi package and root Pi manifest. Installation loads skills only; register the Fotor MCP separately. Record the current source and scope, remove that package with `pi remove <recorded-source>`, then install the selected source in the same scope. Keep MCP configuration and credentials; verify one active Fotor package in a new session.
+
+```bash
+pi install https://github.com/fotor-ai/fotor-agent-plugins
+pi list
+```
+
+#### Test release
+
+Install the test build from `release/test` for prerelease validation. First verify that the selected revision contains the Pi package and root Pi manifest. Installation loads skills only; register the Fotor MCP separately. Record the current source and scope, remove that package with `pi remove <recorded-source>`, then install the selected source in the same scope. Keep MCP configuration and credentials; verify one active Fotor package in a new session.
+
+```bash
+pi install https://github.com/fotor-ai/fotor-agent-plugins@release/test
+pi list
+```
+
+
 ## Documentation
 
 - [Codex plugin guide](plugins/codex/fotor/README.md)
 - [Claude Code plugin guide](plugins/claude-code/fotor/README.md)
 - [Cursor plugin guide](plugins/cursor/fotor/README.md)
+- [Pi plugin guide](plugins/pi/fotor/README.md)
 
 ### Verification scope
 
