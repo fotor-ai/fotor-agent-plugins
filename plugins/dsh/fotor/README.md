@@ -7,7 +7,7 @@ Use Fotor's shared skills with dsh Web and a separately installed MCP bridge.
 | Field | Value |
 | --- | --- |
 | Bundle | `fotor` |
-| Version | `0.5.0-test.1` |
+| Version | `0.5.0-test.2` |
 | Release channel | `test` |
 | Service environment | `production` |
 | MCP endpoint | `https://mcp.fotor.com/mcp` |
