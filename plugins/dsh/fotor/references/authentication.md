@@ -12,7 +12,9 @@ Use this guide with the [shared runtime workflow](mcp-integration.md#runtime-wor
 
 ## Inspect and configure
 
-Installation declares two disabled components. It does not register a working connection, scan unconfigured skill roots or start OAuth. Follow the package README and copy the `configuration.example.yml` outside the package. Inspect the effective profile, home patch and launch overlays before changing them. Stop on a conflicting `fotor` service or duplicate skill provider; preserve the existing configuration.
+Installation declares two disabled components. It does not install mcp-remote, register a working connection, scan unconfigured skill roots or start OAuth. For first installation, a missing bridge, unconfigured paths or missing skills, open the installed package's README and follow its `INSTALL.md` guide before continuing. That guide contains the external bridge installation recipe and matching JSON examples; no internal development document is required. The user or an Agent acting on their installation request runs those steps separately.
+
+Copy `configuration.example.yml` outside the package. Inspect the effective profile, home patch and launch overlays before changing them. Stop on a conflicting `fotor` service or duplicate skill provider; preserve the existing configuration.
 
 Fill every path with its actual absolute location. Only the installed Fotor skill directory belongs in `customSkillDirs`; retain `includeDefaultRoots: false`. Use the independent Fotor provider name. Configure the external Node executable, bridge proxy, working directory and Fotor-only `MCP_REMOTE_CONFIG_DIR`. Keep the bridge store separate from model-provider credentials and other clients. Preserve it across package updates. Overrides replace the entire `config` object, including security and reconnect settings; they do not deep-merge individual fields.
 

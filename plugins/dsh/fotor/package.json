@@ -1,6 +1,6 @@
 {
   "name": "fotor",
-  "version": "0.5.0-test.2",
+  "version": "0.5.0-test.3",
   "description": "Connect to Fotor's production MCP service.",
   "author": {
     "name": "Fotor"
@@ -16,6 +16,9 @@
   "files": [
     "cordis.patch.yml",
     "configuration.example.yml",
+    "INSTALL.md",
+    "bridge-package.example.json",
+    "bridge-package-lock.example.json",
     "skills",
     "references",
     "assets",
