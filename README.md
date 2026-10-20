@@ -7,7 +7,7 @@
 <p align="center">Create images and videos with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.4.0-test.2&amp;color=087f8c&amp;style=flat-square" alt="Version 0.4.0-test.2" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.5.0-test.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.5.0-test.1" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" alt="test channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -18,12 +18,13 @@
   <a href="#cursor"><img src="https://img.shields.io/static/v1?label=&amp;message=Cursor&amp;color=24292f&amp;style=flat-square" alt="Cursor" /></a>
   <a href="#grok-bot-installation-and-authorization"><img src="https://img.shields.io/static/v1?label=&amp;message=Grok+Bot&amp;color=24292f&amp;style=flat-square" alt="Grok Bot" /></a>
   <a href="#pi"><img src="https://img.shields.io/static/v1?label=&amp;message=Pi&amp;color=24292f&amp;style=flat-square" alt="Pi" /></a>
+  <a href="#dsh"><img src="https://img.shields.io/static/v1?label=&amp;message=DeepSeek+Harness&amp;color=24292f&amp;style=flat-square" alt="DeepSeek Harness" /></a>
 </p>
 
 <p align="center">
   <a href="#supported-agents">Agents</a> ·
   <a href="#features">Features</a> ·
-  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> ·
+  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> · <a href="#dsh">DeepSeek Harness setup</a> ·
   <a href="#documentation">Documentation</a>
 </p>
 
@@ -36,8 +37,9 @@
 | **Cursor** | Included | [Install and connect](#cursor) |
 | **Grok Bot** | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
 | **Pi** | Included | [Install and connect](#pi) |
+| **DeepSeek Harness** | Web bundle; separate bridge setup | [Install and connect](#dsh) |
 
-This snapshot includes Codex and Claude Code and Cursor and Pi. Installation and live-service acceptance are separate checks; see the verification scope below.
+This snapshot includes Codex and Claude Code and Cursor and Pi and DeepSeek Harness. Installation and live-service acceptance are separate checks; see the verification scope below.
 
 Both release channels connect to Fotor's production service and website. The test channel previews plugin changes; it uses your production account and credits.
 
@@ -78,7 +80,7 @@ codex plugin add fotor@fotor-ai
    codex plugin list --marketplace fotor-ai --json
    ```
 
-2. Confirm version **0.4.0-test.2**, release channel **test**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
+2. Confirm version **0.5.0-test.1**, release channel **test**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
 3. Open a new Codex task and ask:
 
    ```text
@@ -179,7 +181,7 @@ claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.gi
 claude plugin install fotor@fotor-ai --scope user
 ```
 
-Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.4.0-test.2**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
+Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.5.0-test.1**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
 
 ### Claude Code connection
 
@@ -288,12 +290,12 @@ For CLI local loading, start a new native session:
 agent --plugin-dir /absolute/path/to/fotor
 ```
 
-Verify version **0.4.0-test.2**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
+Verify version **0.5.0-test.1**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
 
 ### Grok Bot installation and authorization
 
 1. Install Fotor from the `fotor-ai` marketplace in Cursor using the selected Git source above. A marketplace registration alone does not install the plugin. Use an account-level installation; local IDE folders and CLI `--plugin-dir` loads do not establish account sharing.
-2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.4.0-test.2** and source when the host exposes them; account sharing alone does not verify the loaded files.
+2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.5.0-test.1** and source when the host exposes them; account sharing alone does not verify the loaded files.
 3. For a connection that needs authorization, choose the native **Authorize / Authenticate** action and complete login and consent in the external normal browser. Return to Grok Bot; during a chat flow, choose Continue and verify the native connection result. Reuse valid authorization when available.
 4. Confirm **Connected**, inspect available tools, and ask **Check only the Fotor MCP connection.** A successful read-only call verifies access. This request does not open a website or query balance.
 
@@ -422,12 +424,69 @@ pi list
 ```
 
 
+## dsh
+
+### dsh installation
+
+#### Test release
+
+First verify that the selected revision contains the dsh Bundle. Install the fixed external bridge separately, then add this package to the chosen profile. Both components stay disabled until local setup. 
+
+```bash
+dsh plugin --profile web add "git+https://github.com/fotor-ai/fotor-agent-plugins.git#release/test&path:/plugins/dsh/fotor"
+```
+
+This is a declarative Bundle for Linux dsh Web `0.2.1-rc.2`. It has no runtime module, dependency or lifecycle script. The public source must contain `plugins/dsh/fotor` before this command applies. Keep the Git subdirectory selector: the repository root is a Pi Package, not the dsh Bundle. Desktop, headless and ACP are outside this baseline.
+
+Before installing, independently install and verify Node `24.17.0` and `mcp-remote 0.15.1` outside the Bundle. Use a dedicated bridge directory, a dependency lock, package integrity verification and disabled install lifecycle scripts. Do not use `npx latest` during connection. A complete local Bundle can be installed with `dsh plugin --profile web add /absolute/path/to/plugins/dsh/fotor`.
+
+### dsh configuration and connection
+
+Installation adds two disabled components. Find the installed package with `dsh plugin --profile web why fotor`, resolve its actual directory, and copy the [full native configuration example](plugins/dsh/fotor/configuration.example.yml) outside that directory. Fill all absolute paths and select a free callback port. Add both complete override rows to the chosen profile's native patch, or use its native `--patch` launch option. Overrides replace whole `config` objects; they do not deep-merge fields.
+
+The skill provider scans only the installed Fotor skill directory, with default roots disabled. Enable skills first; leave the MCP row disabled. The MCP client directly invokes the separately installed bridge using structured `command`, `args`, `env` and `cwd`. Keep `MCP_REMOTE_CONFIG_DIR` dedicated to Fotor, outside package updates, and keep native automatic reconnect disabled. Resolve any existing `fotor` registration before enabling another.
+
+Follow [dsh authentication](plugins/dsh/fotor/references/authentication.md) for standalone bridge authorization, native status verification and controlled recovery. OAuth is bridge-managed. Authorize with the fixed bridge client first, then enable the proxy using exactly the same store and connection arguments. User login, consent and Continue / Wait / Cancel remain explicit. Use the confirmed daily ordinary browser for authorization and website access; preserve its login state and data.
+
+Invoke `/fotor-connect` through the actual skill menu or ask "Connect to Fotor and introduce its main features." Verify the loaded skill's source and perform a real model query. For MCP-only checks, do not request a website link. Website handoff opens the original production link once, using native single-command approval when necessary; user confirmation establishes the final login state. Manual opening is a separate fallback, and an already signed-in browser does not establish first-time website login.
+
+### dsh updates
+
+```bash
+dsh plugin --profile web update fotor
+dsh plugin --profile web why fotor
+```
+
+Inspect the resolved Git commit, version and files, update the absolute skill directory if its location changed, and restart into a new session. Verify only one Fotor skill source. Keep the bridge version, credential directory and security arguments unchanged. If native update remains on the old commit, retain that failure and use native removal/addition of the recorded source only as a separately reported reinstall path; do not modify caches.
+
+### dsh source selection and removal
+
+#### Production release
+
+First verify that the selected revision contains the dsh Bundle. Install the fixed external bridge separately, then add this package to the chosen profile. Both components stay disabled until local setup. Record the old source and scope, remove only this Fotor Bundle through native controls, then add the selected source. Preserve the external bridge and its credential directory; check the installed skill path before enabling the new package. 
+
+```bash
+dsh plugin --profile web add "git+https://github.com/fotor-ai/fotor-agent-plugins.git#main&path:/plugins/dsh/fotor"
+```
+
+#### Test release
+
+First verify that the selected revision contains the dsh Bundle. Install the fixed external bridge separately, then add this package to the chosen profile. Both components stay disabled until local setup. Record the old source and scope, remove only this Fotor Bundle through native controls, then add the selected source. Preserve the external bridge and its credential directory; check the installed skill path before enabling the new package. 
+
+```bash
+dsh plugin --profile web add "git+https://github.com/fotor-ai/fotor-agent-plugins.git#release/test&path:/plugins/dsh/fotor"
+```
+
+Before removal, disable the two Fotor components and remove only their external override rows. Run `dsh plugin --profile web remove fotor` in the original profile. Preserve the external Fotor credential store and browser state for a later reinstall; local store deletion is not server-side revocation. Configuration, installation, OAuth, tool execution, restart reuse and controlled reauthorization recovery require separate evidence.
+
+
 ## Documentation
 
 - [Codex plugin guide](plugins/codex/fotor/README.md)
 - [Claude Code plugin guide](plugins/claude-code/fotor/README.md)
 - [Cursor plugin guide](plugins/cursor/fotor/README.md)
 - [Pi plugin guide](plugins/pi/fotor/README.md)
+- [DeepSeek Harness plugin guide](plugins/dsh/fotor/README.md)
 
 ### Verification scope
 
