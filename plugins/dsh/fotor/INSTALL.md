@@ -1,12 +1,16 @@
-# Install and use Fotor for dsh
+<a id="install-and-use-fotor-for-dsh"></a>
 
-**Fotor does not install mcp-remote automatically.** You, or an Agent acting on your installation request, install the pinned bridge in a separate directory. After configuration, dsh starts that existing bridge. Bundle installation, skill loading, Fotor authorization and website login are separate steps.
+# Install and use Fotor for DeepSeek Harness
+
+DeepSeek Harness is abbreviated as `dsh` in commands and native identifiers.
+
+**Fotor does not install mcp-remote automatically.** You, or an Agent acting on your installation request, install the pinned bridge in a separate directory. After configuration, DeepSeek Harness starts that existing bridge. Bundle installation, skill loading, Fotor authorization and website login are separate steps.
 
 This guide travels with the complete Bundle. Start here for a first installation, a missing bridge, an unconfigured path or missing skills. For an already configured connection, use [authentication and recovery](references/authentication.md). Keep one Fotor installation per selected profile.
 
 ## 1. Check prerequisites and choose locations
 
-The supported preparation baseline is **Linux, dsh Web `0.2.1-rc.2`, Node `24.17.0`, mcp-remote `0.15.1`**. dsh must already run, with its native package manager available. Git-source installation also requires Git. Use the [official dsh quickstart](https://deepseek-harness.github.io/deepseek-harness/en/guide/quickstart) and [Node downloads](https://nodejs.org/en/download/) to prepare a missing runtime separately; preserve the user's daily installation. A different version needs its own compatibility check.
+The supported preparation baseline is **Linux, DeepSeek Harness Web `0.2.1-rc.2`, Node `24.17.0`, mcp-remote `0.15.1`**. DeepSeek Harness must already run, with its native package manager available. Git-source installation also requires Git. Use the [official DeepSeek Harness quickstart](https://deepseek-harness.github.io/deepseek-harness/en/guide/quickstart) and [Node downloads](https://nodejs.org/en/download/) to prepare a missing runtime separately; preserve the user's daily installation. A different version needs its own compatibility check.
 
 Set these shell variables once, replacing every `/absolute/path/...` value. They are installation parameters, not credentials:
 
@@ -25,12 +29,12 @@ FOTOR_WORKSPACE=/absolute/path/to/workspace
 | --- | --- |
 | `FOTOR_NODE` | Absolute executable from the selected Node installation. Resolve a version-manager shim to its real executable. |
 | `FOTOR_NPM_CLI` | Absolute npm JavaScript CLI entry, usually `lib/node_modules/npm/bin/npm-cli.js` under an existing npm installation. Verify it runs under `FOTOR_NODE`; an npm shell wrapper is not this entry. |
-| `FOTOR_SOURCE` | Complete dsh package directory acquired in step 2, containing this guide and `package.json`. |
+| `FOTOR_SOURCE` | Complete DeepSeek Harness package directory acquired in step 2, containing this guide and `package.json`. |
 | `FOTOR_BRIDGE` | New persistent directory outside the Bundle and any source checkout; only the bridge and its install inputs live here. |
-| `FOTOR_PROFILE` | Existing intended dsh profile; `web` is the accepted baseline. Use this same profile for all native commands. |
+| `FOTOR_PROFILE` | Existing intended DeepSeek Harness profile; `web` is the accepted baseline. Use this same profile for all native commands. |
 | `FOTOR_PATCH` | New external override file, retained across package updates. Its parent directory must exist. |
 | `FOTOR_AUTH` | Fotor-only bridge credential directory outside the Bundle. Keep the same directory through updates and ordinary recovery. |
-| `FOTOR_WORKSPACE` | Existing absolute working directory for this dsh session and its MCP process. |
+| `FOTOR_WORKSPACE` | Existing absolute working directory for this DeepSeek Harness session and its MCP process. |
 
 For a rehearsal, first select dedicated `DSH_HOME`, `DSH_AGENTS_HOME` and working directories, and keep them set in the same shell for installation, configuration checks and launch. For an existing installation, retain the user's intended locations instead. Do not replace an existing Fotor registration or override without resolving the conflict.
 
@@ -49,15 +53,15 @@ dsh --version
 git --version
 ```
 
-**Done when:** dsh reports the accepted version, Node reports `v24.17.0`, npm runs under that Node, and the selected locations are known. Stop on a missing or mismatched runtime; do not silently install a newer bridge or upgrade daily Node.
+**Done when:** DeepSeek Harness reports the accepted version, Node reports `v24.17.0`, npm runs under that Node, and the selected locations are known. Stop on a missing or mismatched runtime; do not silently install a newer bridge or upgrade daily Node.
 
 ## 2. Obtain a complete package
 
-Use the dsh package from the intended source revision: `plugins/dsh/fotor`. Retain the entire directory, including its skills, references, examples and license. The repository root is a Pi Package and is not the dsh install entry.
+Use the DeepSeek Harness package from the intended source revision: `plugins/dsh/fotor`. Retain the entire directory, including its skills, references, examples and license. The repository root is a Pi Package and is not the DeepSeek Harness install entry.
 
 The source README provides the internal/local installation entry; an exported README provides its channel's Git entry. Select a revision containing both the Bundle and this guide's JSON examples. Older snapshots may contain a Bundle without these setup materials. Do not assemble files from different revisions.
 
-For a public Git checkout, select the intended available branch before taking `plugins/dsh/fotor`. The test selector is `release/test`; production uses `main` only after that branch contains dsh. A test suffix still connects to production Fotor services. Availability in an internal source does not establish a public release.
+For a public Git checkout, select the intended available branch before taking `plugins/dsh/fotor`. The test selector is `release/test`; production uses `main` only after that branch contains DeepSeek Harness. A test suffix still connects to production Fotor services. Availability in an internal source does not establish a public release.
 
 For example, once the test branch contains these setup materials:
 
@@ -115,9 +119,9 @@ For an available public test revision:
 dsh plugin --profile "$FOTOR_PROFILE" add "git+https://github.com/fotor-ai/fotor-agent-plugins.git#release/test&path:/plugins/dsh/fotor" --ignore-scripts
 ```
 
-For production, use the production README's command after confirming that `main` contains dsh. Keep the entire Git source quoted so the shell does not interpret `&`. Do not add both local and Git sources.
+For production, use the production README's command after confirming that `main` contains DeepSeek Harness. Keep the entire Git source quoted so the shell does not interpret `&`. Do not add both local and Git sources.
 
-dsh forwards package commands to its profile's package manager. Use its native dependency and root queries, then resolve the installed entry:
+DeepSeek Harness forwards package commands to its profile's package manager. Use its native dependency and root queries, then resolve the installed entry:
 
 ```bash
 dsh plugin --profile "$FOTOR_PROFILE" why fotor
@@ -152,7 +156,7 @@ Edit that external YAML file. Shell variables in this guide are not automaticall
 | First MCP `args` entry | Literal `FOTOR_BRIDGE` followed by `/node_modules/mcp-remote/dist/proxy.js`. |
 | MCP URL, transport and resource | Retain the production values from the example. |
 | Callback port and host | Select a free port and retain the example's loopback host. Use exactly the same pair for the standalone client. |
-| MCP `env.MCP_REMOTE_CONFIG_DIR` | Literal `FOTOR_AUTH`; dsh must pass it to the bridge child. |
+| MCP `env.MCP_REMOTE_CONFIG_DIR` | Literal `FOTOR_AUTH`; DeepSeek Harness must pass it to the bridge child. |
 | MCP `cwd` | Literal `FOTOR_WORKSPACE`. |
 | Component states | Skills enabled; MCP disabled until step 6 succeeds. Keep reconnect disabled and the supplied timeouts. |
 
@@ -170,19 +174,19 @@ Launch with the same overlay:
 dsh --profile "$FOTOR_PROFILE" --patch "$FOTOR_PATCH"
 ```
 
-An alternative is to merge these rows into that profile's external `cordis.patch.yml`, preserving unrelated rows. Choose one loading method and use it on subsequent launches. dsh replaces complete `config` objects; partial field overrides do not deep-merge.
+An alternative is to merge these rows into that profile's external `cordis.patch.yml`, preserving unrelated rows. Choose one loading method and use it on subsequent launches. DeepSeek Harness replaces complete `config` objects; partial field overrides do not deep-merge.
 
-For interactive use, the user configures any model-provider account through dsh's native settings, separately from Fotor OAuth. In Web, select the intended workspace. Use the actual skill menu to select `/fotor-connect`, asking it to explain the connection steps without Fotor OAuth or MCP calls. Check that it reads resources under `FOTOR_INSTALLED`. An installation-only rehearsal can stop at configuration and resource-path checks; it does not establish model-driven skill execution.
+For interactive use, the user configures any model-provider account through DeepSeek Harness's native settings, separately from Fotor OAuth. In Web, select the intended workspace. Use the actual skill menu to select `/fotor-connect`, asking it to explain the connection steps without Fotor OAuth or MCP calls. Check that it reads resources under `FOTOR_INSTALLED`. An installation-only rehearsal can stop at configuration and resource-path checks; it does not establish model-driven skill execution.
 
-**Done when:** the effective configuration has one Fotor provider, its installed skills are discoverable, and the MCP component remains disabled. If the Shell sandbox hides a temporary package path, use dsh's native `read` tool with the skill's supplied base directory; a failed `bash ls` does not prove the package is missing.
+**Done when:** the effective configuration has one Fotor provider, its installed skills are discoverable, and the MCP component remains disabled. If the Shell sandbox hides a temporary package path, use DeepSeek Harness's native `read` tool with the skill's supplied base directory; a failed `bash ls` does not prove the package is missing.
 
 ## 6. Authorize, then enable the connection
 
 Follow [first authorization](references/authentication.md#first-authorization). Run its standalone client command using the Node, bridge, Fotor credential directory, endpoint/resource and callback values selected above. Keep stdin open through actual tool discovery. Confirm that the opener uses the user's daily ordinary browser; preserve its website login and browser data. If its routing is unclear, resolve it before starting authorization instead of changing the system browser default.
 
-The user completes login/consent and chooses Continue, Wait or Cancel. After Continue, require client-confirmed connection and actual tool discovery. Then stop the standalone client and verify its callback listener has closed. Change only the external override's `fotor-mcp.disabled` to `false` and restart dsh with the same overlay. Do not run authorization client and proxy concurrently.
+The user completes login/consent and chooses Continue, Wait or Cancel. After Continue, require client-confirmed connection and actual tool discovery. Then stop the standalone client and verify its callback listener has closed. Change only the external override's `fotor-mcp.disabled` to `false` and restart DeepSeek Harness with the same overlay. Do not run authorization client and proxy concurrently.
 
-**Done when:** dsh exposes the configured Fotor tools and a real read-only model query succeeds. Installation, a browser success page, or an exit code alone does not establish this.
+**Done when:** DeepSeek Harness exposes the configured Fotor tools and a real read-only model query succeeds. Installation, a browser success page, or an exit code alone does not establish this.
 
 ## 7. Use, update or remove Fotor
 
@@ -205,7 +209,7 @@ dsh plugin --profile "$FOTOR_PROFILE" why fotor
 FOTOR_INSTALLED="$(realpath "$(dsh plugin --profile "$FOTOR_PROFILE" root)/fotor")"
 ```
 
-Pass the same explicit `--store-dir` if one was selected at installation. Check the new source revision, version and installed files, refresh `customSkillDirs` if the resolved directory changed, and start a new dsh process. The bridge version, external authorization store and security arguments remain unchanged.
+Pass the same explicit `--store-dir` if one was selected at installation. Check the new source revision, version and installed files, refresh `customSkillDirs` if the resolved directory changed, and start a new DeepSeek Harness process. The bridge version, external authorization store and security arguments remain unchanged.
 
 If the native update does not advance, keep that result and use native removal/addition only as a separately identified reinstall. Source changes require recording the old source, stopping the Fotor components, removing only their override rows, and reinstalling the intended source in the same profile. Preserve unrelated configuration and credentials.
 
@@ -233,4 +237,4 @@ Verify that the profile no longer registers Fotor as a dependency or Bundle and 
 | Browser command blocked | Request the host's approval for that one opener command, or provide the unused handoff for manual opening in the confirmed browser. |
 | Website link expired | Follow the bounded recovery in the authentication reference; do not reopen a consumed link. |
 
-Report package installation, skills, bridge authorization, actual MCP calls, website login, restart reuse and controlled recovery separately. Full dsh support remains pending real successful controlled-reauthorization recovery. Following this guide does not erase that gate or establish expiry refresh, Desktop, headless, ACP or media acceptance.
+Report package installation, skills, bridge authorization, actual MCP calls, website login, restart reuse and controlled recovery separately. Full DeepSeek Harness support remains pending real successful controlled-reauthorization recovery. Following this guide does not erase that gate or establish expiry refresh, Desktop, headless, ACP or media acceptance.

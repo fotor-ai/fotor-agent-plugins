@@ -4,9 +4,11 @@ platform: dsh
 
 # DeepSeek Harness authentication and browser access
 
+DeepSeek Harness is abbreviated as `dsh` in commands and native identifiers.
+
 ## Ownership and baseline
 
-This Bundle targets Linux dsh Web `0.2.1-rc.2`, with separately installed `mcp-remote 0.15.1` and Node `24.17.0`. dsh owns the stdio client and tool permissions; the external bridge owns OAuth and its credential store. Do not describe this as dsh-native remote OAuth. Desktop, headless and ACP have separate acceptance scopes.
+This Bundle targets Linux DeepSeek Harness Web `0.2.1-rc.2`, with separately installed `mcp-remote 0.15.1` and Node `24.17.0`. DeepSeek Harness owns the stdio client and tool permissions; the external bridge owns OAuth and its credential store. Do not describe this as native remote OAuth in DeepSeek Harness. Desktop, headless and ACP have separate acceptance scopes.
 
 Use this guide with the [shared runtime workflow](mcp-integration.md#runtime-workflow). Installation, authorization, actual calls, website access, restart reuse and reauthorization recovery are distinct outcomes. Do not infer full support from one successful call.
 
@@ -20,7 +22,7 @@ Fill every path with its actual absolute location. Only the installed Fotor skil
 
 Enable only the skill provider first. Use `/fotor-connect` when exposed by the native skill menu, or the native `skill` tool for the actual discovered Fotor connection entry. Confirm its installed resource path. Missing skills, a missing executable, a disabled component, permission denial, unauthenticated MCP and unknown state require different responses; none justifies clearing credentials.
 
-Use dsh's native `read` tool for the known package references. Its Linux shell sandbox can hide other host files under a private temporary-directory mount; shell `ls` failure is not proof that native file reading will fail. If the native reader cannot access this package, report that limit and stop. Do not scan unrelated installations, use another platform's guide, or widen standing sandbox permissions to work around the lookup.
+Use DeepSeek Harness's native `read` tool for the known package references. Its Linux shell sandbox can hide other host files under a private temporary-directory mount; shell `ls` failure is not proof that native file reading will fail. If the native reader cannot access this package, report that limit and stop. Do not scan unrelated installations, use another platform's guide, or widen standing sandbox permissions to work around the lookup.
 
 ## First authorization
 
@@ -38,7 +40,7 @@ MCP_REMOTE_CONFIG_DIR=/absolute/path/to/dsh-home/mcp-auth/fotor /absolute/path/t
 
 The user completes account login, consent and Continue / Wait / Cancel in conversation. After Continue, verify the actual client connected, discovered tools and finished successfully; a browser success page alone is insufficient. Limit human OAuth waiting to ten minutes and stop this client's callback listener on cancellation or timeout. Do not assume a command-line timeout enforces every callback wait.
 
-After the standalone client exits and its callback listener closes, enable the configured MCP component and restart the selected dsh profile. Discover actual tools and execute a read-only `list_models` check. Do not expose the whole model catalog, query credits or request a website link for an MCP-only task.
+After the standalone client exits and its callback listener closes, enable the configured MCP component and restart the selected DeepSeek Harness profile. Discover actual tools and execute a read-only `list_models` check. Do not expose the whole model catalog, query credits or request a website link for an MCP-only task.
 
 ## Website access
 
@@ -46,13 +48,13 @@ Prepare the user's daily ordinary browser before requesting a short-lived link. 
 
 Follow [one-time browser link rules](mcp-integration.md#one-time-browser-links): validate the production handoff endpoint and returned expiry, then open the exact original link once. A missing `target_url` must be reported truthfully, not invented. Do not prefetch, preview, rewrite or repeat a consumed link.
 
-Use an available host opener and the exact confirmed daily browser profile. If the dsh shell sandbox prevents desktop access, request native approval for that single command with a clear purpose; do not change the session's standing permissions. A background browser job may need a result check for that same job, which must not launch the link again. Do not add browser diagnostics or a temporary web proxy.
+Use an available host opener and the exact confirmed daily browser profile. If the DeepSeek Harness shell sandbox prevents desktop access, request native approval for that single command with a clear purpose; do not change the session's standing permissions. A background browser job may need a result check for that same job, which must not launch the link again. Do not add browser diagnostics or a temporary web proxy.
 
 If automatic opening is unavailable, provide the unconsumed original link in the native conversation for the user to open once in that browser. Record this as manual opening. Wait for confirmation of the final production website and login state. A successful command or a pre-existing signed-in page does not prove a signed-out-to-signed-in transition. Report MCP and website results separately, then introduce the main capabilities.
 
 ## Bounded recovery and controlled reauthorization
 
-Use the shared two-retry limit, waits of two/five seconds and ninety-second automatic-stage budget. Human login time is excluded. Include the bridge's own actions in the record; do not add a second retry or OAuth loop. Disabling dsh reconnect does not guarantee the bridge will never open a new authorization page internally.
+Use the shared two-retry limit, waits of two/five seconds and ninety-second automatic-stage budget. Human login time is excluded. Include the bridge's own actions in the record; do not add a second retry or OAuth loop. Disabling DeepSeek Harness reconnect does not guarantee the bridge will never open a new authorization page internally.
 
 On an authorization failure, cancellation, permission denial or unknown state, stop the current call. Do not treat a login-page CORS/preflight rejection as the same failure as missing OAuth discovery state. A missing-discovery-state message does not prove that the issuer actually changed.
 
@@ -61,7 +63,7 @@ For user-requested reauthorization, use this single sequence:
 1. Stop the failed operation, this profile's proxy and any leftover callback listener. Do not start a competing authorization flow.
 2. Preserve the same credential directory and connection/security arguments. Do not read, copy or edit tokens.
 3. Run the standalone authorization client above. Complete the new native consent flow only when explicitly requested, with the same Continue / Wait / Cancel handling and native-result verification.
-4. Stop the standalone client, restart the configured dsh MCP and prove recovery with an actual read-only query. A successful consent page without that query is not recovery.
+4. Stop the standalone client, restart the configured DeepSeek Harness MCP and prove recovery with an actual read-only query. A successful consent page without that query is not recovery.
 
 A cached client connection without a new consent flow is reuse, not invalid-grant recovery. Never clear a global authorization directory, substitute a new empty store, weaken issuer/resource/PKCE/TLS checks or sign out the daily website to force a test. Exercise recovery only after a real failure or an available native operation that can be limited to this exact temporary grant. If no safe trigger exists, report recovery as unverified rather than claiming complete acceptance. Expiry-driven refresh likewise requires actual evidence.
 
