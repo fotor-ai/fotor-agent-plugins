@@ -5,11 +5,13 @@ description: Connect to the Fotor website, check only its MCP connection, introd
 
 # Fotor Connection and Features
 
-Read [connection configuration](../../references/mcp-integration.md#connection) and [routing and authentication](../../references/mcp-integration.md#route-the-request) before connecting. Both release channels use production; check the installed endpoint and host overrides before any service call. For transient connection, discovery, or read-only probe failures, follow [bounded connection recovery](../../references/mcp-integration.md#bounded-connection-recovery) before reporting failure. Keep credentials in the host's supported store.
+Resolve references from this skill's installed resource base and use the host's native file-reading tool. A sandboxed shell can expose a different filesystem view; in DeepSeek Harness, its private temporary directory can hide a host-visible package. A failed shell path probe does not establish that the package is missing. If native reading also fails, stop and report the path/access limitation. Do not search unrelated roots or substitute another platform's authentication document.
+
+Read [connection configuration](../../references/mcp-integration.md#connection) and [routing and authentication](../../references/mcp-integration.md#route-the-request) before connecting. Both release channels use production; check the installed endpoint and host overrides before any service call. For transient connection, discovery, or read-only probe failures, follow [bounded connection recovery](../../references/mcp-integration.md#bounded-connection-recovery) before reporting failure. Keep credentials in the authentication owner's store identified by the packaged guide: the native host client, or DeepSeek Harness's separately installed bridge.
 
 ## Missing tools or authentication failures
 
-Check native authorization before suggesting a reload or new chat. Read the packaged [authentication and browser guidance](../../references/authentication.md) for this platform's status controls, permissions, OAuth, and session boundaries. If execution restrictions prevent a native check, use the host permission mechanism or connection UI before repeating it; skills require no script interpreter. A confirmed login requirement enters external OAuth even when every Fotor tool is absent. Unknown status requires bounded diagnosis and an explicit reauthorization choice; it is not proof of logout.
+Check the authentication owner's status before suggesting a reload or new chat. Read the packaged [authentication and browser guidance](../../references/authentication.md) for this platform's status controls, permissions, OAuth, and session boundaries. If execution restrictions prevent a native check, use the host permission mechanism or connection UI before repeating it; skills require no bundled runtime helper. A confirmed login requirement enters external OAuth through that owner's documented flow even when every Fotor tool is absent. Unknown status requires bounded diagnosis and an explicit reauthorization choice; it is not proof of logout.
 
 ## Choose the connection scope
 

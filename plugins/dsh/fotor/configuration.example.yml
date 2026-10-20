@@ -1,0 +1,44 @@
+# Copy outside the installed package and fill every absolute path.
+# Select a free callback port; use the same connection arguments for the client.
+# Overrides replace the complete config object; fields are not deep-merged.
+- id: fotor-skills
+  disabled: false
+  config:
+    providerName: fotor
+    includeDefaultRoots: false
+    dshHome: /absolute/path/to/dsh-home
+    agentsHome: /absolute/path/to/agents-home
+    customSkillDirs:
+      - /absolute/path/to/installed/fotor/skills
+    watch: false
+- id: fotor-mcp
+  disabled: true
+  config:
+    serverName: fotor
+    transport: stdio
+    failOnStartupError: false
+    reconnect:
+      enabled: false
+    command: /absolute/path/to/node
+    args:
+      - /absolute/path/to/bridge/node_modules/mcp-remote/dist/proxy.js
+      - https://mcp.fotor.com/mcp
+      - '3335'
+      - --host
+      - 127.0.0.1
+      - --transport
+      - http-only
+      - --resource
+      - https://mcp.fotor.com/mcp
+      - --auth-timeout
+      - '600'
+      - --connect-timeout
+      - '20'
+      - --headers-timeout
+      - '20'
+      - --body-timeout
+      - '20'
+    env:
+      MCP_REMOTE_CONFIG_DIR: /absolute/path/to/dsh-home/mcp-auth/fotor
+    cwd: /absolute/path/to/workspace
+    toolCallTimeoutMs: 25000
