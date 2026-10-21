@@ -43,6 +43,8 @@ This snapshot includes Codex and Claude Code and Cursor and Pi and DeepSeek Harn
 
 Both release channels connect to Fotor's production service and website. The test channel previews plugin changes; it uses your production account and credits.
 
+Each skill includes its own four runtime reference documents. Platform installation, MCP registration and any external bridge setup remain separate prerequisites.
+
 ## Features
 
 | Capability | What you can do |
@@ -52,7 +54,7 @@ Both release channels connect to Fotor's production service and website. The tes
 | **Media uploads** | Upload local images, videos, and audio for reuse. |
 | **Image processing** | Upscale images and remove backgrounds. |
 | **Website connection** | Open Fotor with your authorized MCP identity. |
-| **Credits** | Check your balance and get a pricing-page link when needed. |
+| **Credits** | Check existing credits and understand reported limits under the platform's credit policy. |
 | **Task results** | Check submitted tasks and retrieve available results. |
 
 Available models, parameters, and operations come from the connected Fotor service.
@@ -87,7 +89,7 @@ codex plugin add fotor@fotor-ai
    Connect to Fotor and introduce its main features.
    ```
 
-Valid credentials are reused. When authorization is needed, complete Codex's sign-in flow in an external browser, then choose "Signed in and authorized; open Fotor in the in-app browser" in the localized confirmation prompt. You can also choose to keep waiting or cancel. After Codex confirms authorization, the plugin opens the website sign-in link in a visible in-app browser. See the [connection workflow](plugins/codex/fotor/references/mcp-integration.md#connect-to-the-website) for verification and manual fallback.
+Valid credentials are reused. When authorization is needed, complete Codex's sign-in flow in an external browser, then choose "Signed in and authorized; open Fotor in the in-app browser" in the localized confirmation prompt. You can also choose to keep waiting or cancel. After Codex confirms authorization, the plugin opens the website sign-in link in a visible in-app browser. See the [connection workflow](plugins/codex/fotor/skills/fotor-connect/references/mcp-integration.md#connect-to-the-website) for verification and manual fallback.
 
 For a read-only check without opening the website, ask: **Check only the Fotor MCP connection.**
 
@@ -193,7 +195,7 @@ Use `/mcp` to inspect the plugin's server, normally `plugin:fotor:fotor`. Reuse 
 claude mcp login plugin:fotor:fotor
 ```
 
-Complete OAuth in an external browser, choose Continue in the localized Continue / Wait / Cancel prompt, and wait for the client to confirm success. In Claude Code CLI, open the verified handoff once in an external browser such as Chrome; if the CLI cannot open it, copy the unused link there manually. In Claude Code Desktop, open the handoff once in its built-in browser after external OAuth. If the selected browser control is unavailable, explain the limitation and provide the unused link with instructions for that browser. Manual delivery is not automatic-login verification; Desktop host acceptance remains separate. See [Claude authentication and browser guidance](plugins/claude-code/fotor/references/authentication.md).
+Complete OAuth in an external browser, choose Continue in the localized Continue / Wait / Cancel prompt, and wait for the client to confirm success. In Claude Code CLI, open the verified handoff once in an external browser such as Chrome; if the CLI cannot open it, copy the unused link there manually. In Claude Code Desktop, open the handoff once in its built-in browser after external OAuth. If the selected browser control is unavailable, explain the limitation and provide the unused link with instructions for that browser. Manual delivery is not automatic-login verification; Desktop host acceptance remains separate. See [Claude authentication and browser guidance](plugins/claude-code/fotor/skills/fotor-connect/references/authentication.md).
 
 MCP credentials remain in Claude's supported store. Model questions do not open the website, and connection does not query credits. Check the actual website login state before claiming success.
 
@@ -299,7 +301,7 @@ Verify version **0.5.0**, enabled state, discovered skills, and the `https://mcp
 3. For a connection that needs authorization, choose the native **Authorize / Authenticate** action and complete login and consent in the external normal browser. Return to Grok Bot; during a chat flow, choose Continue and verify the native connection result. Reuse valid authorization when available.
 4. Confirm **Connected**, inspect available tools, and ask **Check only the Fotor MCP connection.** A successful read-only call verifies access. This request does not open a website or query balance.
 
-If Fotor is absent, check the account, installation scope and team policy through native controls. Use Grok Bot's own connector controls rather than local CLI authentication or copied tokens. Website requests use its actual visible browser and require signed-in-state evidence; an unavailable browser uses a clearly identified manual link. Use readable attachments or Bot-workspace files for uploads. See the [host-specific authentication and browser guide](plugins/cursor/fotor/references/authentication.md).
+If Fotor is absent, check the account, installation scope and team policy through native controls. Use Grok Bot's own connector controls rather than local CLI authentication or copied tokens. Website requests use its actual visible browser and require signed-in-state evidence; an unavailable browser uses a clearly identified manual link. Use readable attachments or Bot-workspace files for uploads. See the [host-specific authentication and browser guide](plugins/cursor/fotor/skills/fotor-connect/references/authentication.md).
 
 After updating the account-installed plugin, recheck it in Grok Bot and use a new conversation. Removing that installation or connection can affect other clients or Bots; preserve valid credentials and inspect the scope first. Website handoff, restart/expiry reuse, and individual media workflows require separate checks; account sharing does not establish all of them.
 
@@ -309,7 +311,7 @@ Ask **Connect to Fotor and introduce its main features.** Select the actual conn
 
 Use IDE MCP controls or CLI `/mcp` to inspect the actual plugin server; Grok Bot uses **Connect Apps** as described above. When the CLI supports them in the same loading context, `agent mcp list`, `agent mcp list-tools <identifier>`, and `agent mcp login <identifier>` provide native inspection and login. Cursor account login and Fotor MCP OAuth are separate.
 
-Reuse valid Fotor credentials. When authorization is required, complete it in an external browser, choose Continue, and wait for client-confirmed success. Website requests use the IDE's visible built-in browser, the CLI's permitted external-browser opener, or Grok Bot's available visible browser. If unavailable, provide the unused link for the specified browser and await confirmation. Verify the final production website and signed-in state. See [Cursor and Grok Bot native guidance](plugins/cursor/fotor/references/authentication.md).
+Reuse valid Fotor credentials. When authorization is required, complete it in an external browser, choose Continue, and wait for client-confirmed success. Website requests use the IDE's visible built-in browser, the CLI's permitted external-browser opener, or Grok Bot's available visible browser. If unavailable, provide the unused link for the specified browser and await confirmation. Verify the final production website and signed-in state. See [Cursor and Grok Bot native guidance](plugins/cursor/fotor/skills/fotor-connect/references/authentication.md).
 
 ### Cursor updates
 
@@ -386,7 +388,7 @@ Package installation does not register MCP. Inspect `/mcp` and the effective use
 pi mcp add fotor --url https://mcp.fotor.com/mcp --exposure deferred --description "Connect to Fotor's production MCP service."
 ```
 
-Use Pi's native `/mcp` sign-in or `pi mcp login fotor` when authorization is required. Complete OAuth in an external ordinary browser, choose Continue / Wait / Cancel conversationally, and verify the native callback before proceeding. Pi's model-provider login is separate. Follow [Pi authentication](plugins/pi/fotor/references/authentication.md) for tool discovery, overrides, and recovery.
+Use Pi's native `/mcp` sign-in or `pi mcp login fotor` when authorization is required. Complete OAuth in an external ordinary browser, choose Continue / Wait / Cancel conversationally, and verify the native callback before proceeding. Pi's model-provider login is separate. Follow [Pi authentication](plugins/pi/fotor/skills/fotor-connect/references/authentication.md) for tool discovery, overrides, and recovery.
 
 Ask "Connect to Fotor and introduce its main features." or invoke `/skill:fotor-connect`. The website flow opens a fresh validated link in an external ordinary browser when the host can target it; otherwise it supplies a link for immediate manual opening. A native opener's success does not prove website login. An explicit MCP-only request does not create a website link.
 
@@ -462,7 +464,7 @@ Installation adds two disabled components. Follow the guide's native `root` and 
 
 The skill provider scans only the installed Fotor skill directory, with default roots disabled. Enable skills first; leave the MCP row disabled. The MCP client directly invokes the separately installed bridge using structured `command`, `args`, `env` and `cwd`. Keep `MCP_REMOTE_CONFIG_DIR` dedicated to Fotor, outside package updates, and keep native automatic reconnect disabled. Resolve any existing `fotor` registration before enabling another.
 
-Follow [DeepSeek Harness authentication](plugins/dsh/fotor/references/authentication.md) for standalone bridge authorization, native status verification and controlled recovery. OAuth is bridge-managed. Authorize with the fixed bridge client first, then enable the proxy using exactly the same store and connection arguments. User login, consent and Continue / Wait / Cancel remain explicit. Use the confirmed daily ordinary browser for authorization and website access; preserve its login state and data.
+Follow [DeepSeek Harness authentication](plugins/dsh/fotor/skills/fotor-connect/references/authentication.md) for standalone bridge authorization, native status verification and controlled recovery. OAuth is bridge-managed. Authorize with the fixed bridge client first, then enable the proxy using exactly the same store and connection arguments. User login, consent and Continue / Wait / Cancel remain explicit. Use the confirmed daily ordinary browser for authorization and website access; preserve its login state and data.
 
 Invoke `/fotor-connect` through the actual skill menu or ask "Connect to Fotor and introduce its main features." Verify the loaded skill's source and perform a real model query. For MCP-only checks, do not request a website link. Website handoff opens the original production link once, using native single-command approval when necessary; user confirmation establishes the final login state. Manual opening is a separate fallback, and an already signed-in browser does not establish first-time website login.
 

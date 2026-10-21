@@ -59,7 +59,7 @@ Installation adds two disabled components. Follow the guide's native `root` and 
 
 The skill provider scans only the installed Fotor skill directory, with default roots disabled. Enable skills first; leave the MCP row disabled. The MCP client directly invokes the separately installed bridge using structured `command`, `args`, `env` and `cwd`. Keep `MCP_REMOTE_CONFIG_DIR` dedicated to Fotor, outside package updates, and keep native automatic reconnect disabled. Resolve any existing `fotor` registration before enabling another.
 
-Follow [DeepSeek Harness authentication](references/authentication.md) for standalone bridge authorization, native status verification and controlled recovery. OAuth is bridge-managed. Authorize with the fixed bridge client first, then enable the proxy using exactly the same store and connection arguments. User login, consent and Continue / Wait / Cancel remain explicit. Use the confirmed daily ordinary browser for authorization and website access; preserve its login state and data.
+Follow [DeepSeek Harness authentication](skills/fotor-connect/references/authentication.md) for standalone bridge authorization, native status verification and controlled recovery. OAuth is bridge-managed. Authorize with the fixed bridge client first, then enable the proxy using exactly the same store and connection arguments. User login, consent and Continue / Wait / Cancel remain explicit. Use the confirmed daily ordinary browser for authorization and website access; preserve its login state and data.
 
 Invoke `/fotor-connect` through the actual skill menu or ask "Connect to Fotor and introduce its main features." Verify the loaded skill's source and perform a real model query. For MCP-only checks, do not request a website link. Website handoff opens the original production link once, using native single-command approval when necessary; user confirmation establishes the final login state. Manual opening is a separate fallback, and an already signed-in browser does not establish first-time website login.
 
@@ -99,16 +99,20 @@ Before removal, disable the two Fotor components and remove only their external 
 
 ## Workflows
 
-Start with [connection and model discovery](references/mcp-integration.md#runtime-workflow), then select the skill matching the request. Follow [media preparation](references/media-upload.md) for local references and [credits](references/credits.md) for balance/pricing requests. These instructions do not establish host acceptance of every media operation.
+Start with [connection and model discovery](skills/fotor-connect/references/mcp-integration.md#runtime-workflow), then select the skill matching the request. Follow [media preparation](skills/fotor-connect/references/media-upload.md) for local references and [credits](skills/fotor-connect/references/credits.md) for balance/pricing requests. These instructions do not establish host acceptance of every media operation.
 
 ## Bundle contents
 
 - `package.json` and `cordis.patch.yml`: the declarative Bundle and two initially disabled components.
 - `configuration.example.yml`: complete local setup example; never auto-applied.
 - `INSTALL.md`, `bridge-package.example.json` and `bridge-package-lock.example.json`: guide and inert inputs copied outside the Bundle for a separate bridge installation.
-- `skills/` and `references/`: shared workflows and DeepSeek Harness bridge/browser guidance.
+- `skills/`, including each skill's `references/`: shared workflows and DeepSeek Harness bridge/browser guidance.
 - `assets/logo.svg`, `README.md` and `LICENSE`: package-local documentation and branding.
 
 ## License
 
 [Apache-2.0](LICENSE)
+
+## Skill-local references
+
+Every packaged skill carries four generated documents in its own `references/` directory, including this platform's authentication guide. Read them as needed; complete runtime documentation does not install or configure MCP.

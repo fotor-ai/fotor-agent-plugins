@@ -5,7 +5,7 @@ description: Generate videos with Fotor from text, first or last frames, or supp
 
 # Fotor Video
 
-Read [MCP integration and runtime workflow](../../references/mcp-integration.md) before execution. It defines discovery, task recovery, and the one-time website handoff. For local references or client-accessible attachments, follow the shared [media upload workflow](../../references/media-upload.md); use existing accessible HTTPS references directly.
+Read [MCP integration and runtime workflow](references/mcp-integration.md) before execution. It defines discovery, task recovery, and the one-time website handoff. For local references or client-accessible attachments, follow the shared [media upload workflow](references/media-upload.md); use existing accessible HTTPS references directly.
 
 ## Choose the workflow
 
@@ -51,8 +51,10 @@ Use the character in <<<image_1>>> and the setting in <<<image_2>>>. Follow the 
 
 ## Finish the request
 
+Before any `submit_*_task` call, follow the [credit-consumption notice](references/mcp-integration.md#credit-consumption-before-submission). A successful call may consume Fotor credits. Briefly tell the user before submitting; an already authorized request needs no additional blanket confirmation.
+
 Submit once, retain the returned ID, and follow the shared `get_task` lifecycle, including `submission_uncertain` recovery and the returned `credits_increment`. Upload success alone does not establish generation success. Deliver the actual completed result; a submitted or processing task is not a finished video. Report audio/visual quality only after inspection.
 
-For an explicit `insufficient_credits` error in any video mode, follow the shared [submission credit-error workflow](../../references/credits.md#insufficient-credits-during-media-submission) to report it and deliver an available pricing link without retrying the submission.
+For an explicit `insufficient_credits` error in any video mode, follow the shared [submission credit-error workflow](references/credits.md#insufficient-credits-during-media-submission) to report it under this package's credit policy without retrying the submission.
 
-Website access belongs to `fotor-connect`. For a request that also includes connecting to the Fotor website, follow the shared [website connection flow](../../references/mcp-integration.md#connect-to-the-website); navigation and generation remain separate requested operations.
+Website access belongs to `fotor-connect`. For a request that also includes connecting to the Fotor website, follow the shared [website connection flow](references/mcp-integration.md#connect-to-the-website); navigation and generation remain separate requested operations.

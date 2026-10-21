@@ -42,7 +42,7 @@ Use `/mcp` to inspect the plugin's server, normally `plugin:fotor:fotor`. Reuse 
 claude mcp login plugin:fotor:fotor
 ```
 
-Complete OAuth in an external browser, choose Continue in the localized Continue / Wait / Cancel prompt, and wait for the client to confirm success. In Claude Code CLI, open the verified handoff once in an external browser such as Chrome; if the CLI cannot open it, copy the unused link there manually. In Claude Code Desktop, open the handoff once in its built-in browser after external OAuth. If the selected browser control is unavailable, explain the limitation and provide the unused link with instructions for that browser. Manual delivery is not automatic-login verification; Desktop host acceptance remains separate. See [Claude authentication and browser guidance](references/authentication.md).
+Complete OAuth in an external browser, choose Continue in the localized Continue / Wait / Cancel prompt, and wait for the client to confirm success. In Claude Code CLI, open the verified handoff once in an external browser such as Chrome; if the CLI cannot open it, copy the unused link there manually. In Claude Code Desktop, open the handoff once in its built-in browser after external OAuth. If the selected browser control is unavailable, explain the limitation and provide the unused link with instructions for that browser. Manual delivery is not automatic-login verification; Desktop host acceptance remains separate. See [Claude authentication and browser guidance](skills/fotor-connect/references/authentication.md).
 
 MCP credentials remain in Claude's supported store. Model questions do not open the website, and connection does not query credits. Check the actual website login state before claiming success.
 
@@ -113,10 +113,10 @@ Use `claude plugin marketplace list --json` to verify the source and branch, the
 
 ## Workflows
 
-- [Connection, model selection, and tasks](references/mcp-integration.md)
-- [Claude Code native authentication](references/authentication.md)
-- [Media uploads](references/media-upload.md)
-- [Credit balance and pricing links](references/credits.md)
+- [Connection, model selection, and tasks](skills/fotor-connect/references/mcp-integration.md)
+- [Claude Code native authentication](skills/fotor-connect/references/authentication.md)
+- [Media uploads](skills/fotor-connect/references/media-upload.md)
+- [Credit balance and pricing links](skills/fotor-connect/references/credits.md)
 
 The service's current schemas determine supported models and parameters. Upload success, task submission, and completed results are separate states. Ordinary balance queries do not open a browser. Payment stays under the user's control.
 
@@ -125,3 +125,7 @@ The service's current schemas determine supported models and parameters. Upload 
 Package checks cover files, references, and configuration. Verify installation, MCP authorization and calls, website login, credit links, uploads, and media execution separately in the selected host and environment. A release or model query does not establish successful website login or completed media results.
 
 This package is self-contained. Skills remain instructions and non-executable resources; their names and counts may evolve.
+
+## Skill-local references
+
+Every packaged skill carries four generated documents in its own `references/` directory, including this platform's authentication guide. Read them as needed; complete runtime documentation does not install or configure MCP.
