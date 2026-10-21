@@ -7,7 +7,7 @@ Create images and videos, upload media, and process images with Fotor in Codex.
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor@fotor-ai` |
-| Version | `0.4.0` |
+| Version | `0.5.0` |
 | Release channel | `production` |
 | Service environment | `production` |
 | Publisher | Fotor |
@@ -47,7 +47,7 @@ The installed `.mcp.json` and any standalone Fotor MCP override must select the 
 Connect to Fotor and introduce its main features.
 ```
 
-Reuse valid credentials. If sign-in is required, complete the client's OAuth flow in an external browser, then choose to continue in the localized confirmation prompt; waiting and cancellation are also available. Continue only after the client confirms authorization. The [website connection workflow](references/mcp-integration.md#connect-to-the-website) then uses one visible in-app browser visit and verifies the resulting website environment and login state. Browser limitations have a manual fallback; credentials stay in the client's supported store.
+Reuse valid credentials. If sign-in is required, complete the client's OAuth flow in an external browser, then choose to continue in the localized confirmation prompt; waiting and cancellation are also available. Continue only after the client confirms authorization. The [website connection workflow](skills/fotor-connect/references/mcp-integration.md#connect-to-the-website) then uses one visible in-app browser visit and verifies the resulting website environment and login state. Browser limitations have a manual fallback; credentials stay in the client's supported store.
 
 Ask **Check only the Fotor MCP connection** for a read-only check. Feature and model questions alone do not open the website or query credits.
 
@@ -115,17 +115,21 @@ Verify the destination version and production MCP configuration before signing i
 
 | Request | Guide |
 | --- | --- |
-| Diagnose native authorization, permissions, or the website browser | [Codex authentication](references/authentication.md) |
-| Connect, discover models, generate media, or check a submitted task | [MCP integration](references/mcp-integration.md) |
-| Upload local media or prepare references for creation | [Media upload workflow](references/media-upload.md) |
-| Check credits or get a pricing-page link | [Credits and top-up](references/credits.md) |
+| Diagnose native authorization, permissions, or the website browser | [Codex authentication](skills/fotor-connect/references/authentication.md) |
+| Connect, discover models, generate media, or check a submitted task | [MCP integration](skills/fotor-connect/references/mcp-integration.md) |
+| Upload local media or prepare references for creation | [Media upload workflow](skills/fotor-connect/references/media-upload.md) |
+| Check existing credits and reported limits | [Credit information](skills/fotor-connect/references/credits.md) |
 
 The service's current schemas determine available models, input types, and parameters. Model-based generation uses model discovery; uploads, dedicated image upscaling, and background removal use their own contracts. A standalone upload ends after confirmed transfer. Creation continues only with usable inputs and the operation requested by the user.
 
-Credit queries are independent of ordinary connection and generation. The [credits workflow](references/credits.md) reports the balance and selects a pricing link below 100 credits or on an explicit recharge request, respecting balance-only and no-link restrictions. Let the user click the link; it does not sign them in and does not trigger automatic browser navigation. Payment remains under the user's control.
+Credit queries are independent of ordinary connection and generation. The [Codex credit policy](skills/fotor-connect/references/credits.md) reports existing balance and known limitations without recharge, purchase, subscription, upgrade or checkout guidance. Returned `top_up_url` fields are not displayed or opened. Verified informational help pages may be provided when needed; ordinary website connection remains separate. Before any `submit_*_task` call, the skill explains that success may consume Fotor credits, then proceeds under an already explicit task request and host permissions.
 
 ## Verification scope
 
 Package checks cover files, references, and configuration. Verify installation, MCP authorization and calls, website login, credit links, uploads, and media execution separately in the selected host and environment. A release or model query does not establish successful website login or completed media results.
 
 The package is self-contained: its manifest, MCP declaration, license, skills, assets, and references remain usable when installed independently. Skill names and counts may evolve.
+
+## Skill-local references
+
+Every packaged skill carries four generated documents in its own `references/` directory, including this platform's authentication guide. Read them as needed; complete runtime documentation does not install or configure MCP.

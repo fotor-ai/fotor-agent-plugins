@@ -1,6 +1,6 @@
 {
   "name": "fotor",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Connect to Fotor's production MCP service.",
   "author": {
     "name": "Fotor",
@@ -19,18 +19,26 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Fotor",
-    "shortDescription": "Upload media, create images and videos, and process images.",
-    "longDescription": "Connect to Fotor's production MCP service to discover model capabilities, upload local media, generate or edit images, upscale images, remove backgrounds, generate videos from supported references, and query credits or get pricing links. Available models and options are provided by the connected service.",
+    "shortDescription": "Create & enhance visual media",
+    "longDescription": "Connect to Fotor's production MCP service to discover supported image and video capabilities, upload media, generate and edit images, upscale images, remove backgrounds, and generate videos from supported references. Available models and options are provided by the connected service.",
     "developerName": "Fotor",
-    "category": "Productivity",
-    "capabilities": [],
-    "websiteURL": "https://fotor.com",
+    "category": "Creativity",
+    "capabilities": [
+      "Generate images",
+      "Edit images",
+      "Remove backgrounds",
+      "Upscale images",
+      "Generate videos"
+    ],
+    "websiteURL": "https://www.fotor.com",
+    "supportURL": "https://support.fotor.com/hc/en-us",
+    "privacyPolicyURL": "https://www.fotor.com/privacypolicy",
+    "termsOfServiceURL": "https://www.fotor.com/termsofservice",
     "composerIcon": "./assets/logo.svg",
     "logo": "./assets/logo.svg",
     "defaultPrompt": [
       "Connect to Fotor and introduce its main features.",
       "Use Fotor to generate an image from my description.",
-      "Use Fotor to edit this image.",
       "Use Fotor to generate a video from my references."
     ]
   },
