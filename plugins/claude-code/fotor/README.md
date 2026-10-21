@@ -7,7 +7,7 @@ Create images and videos, upload media, process images, connect to the website, 
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor@fotor-ai` |
-| Version | `0.5.0-test.5` |
+| Version | `0.5.1-test.1` |
 | Release channel | `test` |
 | Service environment | `production` |
 | Source | [GitHub](https://github.com/fotor-ai/fotor-agent-plugins) |
@@ -30,7 +30,7 @@ claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.gi
 claude plugin install fotor@fotor-ai --scope user
 ```
 
-Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.5.0-test.5**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
+Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.5.1-test.1**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
 
 ### Claude Code connection
 
