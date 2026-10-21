@@ -7,7 +7,7 @@ Create images and videos with Fotor through Pi's native MCP tools and shared ski
 | Field | Value |
 | --- | --- |
 | Package | `fotor` |
-| Version | `0.5.0-test.4` |
+| Version | `0.5.0-test.5` |
 | Release channel | `test` |
 | Service environment | `production` |
 | MCP endpoint | `https://mcp.fotor.com/mcp` |
@@ -43,7 +43,7 @@ Package installation does not register MCP. Inspect `/mcp` and the effective use
 pi mcp add fotor --url https://mcp.fotor.com/mcp --exposure deferred --description "Connect to Fotor's production MCP service."
 ```
 
-Use Pi's native `/mcp` sign-in or `pi mcp login fotor` when authorization is required. Complete OAuth in an external ordinary browser, choose Continue / Wait / Cancel conversationally, and verify the native callback before proceeding. Pi's model-provider login is separate. Follow [Pi authentication](references/authentication.md) for tool discovery, overrides, and recovery.
+Use Pi's native `/mcp` sign-in or `pi mcp login fotor` when authorization is required. Complete OAuth in an external ordinary browser, choose Continue / Wait / Cancel conversationally, and verify the native callback before proceeding. Pi's model-provider login is separate. Follow [Pi authentication](skills/fotor-connect/references/authentication.md) for tool discovery, overrides, and recovery.
 
 Ask "Connect to Fotor and introduce its main features." or invoke `/skill:fotor-connect`. The website flow opens a fresh validated link in an external ordinary browser when the host can target it; otherwise it supplies a link for immediate manual opening. A native opener's success does not prove website login. An explicit MCP-only request does not create a website link.
 
@@ -83,16 +83,20 @@ pi list
 
 ## Workflows
 
-Start with [connection and model discovery](references/mcp-integration.md#runtime-workflow), then follow the skill matching the request. Use [media preparation](references/media-upload.md) for local references and [credits](references/credits.md) for balance/pricing requests. Runtime guidance and assets remain inside this independent package.
+Start with [connection and model discovery](skills/fotor-connect/references/mcp-integration.md#runtime-workflow), then follow the skill matching the request. Use [media preparation](skills/fotor-connect/references/media-upload.md) for local references and [credits](skills/fotor-connect/references/credits.md) for balance/pricing requests. Runtime guidance and assets remain inside this independent package.
 
 ## Package contents
 
 - `package.json`: Pi skill resource selection; no executable resources or dependencies.
 - `mcp.example.json`: native configuration example, not an auto-loaded server registration.
 - `skills/`: the currently packaged Fotor task instructions.
-- `references/`: shared workflows and Pi-owned authentication guidance.
+- `skills/<skill>/references/`: shared workflows and Pi-owned authentication guidance.
 - `assets/logo.svg`, `README.md`, and `LICENSE`: package-local branding and documentation.
 
 ## License
 
 [Apache-2.0](LICENSE)
+
+## Skill-local references
+
+Every packaged skill carries four generated documents in its own `references/` directory, including this platform's authentication guide. Read them as needed; complete runtime documentation does not install or configure MCP.

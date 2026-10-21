@@ -5,7 +5,7 @@ description: Check available Fotor credits and provide its pricing-page link. Us
 
 # Fotor Credits
 
-Follow the shared [credits and top-up workflow](../../references/credits.md) for authentication, balance reporting, low-balance or explicit recharge requests, pricing-link validation, and errors.
+Follow the shared [credits and top-up workflow](references/credits.md) for authentication, balance reporting, low-balance or explicit recharge requests, pricing-link validation, and errors.
 
 Report the actual balance and deliver a pricing link only when selected by that workflow. Let the user click it; a pricing link does not sign them in. A credits request alone does not open a browser or request a website-login link. Respect explicit balance-only, no-link, and no-browser restrictions.
 

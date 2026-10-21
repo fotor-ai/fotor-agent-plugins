@@ -5,7 +5,7 @@ description: Generate, edit, upscale, or remove image backgrounds with Fotor. Us
 
 # Fotor Image
 
-Read [MCP integration and runtime workflow](../../references/mcp-integration.md) before execution. It defines authentication, task recovery, and result delivery. For local images or accessible attachments, follow the shared [media upload workflow](../../references/media-upload.md); use an existing accessible HTTPS source directly.
+Read [MCP integration and runtime workflow](references/mcp-integration.md) before execution. It defines authentication, task recovery, and result delivery. For local images or accessible attachments, follow the shared [media upload workflow](references/media-upload.md); use an existing accessible HTTPS source directly.
 
 ## Choose the image operation
 
@@ -26,9 +26,11 @@ For standalone upscaling, `upscale_ratio` defaults to `2.0` and must be finite a
 
 ## Submit and deliver
 
+Before any `submit_*_task` call, follow the [credit-consumption notice](references/mcp-integration.md#credit-consumption-before-submission). A successful call may consume Fotor credits. Briefly tell the user before submitting; an already authorized request needs no additional blanket confirmation.
+
 Submit the requested operation once, retain its returned task ID and model or operation, and use `get_task` according to the shared lifecycle. `submission_uncertain` may mean the task was created and charged; preserve any known ID and avoid automatic resubmission. Report `credits_increment` only as returned, including zero or unknown values.
 
-For an explicit `insufficient_credits` error from any image operation, follow the shared [submission credit-error workflow](../../references/credits.md#insufficient-credits-during-media-submission) to report it and deliver an available pricing link without retrying the submission.
+For an explicit `insufficient_credits` error from any image operation, follow the shared [submission credit-error workflow](references/credits.md#insufficient-credits-during-media-submission) to report it under this package's credit policy without retrying the submission.
 
 For an explicitly requested sequence, such as generate then upscale, finish the first task and obtain its actual result URL before submitting the next operation. Preserve each task ID and stop the chain if a required result is missing or failed. Generation alone does not request automatic upscaling or background removal.
 

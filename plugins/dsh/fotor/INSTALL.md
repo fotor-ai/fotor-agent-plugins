@@ -6,7 +6,7 @@ DeepSeek Harness is abbreviated as `dsh` in commands and native identifiers.
 
 **Fotor does not install mcp-remote automatically.** You, or an Agent acting on your installation request, install the pinned bridge in a separate directory. After configuration, DeepSeek Harness starts that existing bridge. Bundle installation, skill loading, Fotor authorization and website login are separate steps.
 
-This guide travels with the complete Bundle. Start here for a first installation, a missing bridge, an unconfigured path or missing skills. For an already configured connection, use [authentication and recovery](references/authentication.md). Keep one Fotor installation per selected profile.
+This guide travels with the complete Bundle. Start here for a first installation, a missing bridge, an unconfigured path or missing skills. For an already configured connection, use [authentication and recovery](skills/fotor-connect/references/authentication.md). Keep one Fotor installation per selected profile.
 
 ## 1. Check prerequisites and choose locations
 
@@ -182,7 +182,7 @@ For interactive use, the user configures any model-provider account through Deep
 
 ## 6. Authorize, then enable the connection
 
-Follow [first authorization](references/authentication.md#first-authorization). Run its standalone client command using the Node, bridge, Fotor credential directory, endpoint/resource and callback values selected above. Keep stdin open through actual tool discovery. Confirm that the opener uses the user's daily ordinary browser; preserve its website login and browser data. If its routing is unclear, resolve it before starting authorization instead of changing the system browser default.
+Follow [first authorization](skills/fotor-connect/references/authentication.md#first-authorization). Run its standalone client command using the Node, bridge, Fotor credential directory, endpoint/resource and callback values selected above. Keep stdin open through actual tool discovery. Confirm that the opener uses the user's daily ordinary browser; preserve its website login and browser data. If its routing is unclear, resolve it before starting authorization instead of changing the system browser default.
 
 The user completes login/consent and chooses Continue, Wait or Cancel. After Continue, require client-confirmed connection and actual tool discovery. Then stop the standalone client and verify its callback listener has closed. Change only the external override's `fotor-mcp.disabled` to `false` and restart DeepSeek Harness with the same overlay. Do not run authorization client and proxy concurrently.
 
@@ -199,7 +199,7 @@ The user completes login/consent and chooses Continue, Wait or Cancel. After Con
 | Explicit skill | Select `/fotor-connect` from the actual skill menu, then give the intended request. |
 | Other capabilities | Use the [package README](README.md) and the selected skill's workflow. A capability listing does not perform media operations. |
 
-For website access, prepare the confirmed browser/profile before requesting a link. Follow [website access](references/authentication.md#website-access): open the original production handoff once, use native single-command approval if required, and wait for the user's actual page/login result. Manual opening is a separate fallback. An already signed-in page does not prove a new login.
+For website access, prepare the confirmed browser/profile before requesting a link. Follow [website access](skills/fotor-connect/references/authentication.md#website-access): open the original production handoff once, use native single-command approval if required, and wait for the user's actual page/login result. Manual opening is a separate fallback. An already signed-in page does not prove a new login.
 
 ### Update or change source
 
@@ -233,7 +233,7 @@ Verify that the profile no longer registers Fotor as a dependency or Bundle and 
 | Skills missing / wrong base directory | Resolve the installed package again, inspect the effective full override and use native `read`. Keep one Fotor provider. |
 | `ERR_PNPM_UNEXPECTED_STORE` | Reuse the store selected on the original native installation; do not recreate the cache or change global settings. |
 | Generic Git-package message asks to enable a build script | Inspect the actual failure. Fotor has no build/lifecycle script; do not enable unrelated builds to hide a source, permission or store error. |
-| `needsAuth`, `discoveryState` error or “Start a new authorization flow” | Stop the failed call and use [controlled recovery](references/authentication.md#bounded-recovery-and-controlled-reauthorization). Preserve the store and security arguments. |
+| `needsAuth`, `discoveryState` error or “Start a new authorization flow” | Stop the failed call and use [controlled recovery](skills/fotor-connect/references/authentication.md#bounded-recovery-and-controlled-reauthorization). Preserve the store and security arguments. |
 | Browser command blocked | Request the host's approval for that one opener command, or provide the unused handoff for manual opening in the confirmed browser. |
 | Website link expired | Follow the bounded recovery in the authentication reference; do not reopen a consumed link. |
 

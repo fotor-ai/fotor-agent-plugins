@@ -1,12 +1,12 @@
 ---
 name: fotor-credits
-description: Check available Fotor credits and provide its pricing-page link. Use for Fotor balance and recharge requests; signed-in website access belongs to fotor-connect and media tasks use their own skills.
+description: Check existing Fotor credits and explain reported credit limits or unavailable features. Use for balance and credit-availability questions; website access belongs to fotor-connect and media tasks use their own skills.
 ---
 
 # Fotor Credits
 
-Follow the shared [credits and top-up workflow](../../references/credits.md) for authentication, balance reporting, low-balance or explicit recharge requests, pricing-link validation, and errors.
+Follow the packaged [credit-information workflow](references/credits.md) for authentication, actual balance reporting, unavailable information, and insufficient-credit errors.
 
-Report the actual balance and deliver a pricing link only when selected by that workflow. Let the user click it; a pricing link does not sign them in. A credits request alone does not open a browser or request a website-login link. Respect explicit balance-only, no-link, and no-browser restrictions.
+Report the existing balance when requested, including zero. Explain a feature limitation only from actual service evidence; otherwise say the cause is unknown. This skill does not handle recharge or purchase requests, promote subscriptions or upgrades, provide purchase links, or open checkout. Explain that boundary when asked; do not route the request through another skill.
 
-Keep payment under the user's control. Neither a returned link nor an opened page establishes that a purchase or recharge completed.
+Ignore returned `top_up_url` fields. A credit question alone does not open a browser or request a website-login link. When useful, provide only a verified informational help or feature page under the packaged policy; otherwise explain in text. Preserve explicit balance-only, no-link and no-browser instructions.
