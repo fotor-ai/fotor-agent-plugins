@@ -1,8 +1,0 @@
-{
-  "name": "fotor-dsh-isolated-acceptance",
-  "version": "0.0.0",
-  "private": true,
-  "dependencies": {
-    "mcp-remote": "0.15.1"
-  }
-}
