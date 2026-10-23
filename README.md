@@ -7,7 +7,7 @@
 <p align="center">Create images and videos with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.6.0-test.2&amp;color=087f8c&amp;style=flat-square" alt="Version 0.6.0-test.2" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.6.0-test.3&amp;color=087f8c&amp;style=flat-square" alt="Version 0.6.0-test.3" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" alt="test channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -82,7 +82,7 @@ codex plugin add fotor@fotor-ai
    codex plugin list --marketplace fotor-ai --json
    ```
 
-2. Confirm version **0.6.0-test.2**, release channel **test**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
+2. Confirm version **0.6.0-test.3**, release channel **test**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
 3. Open a new Codex task and ask:
 
    ```text
@@ -183,7 +183,7 @@ claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.gi
 claude plugin install fotor@fotor-ai --scope user
 ```
 
-Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.6.0-test.2**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
+Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.6.0-test.3**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
 
 ### Claude Code connection
 
@@ -292,12 +292,12 @@ For CLI local loading, start a new native session:
 agent --plugin-dir /absolute/path/to/fotor
 ```
 
-Verify version **0.6.0-test.2**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
+Verify version **0.6.0-test.3**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
 
 ### Grok Bot installation and authorization
 
 1. Install Fotor from the `fotor-ai` marketplace in Cursor using the selected Git source above. A marketplace registration alone does not install the plugin. Use an account-level installation; local IDE folders and CLI `--plugin-dir` loads do not establish account sharing.
-2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.6.0-test.2** and source when the host exposes them; account sharing alone does not verify the loaded files.
+2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.6.0-test.3** and source when the host exposes them; account sharing alone does not verify the loaded files.
 3. For a connection that needs authorization, choose the native **Authorize / Authenticate** action and complete login and consent in the external normal browser. Return to Grok Bot; during a chat flow, choose Continue and verify the native connection result. Reuse valid authorization when available.
 4. Confirm **Connected**, inspect available tools, and ask **Check only the Fotor MCP connection.** A successful read-only call verifies access. This request does not open a website or query balance.
 
@@ -442,9 +442,11 @@ First verify that the selected revision contains the DeepSeek Harness Bundle. In
 dsh plugin --profile web add "git+https://github.com/fotor-ai/dsh-fotor-plugin.git#release/test" --ignore-scripts
 ```
 
-From 0.6.0, the identity is `@fotor-ai/dsh-fotor-plugin`. Installing Fotor automatically obtains mcp-remote 0.15.1: Git sources download the dependency and npm artifacts carry its complete runtime tree. Stable Node 24.2.0 or later within 24.x, or stable Node 26.x, is required. The npm alternatives, after publication, are `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin" --ignore-scripts` and `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin@next" --ignore-scripts`.
+From 0.6.0, the identity is `@fotor-ai/dsh-fotor-plugin`. Installing Fotor automatically obtains mcp-remote 0.15.1: Git sources download the dependency and npm artifacts carry its complete runtime tree. Stable Node 24.2.0 or later within 24.x, or stable Node 26.x, is required. The npm alternatives, after publication, are `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin" --ignore-scripts` and `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin@next" --ignore-scripts`. Verify the actual target version: bare-name installation follows `latest`, which retains the bootstrap test.1 until formal 0.6.0 publication.
 
-Both components stay disabled until configured; installation does not start OAuth. Follow the [complete guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/release/test/INSTALL.md), [configuration example](https://github.com/fotor-ai/dsh-fotor-plugin/blob/release/test/configuration.example.yml) and [authorization instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/release/test/INSTALL.md#6-authorize-then-enable-the-connection). Query actual skill and bridge paths, retain the external credential store and use the daily ordinary browser.
+Both components stay disabled until configured; installation does not start OAuth. Follow the [complete guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/release/test/INSTALL.md), [configuration example](https://github.com/fotor-ai/dsh-fotor-plugin/blob/release/test/configuration.example.yml) and [authorization instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/release/test/INSTALL.md#6-authorize-then-enable-the-connection). Query actual skill and bridge paths, configure the model account separately, then complete Fotor authorization and tool discovery before enabling MCP. Website access is a separate request. Retain the external credential store and use the daily ordinary browser.
+
+For npm updates, use `dsh plugin --profile web update "@fotor-ai/dsh-fotor-plugin@<target-version>" --ignore-scripts` with an explicitly published target. Immediate `@next` upgrade did not pass in test.2; exact-version native updates did. Do not infer `@latest` success or promise that a 24-hour wait fixes it. Retain the original profile and custom `--store-dir` for updates/removal, preserve release-age protection, and verify the actual installed version and new-process skill paths. See the [maintenance instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/release/test/INSTALL.md#7-use-update-or-remove-fotor).
 
 The declared host range is `>=0.2.1-rc.2 <0.3.0-0`; actual acceptance is limited to the recorded Linux Web 0.2.1-rc.2 baseline. A matching version is not automatically tested.
 
