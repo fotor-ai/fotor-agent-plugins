@@ -1,6 +1,6 @@
 {
   "name": "fotor",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Connect to Fotor's production MCP service.",
   "author": {
     "name": "Fotor",
@@ -17,5 +17,8 @@
     "editing"
   ],
   "skills": "./skills/",
-  "mcpServers": "./.mcp.json"
+  "mcpServers": "./.mcp.json",
+  "privacyPolicyUrl": "https://www.fotor.com/privacypolicy",
+  "supportUrl": "https://support.fotor.com/hc/en-us",
+  "termsOfServiceUrl": "https://www.fotor.com/termsofservice"
 }
