@@ -7,7 +7,7 @@ Create images and videos with Fotor through Pi's native MCP tools and shared ski
 | Field | Value |
 | --- | --- |
 | Package | `fotor` |
-| Version | `0.6.0-test.4` |
+| Version | `0.6.1-test.1` |
 | Release channel | `test` |
 | Service environment | `production` |
 | MCP endpoint | `https://mcp.fotor.com/mcp` |
