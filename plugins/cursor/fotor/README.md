@@ -9,7 +9,7 @@ Create images and videos, upload media, process images, connect to the website, 
 | Plugin | `fotor` |
 | Marketplace | `fotor-ai` |
 | Hosts | Cursor IDE / CLI; Grok Bot through the same package |
-| Version | `0.6.1-test.1` |
+| Version | `0.6.1-test.2` |
 | Release channel | `test` |
 | Service environment | `production` |
 | Source | [GitHub](https://github.com/fotor-ai/fotor-agent-plugins) |
@@ -45,12 +45,12 @@ For CLI local loading, start a new native session:
 agent --plugin-dir /absolute/path/to/fotor
 ```
 
-Verify version **0.6.1-test.1**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
+Verify version **0.6.1-test.2**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
 
 ### Grok Bot installation and authorization
 
 1. Install Fotor from the `fotor-ai` marketplace in Cursor using the selected Git source above. A marketplace registration alone does not install the plugin. Use an account-level installation; local IDE folders and CLI `--plugin-dir` loads do not establish account sharing.
-2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.6.1-test.1** and source when the host exposes them; account sharing alone does not verify the loaded files.
+2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.6.1-test.2** and source when the host exposes them; account sharing alone does not verify the loaded files.
 3. For a connection that needs authorization, choose the native **Authorize / Authenticate** action and complete login and consent in the external normal browser. Return to Grok Bot; during a chat flow, choose Continue and verify the native connection result. Reuse valid authorization when available.
 4. Confirm **Connected**, inspect available tools, and ask **Check only the Fotor MCP connection.** A successful read-only call verifies access. This request does not open a website or query balance.
 
