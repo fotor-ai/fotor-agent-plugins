@@ -7,8 +7,8 @@ Create images and videos with Fotor through Pi's native MCP tools and shared ski
 | Field | Value |
 | --- | --- |
 | Package | `fotor` |
-| Version | `0.6.1-test.2` |
-| Release channel | `test` |
+| Version | `0.6.1` |
+| Release channel | `production` |
 | Service environment | `production` |
 | MCP endpoint | `https://mcp.fotor.com/mcp` |
 | Initial host baseline | Pi CLI 1.3.0 |
@@ -24,12 +24,12 @@ This instruction-only Package contains no Extension or lifecycle script. Install
 
 ### Pi installation
 
-#### Test release
+#### Production release
 
-Install the test build from `release/test` for prerelease validation. First verify that the selected revision contains the Pi package and root Pi manifest. Installation loads skills only; register the Fotor MCP separately.
+Install the released plugin from the default `main` branch. No branch selector is required. First verify that the selected revision contains the Pi package and root Pi manifest. Installation loads skills only; register the Fotor MCP separately.
 
 ```bash
-pi install https://github.com/fotor-ai/fotor-agent-plugins@release/test
+pi install https://github.com/fotor-ai/fotor-agent-plugins
 pi list
 ```
 

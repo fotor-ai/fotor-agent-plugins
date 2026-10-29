@@ -7,8 +7,8 @@ Create images and videos, upload media, and process images with Fotor in Codex.
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor@fotor-ai` |
-| Version | `0.6.1-test.2` |
-| Release channel | `test` |
+| Version | `0.6.1` |
+| Release channel | `production` |
 | Service environment | `production` |
 | Publisher | Fotor |
 | Source | [GitHub](https://github.com/fotor-ai/fotor-agent-plugins) |
@@ -24,12 +24,12 @@ Both release channels use Fotor's production service and website, including your
 
 Use Codex with plugin support and Git read access to the public repository; GitHub sign-in is not required. Install the complete marketplace package; no build or source synchronization is required. For an existing marketplace with another source, use [Switch release channel](#switch-release-channel).
 
-#### Test release
+#### Production release
 
-Install the test build from `release/test` for prerelease validation.
+Install the released plugin from the default `main` branch. No branch selector is required.
 
 ```bash
-codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --ref release/test
+codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git
 codex plugin add fotor@fotor-ai
 ```
 

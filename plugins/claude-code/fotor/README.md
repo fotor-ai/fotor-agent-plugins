@@ -7,8 +7,8 @@ Create images and videos, upload media, process images, connect to the website, 
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor@fotor-ai` |
-| Version | `0.6.1-test.2` |
-| Release channel | `test` |
+| Version | `0.6.1` |
+| Release channel | `production` |
 | Service environment | `production` |
 | Source | [GitHub](https://github.com/fotor-ai/fotor-agent-plugins) |
 | License | [Apache-2.0](LICENSE) |
@@ -23,16 +23,16 @@ Both channels use production accounts and credits. A test suffix identifies a pl
 
 This guide targets **Claude Code CLI** with plugin support and Git access. The client acceptance baseline is **2.1.296**; other CLI versions require their own checks, and Desktop/IDE acceptance remains deferred. Install the whole marketplace package; no interpreter or build step is required.
 
-#### Test release
+#### Production release
 
-Install the test build from `release/test` for prerelease validation.
+Install the released plugin from the default `main` branch. No branch selector is required.
 
 ```bash
-claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git#release/test --scope user
+claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --scope user
 claude plugin install fotor@fotor-ai --scope user
 ```
 
-Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.6.1-test.2**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
+Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.6.1**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
 
 ### Claude Code connection
 
