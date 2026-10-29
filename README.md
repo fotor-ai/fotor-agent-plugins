@@ -7,7 +7,7 @@
 <p align="center">Create images and videos with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.6.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.6.1" />
+  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.7.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.7.0" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" alt="production channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -19,12 +19,14 @@
   <a href="#grok-bot-installation-and-authorization"><img src="https://img.shields.io/static/v1?label=&amp;message=Grok+Bot&amp;color=24292f&amp;style=flat-square" alt="Grok Bot" /></a>
   <a href="#pi"><img src="https://img.shields.io/static/v1?label=&amp;message=Pi&amp;color=24292f&amp;style=flat-square" alt="Pi" /></a>
   <a href="#dsh"><img src="https://img.shields.io/static/v1?label=&amp;message=DeepSeek+Harness&amp;color=24292f&amp;style=flat-square" alt="DeepSeek Harness" /></a>
+  <a href="#kimi"><img src="https://img.shields.io/static/v1?label=&amp;message=Kimi+Code+CLI&amp;color=24292f&amp;style=flat-square" alt="Kimi Code CLI" /></a>
+  <a href="#kimi"><img src="https://img.shields.io/static/v1?label=&amp;message=Kimi+Code+Desktop&amp;color=24292f&amp;style=flat-square" alt="Kimi Code Desktop" /></a>
 </p>
 
 <p align="center">
   <a href="#supported-agents">Agents</a> ·
   <a href="#features">Features</a> ·
-  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> · <a href="#dsh">DeepSeek Harness setup</a> ·
+  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> · <a href="#dsh">DeepSeek Harness setup</a> · <a href="#kimi">Kimi Code setup</a> ·
   <a href="#documentation">Documentation</a>
 </p>
 
@@ -38,12 +40,25 @@
 | **Grok Bot** | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
 | **Pi** | Included | [Install and connect](#pi) |
 | **DeepSeek Harness** | Separate repository; managed bridge | [Install and connect](#dsh) |
+| **Kimi Code CLI** | Separate repository; native MCP | [Install and connect](#kimi) |
+| **Kimi Code Desktop** | Same Kimi package | [Install and connect](#kimi) |
 
 This snapshot includes Codex and Claude Code and Cursor and Pi. Installation and live-service acceptance are separate checks; see the verification scope below.
 
 Both release channels connect to Fotor's production service and website. The test channel previews plugin changes; it uses your production account and credits.
 
 Each skill includes its own four runtime reference documents. Platform installation, MCP registration and any external bridge setup remain separate prerequisites.
+
+## Collection versions
+
+Collection **0.7.0** records the following independently versioned packages. The collection installation branch and each package's own release channel are separate; an unchanged stable package can be included in a test collection.
+
+| Platform | Package version | Package channel |
+| --- | --- | --- |
+| Codex | 0.6.1 | production |
+| Claude Code | 0.6.1 | production |
+| Cursor | 0.6.1 | production |
+| Pi | 0.6.1 | production |
 
 ## Features
 
@@ -461,6 +476,37 @@ Retain exactly one `@fotor-ai/dsh-fotor-plugin` source and one component pair. F
 Uninstall retains external credentials and does not revoke server consent. Same-profile reinstall can reuse accepted authorization, while a changed profile or rejected cache may require consent. Confirm the new connection through actual discovery and a read-only query.
 
 
+DeepSeek Harness is independently versioned; this collection does not advance either of its release channels.
+
+<a id="kimi"></a>
+
+## Kimi Code CLI and Desktop
+
+Kimi uses the independent [fotor-ai/kimi-fotor-plugin](https://github.com/fotor-ai/kimi-fotor-plugin) repository.
+This multi-platform snapshot contains no Kimi package or root Kimi manifest.
+Install only after the independent channel exists and contains its native root
+manifest; this collection does not publish or advance that channel.
+
+In a native CLI session, use the published production source:
+
+```text
+/plugins install https://github.com/fotor-ai/kimi-fotor-plugin
+```
+
+For an explicitly published test branch, use:
+
+```text
+/plugins install https://github.com/fotor-ai/kimi-fotor-plugin/tree/release/test
+```
+
+Desktop's Settings → Plugins → Add plugin accepts the same sources. Review native
+trust/enable controls and keep one Fotor installation. A bare source follows the
+latest GitHub Release, with default-branch fallback only when none exists; explicit
+Tags/commits do not follow updates. Native authorization, model login and website
+cookies are separate. See the independent [installation and risk guide](https://github.com/fotor-ai/kimi-fotor-plugin#readme)
+for client-specific browser routes, credentials and actual acceptance scope.
+
+
 ## Documentation
 
 - [Codex plugin guide](plugins/codex/fotor/README.md)
@@ -468,6 +514,7 @@ Uninstall retains external credentials and does not revoke server consent. Same-
 - [Cursor plugin guide](plugins/cursor/fotor/README.md)
 - [Pi plugin guide](plugins/pi/fotor/README.md)
 - [DeepSeek Harness installation guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md) (separate repository)
+- [Kimi Code plugin guide](https://github.com/fotor-ai/kimi-fotor-plugin#readme) (separate repository; verify publication)
 
 ### Verification scope
 
