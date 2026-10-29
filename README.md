@@ -19,46 +19,35 @@
   <a href="#grok-bot-installation-and-authorization"><img src="https://img.shields.io/static/v1?label=&amp;message=Grok+Bot&amp;color=24292f&amp;style=flat-square" alt="Grok Bot" /></a>
   <a href="#pi"><img src="https://img.shields.io/static/v1?label=&amp;message=Pi&amp;color=24292f&amp;style=flat-square" alt="Pi" /></a>
   <a href="#dsh"><img src="https://img.shields.io/static/v1?label=&amp;message=DeepSeek+Harness&amp;color=24292f&amp;style=flat-square" alt="DeepSeek Harness" /></a>
-  <a href="#kimi"><img src="https://img.shields.io/static/v1?label=&amp;message=Kimi+Code+CLI&amp;color=24292f&amp;style=flat-square" alt="Kimi Code CLI" /></a>
-  <a href="#kimi"><img src="https://img.shields.io/static/v1?label=&amp;message=Kimi+Code+Desktop&amp;color=24292f&amp;style=flat-square" alt="Kimi Code Desktop" /></a>
+  <a href="#kimi"><img src="https://img.shields.io/static/v1?label=&amp;message=Kimi+Code+Desktop+%2F+CLI&amp;color=24292f&amp;style=flat-square" alt="Kimi Code Desktop / CLI" /></a>
 </p>
 
 <p align="center">
   <a href="#supported-agents">Agents</a> ·
   <a href="#features">Features</a> ·
-  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> · <a href="#dsh">DeepSeek Harness setup</a> · <a href="#kimi">Kimi Code setup</a> ·
+  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> · <a href="#dsh">DeepSeek Harness setup</a> · <a href="#kimi">Kimi Code Desktop / CLI setup</a> ·
   <a href="#documentation">Documentation</a>
 </p>
 
 ## Supported Agents
 
-| Agent | Status | Getting started |
-| --- | --- | --- |
-| **Codex** | Included | [Install and connect](#codex) |
-| **Claude Code** | Included | [Install and connect](#claude-code) |
-| **Cursor** | Included | [Install and connect](#cursor) |
-| **Grok Bot** | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
-| **Pi** | Included | [Install and connect](#pi) |
-| **DeepSeek Harness** | Separate repository; managed bridge | [Install and connect](#dsh) |
-| **Kimi Code CLI** | Separate repository; native MCP | [Install and connect](#kimi) |
-| **Kimi Code Desktop** | Same Kimi package | [Install and connect](#kimi) |
+| Agent | Plugin Version | Status | Getting started |
+| --- | --- | --- | --- |
+| **Codex** | 0.6.1 | Included | [Install and connect](#codex) |
+| **Claude Code** | 0.6.1 | Included | [Install and connect](#claude-code) |
+| **Cursor** | 0.6.1 | Included | [Install and connect](#cursor) |
+| **Grok Bot** | 0.6.1 | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
+| **Pi** | 0.6.1 | Included | [Install and connect](#pi) |
+| **DeepSeek Harness** | 0.6.1 | Separate repository | [Install and connect](#dsh) |
+| **Kimi Code Desktop / CLI** | 0.7.0 | Separate repository | [Install and connect](#kimi) |
+
+Versions are Fotor package baselines verified for this publication, not agent versions. Separate repositories may publish newer versions; the collection channel does not change each package's own version or channel.
 
 This snapshot includes Codex and Claude Code and Cursor and Pi. Installation and live-service acceptance are separate checks; see the verification scope below.
 
 Both release channels connect to Fotor's production service and website. The test channel previews plugin changes; it uses your production account and credits.
 
 Each skill includes its own four runtime reference documents. Platform installation, MCP registration and any external bridge setup remain separate prerequisites.
-
-## Collection versions
-
-Collection **0.7.0** records the following independently versioned packages. The collection installation branch and each package's own release channel are separate; an unchanged stable package can be included in a test collection.
-
-| Platform | Package version | Package channel |
-| --- | --- | --- |
-| Codex | 0.6.1 | production |
-| Claude Code | 0.6.1 | production |
-| Cursor | 0.6.1 | production |
-| Pi | 0.6.1 | production |
 
 ## Features
 
@@ -480,7 +469,7 @@ DeepSeek Harness is independently versioned; this collection does not advance ei
 
 <a id="kimi"></a>
 
-## Kimi Code CLI and Desktop
+## Kimi Code Desktop / CLI
 
 Kimi uses the independent [fotor-ai/kimi-fotor-plugin](https://github.com/fotor-ai/kimi-fotor-plugin) repository.
 This multi-platform snapshot contains no Kimi package or root Kimi manifest.
@@ -514,7 +503,7 @@ for client-specific browser routes, credentials and actual acceptance scope.
 - [Cursor plugin guide](plugins/cursor/fotor/README.md)
 - [Pi plugin guide](plugins/pi/fotor/README.md)
 - [DeepSeek Harness installation guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md) (separate repository)
-- [Kimi Code plugin guide](https://github.com/fotor-ai/kimi-fotor-plugin#readme) (separate repository; verify publication)
+- [Kimi Code Desktop / CLI plugin guide](https://github.com/fotor-ai/kimi-fotor-plugin#readme) (separate repository; verify publication)
 
 ### Verification scope
 
