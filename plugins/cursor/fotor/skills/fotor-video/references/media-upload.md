@@ -1,6 +1,6 @@
 # Fotor Media Upload
 
-Read this workflow for standalone uploads and when an image or video task needs local references. Use already accessible HTTPS references directly for creation; upload only the specific local files or client-accessible attachments needed by the user's request. An attachment label without readable bytes is not an uploadable file.
+Read this workflow for standalone uploads and when an image, video or audio task needs local references. Use already accessible HTTPS references directly for creation; upload only the specific local files or client-accessible attachments needed by the user's request. An attachment label without readable bytes is not an uploadable file.
 
 ## Prepare the input
 
@@ -29,6 +29,6 @@ If the file changes after signing, recalculate its metadata and request a new li
 
 Process multiple files one at a time, preserving input order and the association between each file and its successful URL. Report name, media type, exact byte size, and `file_url` for successes; report a concise reason for each failure without exposing signatures. A partial batch is not an all-success result. If a creation task needs a failed input, resolve it before submission rather than silently omitting it.
 
-For standalone uploads, deliver those results and finish. For requested creation, use the uploaded URLs in the appropriate reference fields or image-processing `image_url`, keeping the same environment. File acceptance by storage does not establish model compatibility or media-task success.
+For standalone uploads, deliver those results and finish. For requested creation, use the uploaded URLs in the appropriate reference fields or the selected audio operation’s source URL or image-processing `image_url`, keeping the same environment. File acceptance by storage does not establish model compatibility or media-task success.
 
 `expires_in` describes the maximum upload-address lifetime; temporary signing credentials may expire earlier. It does not describe file retention. Signature expiry does not delete an uploaded file, and `file_url` is not a presigned download URL. Do not promise permanent storage, a deletion time, or long-term URL availability unless the service provides that information.

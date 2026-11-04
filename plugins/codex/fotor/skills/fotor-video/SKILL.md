@@ -25,7 +25,7 @@ Preserve the user's subject, action, camera motion, and source constraints. Obta
 - Use supported native resolutions, aspect ratios, and duration values. `duration=0` selects the model's default duration; explain an unsupported explicit request before changing it.
 - Supply a concrete supported `aspect_ratio` for first-frame and first/last-frame tools. Honor the model's `explicit_aspect_ratio_modes`; multimodal inputs containing images but no videos also require checking this rule.
 - For multimodal mode, supply at least one reference and check `reference_types`. An empty list means multimodal reference video is unsupported. Preserve reference order and send accessible HTTPS URLs. Construct the prompt with the [reference markers](#reference-markers-in-video-prompts) below.
-- `audio_urls` provides reference audio; `audio_enable` independently requests generated output audio. Enable output audio only when `native_audio` confirms support. Reference audio does not imply output audio support.
+- `audio_urls` provides reference audio; `audio_enable` independently requests generated output audio. Enable output audio only when `native_audio` confirms support. Reference audio does not imply output audio support. Use fotor-audio when the deliverable is independent soundtrack music, speech or separated audio stems.
 - Use at most eight audio references and honor any smaller `max_audio_references` value. When `audio_requires_visual_reference` is true, audio must accompany an image or video.
 - Encode literal commas within both `audio_urls` and `video_urls` entries as `%2C`, preserving existing escapes and the order of each reference array. Do not double-encode an existing `%2C` or treat URL commas as reference separators.
 

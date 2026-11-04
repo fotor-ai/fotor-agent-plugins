@@ -21,7 +21,7 @@ Use the runtime routing, authentication, and website flow below. Keep credential
 | Connect to Fotor, connect to the Fotor website, or connect and open Fotor | Authenticate MCP, then follow the website flow below |
 | Connect to Fotor MCP or check MCP connectivity without a website request; explicitly keep the website closed | Perform the requested MCP check; omit the website handoff |
 | Introduce features or query models | Answer from current tool descriptions or model queries; omit website navigation unless also requested |
-| Credit-account questions or reported limits | Follow the [credits workflow](credits.md); ordinary connection does not query balance |
+| The user asks for their own Fotor credit balance | Follow the [credits workflow](credits.md); ordinary connection does not query balance |
 
 Equivalent wording in other languages follows the same routing. Uploads, image processing, and media generation alone do not request website access. Ordinary website connection requests authorize the final visible navigation; they do not authorize media submissions.
 
@@ -67,7 +67,7 @@ This budget covers automatic MCP connection recovery, not website navigation, cr
 
 ### Connect to the website
 
-1. Complete MCP authentication and authenticated tool discovery, using [bounded connection recovery](#bounded-connection-recovery) for eligible failures. When available, require a successful `list_models` read-only check without dumping its catalog before requesting a website link. Determine browser availability before creating the short-lived link, following the browser route in the packaged [authentication guidance](authentication.md). Otherwise prepare the manual fallback. Only a successful discovery that omits `get_website_url` establishes a missing website capability; an unavailable chat tool surface or failed discovery does not establish the service version. Report MCP and website outcomes separately, without substituting a top-up link or claiming ordinary page access as automatic login.
+1. Complete MCP authentication and authenticated tool discovery, using [bounded connection recovery](#bounded-connection-recovery) for eligible failures. When available, require a successful `list_models` read-only check without dumping its catalog before requesting a website link. Determine browser availability before creating the short-lived link, following the browser route in the packaged [authentication guidance](authentication.md). Otherwise prepare the manual fallback. Only a successful discovery that omits `get_website_url` establishes a missing website capability; an unavailable chat tool surface or failed discovery does not establish the service version. Report MCP and website outcomes separately, without claiming an ordinary page visit established automatic login.
 2. Call `get_website_url` without arguments. Its public response contains `handoff_url` and integer `expires_in` from 0 to 600; it does not expose `target_url`. Require a usable link and remaining lifetime greater than zero. A zero lifetime is already expired: use the bounded replacement rule below. Missing, malformed, or out-of-range fields are a handoff failure. The server configures and validates the destination; before navigation, the plugin can check only the handoff endpoint against the [connection table](#connection), not the hidden target. Never decode the ticket, rewrite its URL, or change environments to recover a mismatch.
 3. Follow [one-time browser links](#one-time-browser-links) for the returned `handoff_url`, using the actual remaining lifetime. This final visible navigation is the requested website visit and consumes the ticket.
 4. Inspect the resulting page in that same browser session. Compare its HTTPS origin with the selected website in the connection table and verify authenticated state before reporting the website connected. A valid handoff endpoint alone does not prove the hidden redirect target is correct. On a different environment or unexpected origin, stop further interaction and report the mismatch; do not follow it as a fallback. A link, a generic page, or a login/error screen is insufficient. If state is unclear, ask the user to confirm it. Website failure does not justify resetting working MCP credentials.
@@ -75,7 +75,7 @@ This budget covers automatic MCP connection recovery, not website navigation, cr
 
 ### One-time browser links
 
-Apply this section only to `get_website_url.handoff_url`. This plugin's selected website connection flow uses one final visible navigation in the browser specified by the packaged [authentication guidance](authentication.md). The service description instead prescribes a user-clicked link to prevent early consumption; the plugin's selected browser action is the intended final visit, never a pre-opening check. Honor an explicit user preference for manual delivery and any host restriction; use the manual fallback when direct navigation is unavailable. Handle other returned account links only under the packaged [credit-link policy](credits.md#validate-and-deliver-pricing-links).
+Apply this section only to `get_website_url.handoff_url`. This plugin's selected website connection flow uses one final visible navigation in the browser specified by the packaged [authentication guidance](authentication.md). The service description instead prescribes a user-clicked link to prevent early consumption; the plugin's selected browser action is the intended final visit, never a pre-opening check. Honor an explicit user preference for manual delivery and any host restriction; use the manual fallback when direct navigation is unavailable.
 
 - Parse the returned URL before use. It must have the exact HTTPS origin and path of the selected environment's [login handoff endpoint](#connection), no username/password or fragment, and one nonempty `code` query parameter only. Check URL components rather than hostname substrings. Reject an unknown environment or mismatch without fetching the address, rewriting the host, or switching services.
 - Immediately navigate once in the selected visible host browser. Do not first fetch, preview, probe, or open the ticket in a hidden tab. After navigation, treat it as consumed and never offer it as a reusable login link.
@@ -97,13 +97,20 @@ Inspect the connected service's actual tool descriptions and input schemas. The 
 | `submit_first_frame_video_task` | Animate `image_url` as the first frame; a successful call may consume Fotor credits |
 | `submit_first_last_frame_video_task` | Use ordered `start_image_url` and `end_image_url`; a successful call may consume Fotor credits |
 | `submit_multimodal_video_task` | Use supported image, video, and/or audio references; a successful call may consume Fotor credits |
-| `get_task` | Query an existing image-processing, image-generation, or video task by `task_id` |
+| `submit_soundtrack_task` | Compose a separate MP3 from exactly one source image or video |
+| `submit_audio_track_task` | Generate a new track from reference audio |
+| `submit_song_edit_task` | Extend, remix or edit a section of a song |
+| `submit_speech_task` | Generate speech or a scripted podcast with built-in voices |
+| `submit_audio_separation_task` | Separate existing vocals and accompaniment into a ZIP |
+| `get_task` | Look up one known image, video or audio task using existing credentials |
 | `get_website_url` | Obtain an environment-bound, one-time website login link for the verified MCP user |
-| `get_credits` | Query available balance; apply the packaged [credits workflow](credits.md) to any other returned fields |
+| `get_credits` | Query only the authenticated user's own balance; follow the [balance lookup](credits.md#query-the-selected-account) |
 
 For model-based generation/editing, start with `list_models`, optionally filtering by `media_type` and `mode`. Uploads and fixed image-processing operations use their own tool contracts without model selection. Filters combine with AND; an empty filtered result is not evidence of a failed connection. Then query `list_models` with the chosen `model_id` before submitting. Model IDs, available modes, and catalog sizes can change; an unknown or retired ID requires a new selection, not an invented replacement.
 
-Use the returned resolutions, aspect ratios, qualities, duration values/ranges, reference types, and defaults. Honor an explicit model or output preference; explain an unsupported constraint before changing it. When no preference is given, choose a suitable supported model and use its reported defaults. `duration=0` selects `default_duration`; duration ranges are inclusive integer seconds, while a list permits only its listed values. `explicit_aspect_ratio_modes` requires a concrete supported ratio instead of `auto`; for multimodal references this condition applies when images are supplied without videos.
+For standalone audio, read the selected model’s `operations[]`. Use its tool, selector, required parameters, result format and synchronous behavior. Only soundtrack creation accepts a model ID.
+
+For images and videos, use the returned resolutions, aspect ratios, qualities, duration values/ranges, reference types, and defaults. Honor an explicit model or output preference; explain an unsupported constraint before changing it. When no preference is given, choose a suitable supported model and use its reported defaults. `duration=0` selects `default_duration`; duration ranges are inclusive integer seconds, while a list permits only its listed values. `explicit_aspect_ratio_modes` requires a concrete supported ratio instead of `auto`; for multimodal references this condition applies when images are supplied without videos.
 
 ### Inputs and native capabilities
 
@@ -113,7 +120,7 @@ Use native model resolutions and supported output options for generation. Explic
 
 ### Credit consumption before submission
 
-Every discovered tool whose name matches `submit_*_task` may consume Fotor credits when its call succeeds. This applies to all image and video submissions, including future tools matching that name pattern; discovery and the actual schema still determine whether a tool can be called.
+Every discovered tool whose name matches `submit_*_task` may consume Fotor credits when its call succeeds. This applies to all image, video and audio submissions, including future tools matching that name pattern; discovery and the actual schema still determine whether a tool can be called.
 
 Before submitting, briefly tell the user in their conversation language that the successful call may consume Fotor credits. Continue under an already explicit task request without adding a blanket confirmation step. Preserve the user's budget, requested scope, and host approval requirements. For an explicitly requested sequence, one notice before the first submission may cover every named step; disclose newly added steps or scope changes before submitting them.
 
@@ -121,14 +128,13 @@ Do not apply this notice to model discovery, balance queries, uploads or task po
 
 ### Submission, recovery, and results
 
-For an explicit `insufficient_credits` submission error, follow [insufficient credits during media submission](credits.md#insufficient-credits-during-media-submission). This applies to image generation, fixed image processing, and every video submission mode; it does not make balance queries a prerequisite.
+For an explicit `insufficient_credits` submission error, follow [insufficient credits during media submission](credits.md#insufficient-credits-during-media-submission). This applies to image generation, fixed image processing, and every video and audio submission mode; it does not make balance queries a prerequisite.
 
-1. Submit the requested operation once and retain its returned `task_id`, environment, and selected model or fixed `operation`. A submitted task is not a completed artifact.
-2. Query that task with `get_task`. Each call performs one lookup; the client may repeat queries at reasonable intervals within the active task's execution budget. The tool does not start background polling.
-3. Respect `is_terminal` and the actual status. `processing` does not distinguish queued, running, or upstream-unavailable tasks. Report `unknown` as uncertain. Stop polling when `is_terminal` is true and report the terminal outcome, including failure, timeout, cancellation, or completion. If state fields conflict, report the inconsistency rather than inventing progress.
-4. On completion, deliver the actual `result_url` when present. If it is missing, report completion without an available artifact link. Result URLs may expire. Prefer a host-supported media preview and describe quality only after inspecting the result.
-5. An explicit `submission_uncertain` error or a lost submission response can mean a task was created and charged. Use a known task ID for recovery. Without one, report the uncertain submission and stop; do not automatically resubmit or assume an unprovided idempotency mechanism. On a query error or polling limit, preserve the same ID and report the last observed state.
+1. Submit once. Retain the returned task ID, environment, selected operation and expected output format. Image and video calls normally return an accepted task. Audio may already have completed. Inspect both the MCP error flag and the structured content, including on `isError=true`. Retain any known task ID, safe `failure_reason` and reported credit value.
+2. On completion, deliver the actual `result_url` immediately without polling. Prefer a host-supported preview for playable media. Offer an audio separation ZIP as a download. If the URL is absent, report completion without an available link. Describe quality only after inspecting the artifact.
+3. For an accepted or processing task, query the same ID with `get_task`. Each call performs one lookup. Within the task budget, wait between checks. The query can omit the model and result format, so retain the originating operation. Stop on completion, `failed`, `timed_out` or `cancelled`. Report unknown or conflicting state as uncertain. A safe failure summary may be generic.
+4. A transport timeout, lost response or `submission_uncertain` may follow an accepted, chargeable submission. Recover only by looking up a known ID. Without an ID, report the uncertain outcome and stop. Never automatically resubmit. On a lookup error or polling limit, preserve the ID and last observed state.
 
 `credits_increment` reports the increment returned by that particular submission or query, not a balance or a price quote. Preserve `0` as zero and `null` as unknown. Do not add submission and polling values together as if each observation were a new charge. Report missing or inconsistent values without estimating usage.
 
-Task lookup is scoped to the selected API key's Business. Another Business cannot retrieve its results, and a task ID must not be moved between environments to recover a failure. Key lookup can register a developer or create a missing key, so `get_task` is not a side-effect-free connection probe. Use `list_models` for read-only checks; it reads the model catalog without developer lookup, key creation, or generation requests.
+Task lookup is scoped to the selected API key's Business. Another Business cannot retrieve its results, and a task ID must not be moved between environments to recover a failure. Task lookup uses existing credentials. If none are usable, report `credentials_unavailable`. It creates no developer, key or task and consumes no credits. Use `list_models` for connection checks.

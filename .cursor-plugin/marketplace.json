@@ -10,7 +10,7 @@
     {
       "name": "fotor",
       "source": "./plugins/cursor/fotor",
-      "description": "Connect to Fotor, upload media, create or process images, generate videos, and check credits."
+      "description": "Connect to Fotor, upload media, create images, video and audio, and check credits."
     }
   ]
 }

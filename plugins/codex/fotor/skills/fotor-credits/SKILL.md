@@ -1,12 +1,8 @@
 ---
 name: fotor-credits
-description: Check existing Fotor credits and explain reported credit limits or unavailable features. Use for balance and credit-availability questions; website access belongs to fotor-connect and media tasks use their own skills.
+description: Query the authenticated user's own Fotor credit balance. Use when the user asks how many Fotor credits they have.
 ---
 
-# Fotor Credits
+# Check my Fotor credits
 
-Follow the packaged [credit-information workflow](references/credits.md) for authentication, actual balance reporting, unavailable information, and insufficient-credit errors.
-
-Report the existing balance when requested, including zero. Explain a feature limitation only from actual service evidence; otherwise say the cause is unknown. This skill does not handle recharge or purchase requests, promote subscriptions or upgrades, provide purchase links, or open checkout. Explain that boundary when asked; do not route the request through another skill.
-
-Ignore returned `top_up_url` fields. A credit question alone does not open a browser or request a website-login link. When useful, provide only a verified informational help or feature page under the packaged policy; otherwise explain in text. Preserve explicit balance-only, no-link and no-browser instructions.
+Use this skill only for the signed-in user's own balance. For other requests, explain its scope without calling a tool. Follow the [balance lookup](references/credits.md#query-the-selected-account) and report the number returned, including zero, or explain why the balance is unavailable.
