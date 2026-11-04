@@ -4,10 +4,10 @@
 
 <h1 align="center">Fotor Plugin for Agents</h1>
 
-<p align="center">Create images and videos with Fotor, directly from your AI agent.</p>
+<p align="center">Create images, video and audio with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.7.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.7.0" />
+  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.8.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.8.0" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" alt="production channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -33,13 +33,13 @@
 
 | Agent | Plugin Version | Status | Getting started |
 | --- | --- | --- | --- |
-| **Codex** | 0.6.1 | Included | [Install and connect](#codex) |
-| **Claude Code** | 0.6.1 | Included | [Install and connect](#claude-code) |
-| **Cursor** | 0.6.1 | Included | [Install and connect](#cursor) |
-| **Grok Bot** | 0.6.1 | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
-| **Pi** | 0.6.1 | Included | [Install and connect](#pi) |
-| **DeepSeek Harness** | 0.6.1 | Separate repository | [Install and connect](#dsh) |
-| **Kimi Code Desktop / CLI** | 0.7.0 | Separate repository | [Install and connect](#kimi) |
+| **Codex** | 0.8.0 | Included | [Install and connect](#codex) |
+| **Claude Code** | 0.8.0 | Included | [Install and connect](#claude-code) |
+| **Cursor** | 0.8.0 | Included | [Install and connect](#cursor) |
+| **Grok Bot** | 0.8.0 | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
+| **Pi** | 0.8.0 | Included | [Install and connect](#pi) |
+| **DeepSeek Harness** | 0.8.0 | Separate repository | [Install and connect](#dsh) |
+| **Kimi Code Desktop / CLI** | 0.8.0 | Separate repository | [Install and connect](#kimi) |
 
 Versions are Fotor package baselines verified for this publication, not agent versions. Separate repositories may publish newer versions; the collection channel does not change each package's own version or channel.
 
@@ -55,10 +55,11 @@ Each skill includes its own four runtime reference documents. Platform installat
 | --- | --- |
 | **Images** | Generate images or edit them with prompts and references. |
 | **Videos** | Generate from text, frames, or supported media references. |
+| **Audio** | Compose independent soundtracks, generate tracks, edit songs, synthesize speech and podcasts, or separate vocals and accompaniment. |
 | **Media uploads** | Upload local images, videos, and audio for reuse. |
 | **Image processing** | Upscale images and remove backgrounds. |
 | **Website connection** | Open Fotor with your authorized MCP identity. |
-| **Credits** | Check existing credits and understand reported limits under the platform's credit policy. |
+| **Credits** | Query your own Fotor credit balance. |
 | **Task results** | Check submitted tasks and retrieve available results. |
 
 Available models, parameters, and operations come from the connected Fotor service.
@@ -86,7 +87,7 @@ codex plugin add fotor@fotor-ai
    codex plugin list --marketplace fotor-ai --json
    ```
 
-2. Confirm version **0.6.1**, release channel **production**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
+2. Confirm version **0.8.0**, release channel **production**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
 3. Open a new Codex task and ask:
 
    ```text
@@ -189,7 +190,7 @@ claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.gi
 claude plugin install fotor@fotor-ai --scope user
 ```
 
-Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.6.1**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
+Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.8.0**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
 
 ### Claude Code connection
 
@@ -298,12 +299,12 @@ For CLI local loading, start a new native session:
 agent --plugin-dir /absolute/path/to/fotor
 ```
 
-Verify version **0.6.1**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
+Verify version **0.8.0**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
 
 ### Grok Bot installation and authorization
 
 1. Install Fotor from the `fotor-ai` marketplace in Cursor using the selected Git source above. A marketplace registration alone does not install the plugin. Use an account-level installation; local IDE folders and CLI `--plugin-dir` loads do not establish account sharing.
-2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.6.1** and source when the host exposes them; account sharing alone does not verify the loaded files.
+2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.8.0** and source when the host exposes them; account sharing alone does not verify the loaded files.
 3. For a connection that needs authorization, choose the native **Authorize / Authenticate** action and complete login and consent in the external normal browser. Return to Grok Bot; during a chat flow, choose Continue and verify the native connection result. Reuse valid authorization when available.
 4. Confirm **Connected**, inspect available tools, and ask **Check only the Fotor MCP connection.** A successful read-only call verifies access. This request does not open a website or query balance.
 

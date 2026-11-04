@@ -2,12 +2,12 @@
 
 <img src="assets/logo.svg" width="72" alt="Fotor logo" />
 
-Create images and videos, upload media, process images, connect to the website, and check credits with Fotor.
+Create images, video and audio, upload media, process images, connect to the website, and check credits with Fotor.
 
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor@fotor-ai` |
-| Version | `0.6.1` |
+| Version | `0.8.0` |
 | Release channel | `production` |
 | Service environment | `production` |
 | Source | [GitHub](https://github.com/fotor-ai/fotor-agent-plugins) |
@@ -32,7 +32,7 @@ claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.gi
 claude plugin install fotor@fotor-ai --scope user
 ```
 
-Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.6.1**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
+Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.8.0**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
 
 ### Claude Code connection
 
@@ -118,9 +118,9 @@ Use `claude plugin marketplace list --json` to verify the source and branch, the
 - [Connection, model selection, and tasks](skills/fotor-connect/references/mcp-integration.md)
 - [Claude Code native authentication](skills/fotor-connect/references/authentication.md)
 - [Media uploads](skills/fotor-connect/references/media-upload.md)
-- [Credit balance and pricing links](skills/fotor-connect/references/credits.md)
+- [Your own Fotor credit balance](skills/fotor-connect/references/credits.md)
 
-The service's current schemas determine supported models and parameters. Upload success, task submission, and completed results are separate states. Ordinary balance queries do not open a browser. Payment stays under the user's control.
+The service's current schemas determine supported models and parameters. Upload success, task submission, and completed results are separate states. Ordinary balance queries do not open a browser.
 
 ## Verification scope
 
@@ -129,5 +129,7 @@ Package checks cover files, references, and configuration. Verify installation, 
 This package is self-contained. Skills remain instructions and non-executable resources; their names and counts may evolve.
 
 ## Skill-local references
+
+Audio workflows cover soundtrack composition, new tracks, song editing, speech, podcasts and vocal separation. Consult the installed audio skill when available.
 
 Every packaged skill carries four generated documents in its own `references/` directory, including this platform's authentication guide. Read them as needed; complete runtime documentation does not install or configure MCP.

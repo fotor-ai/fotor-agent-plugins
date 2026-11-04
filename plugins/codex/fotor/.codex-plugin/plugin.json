@@ -1,7 +1,7 @@
 {
   "name": "fotor",
-  "version": "0.6.1",
-  "description": "Connect to Fotor's production MCP service.",
+  "version": "0.8.0",
+  "description": "Connect to the Fotor MCP service to create images, video and audio.",
   "author": {
     "name": "Fotor",
     "url": "https://fotor.com"
@@ -13,14 +13,15 @@
     "fotor",
     "image",
     "video",
+    "audio",
     "generation",
     "editing"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Fotor",
-    "shortDescription": "Create & enhance visual media",
-    "longDescription": "Connect to Fotor's production MCP service to discover supported image and video capabilities, upload media, generate and edit images, upscale images, remove backgrounds, and generate videos from supported references. Available models and options are provided by the connected service.",
+    "shortDescription": "Create images, video and audio",
+    "longDescription": "Connect to Fotor's production MCP service to discover supported image, video and audio capabilities, upload media, generate and edit images, upscale images, remove backgrounds, and generate videos, compose music, synthesize speech and separate stems. Available models and options are provided by the connected service.",
     "developerName": "Fotor",
     "category": "Creativity",
     "capabilities": [
@@ -28,7 +29,8 @@
       "Edit images",
       "Remove backgrounds",
       "Upscale images",
-      "Generate videos"
+      "Generate videos",
+      "Create audio"
     ],
     "websiteURL": "https://www.fotor.com",
     "supportURL": "https://support.fotor.com/hc/en-us",

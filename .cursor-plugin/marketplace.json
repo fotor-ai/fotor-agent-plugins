@@ -4,13 +4,13 @@
     "name": "Fotor"
   },
   "metadata": {
-    "description": "Fotor media workflows, website connection, and credits for Cursor IDE, Cursor CLI, and Grok Bot."
+    "description": "Create images, video and audio with Fotor."
   },
   "plugins": [
     {
       "name": "fotor",
       "source": "./plugins/cursor/fotor",
-      "description": "Connect to Fotor, upload media, create or process images, generate videos, and check credits."
+      "description": "Create images, video and audio with Fotor."
     }
   ]
 }

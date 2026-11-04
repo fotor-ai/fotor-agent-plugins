@@ -1,6 +1,6 @@
 ---
 name: fotor-connect
-description: Connect to the Fotor website, check only its MCP connection, introduce its features, or query models and parameters. Use for Fotor connection, website access, and capability requests; media creation/processing belongs to fotor-image or fotor-video and standalone uploads belong to fotor-upload and credit-account questions belong to fotor-credits.
+description: Connect to the Fotor website, check only its MCP connection, introduce its features, or query models and parameters. Use for Fotor connection, website access, and capability requests; media creation/processing belongs to fotor-image, fotor-video or fotor-audio and standalone uploads belong to fotor-upload and requests for the user's own credit balance belong to fotor-credits.
 ---
 
 # Fotor Connection and Features
@@ -23,6 +23,6 @@ These intent rules also apply to equivalent wording in other languages. An expli
 
 ## Explain features and models
 
-For the starter prompt, "Connect to Fotor and introduce its main features.", complete the website connection flow and give a brief feature overview: local image/video/audio uploads, image generation/editing, standalone image upscaling and background removal, video generation from supported inputs, querying submitted tasks, and credit balance checks under the packaged credit policy, limited to tools actually available. Mentioning credits does not call `get_credits`. Report MCP and website outcomes separately if either is incomplete. Describe supported capabilities without claiming successful media execution.
+For the starter prompt, "Connect to Fotor and introduce its main features.", complete the website connection flow and give a brief feature overview: local image/video/audio uploads, image generation/editing, standalone image upscaling and background removal, video generation from supported inputs, soundtrack and track creation, song editing, speech/podcasts, vocal separation, querying submitted tasks, and checking the authenticated user's own credit balance, limited to tools actually available. Mentioning credits does not call `get_credits`. Report MCP and website outcomes separately if either is incomplete. Describe supported capabilities without claiming successful media execution.
 
 For a model question, use `media_type` and `mode` filters, then query the selected `model_id` for supported parameters and defaults. Show model lists when requested; an internal connection probe does not require displaying its catalog. An empty filtered catalog means no matching models, not a failed connection.

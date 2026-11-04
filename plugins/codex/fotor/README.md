@@ -2,12 +2,12 @@
 
 <img src="assets/logo.svg" width="72" alt="Fotor logo" />
 
-Create images and videos, upload media, and process images with Fotor in Codex.
+Create images, video and audio, upload media, and process images with Fotor in Codex.
 
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor@fotor-ai` |
-| Version | `0.6.1` |
+| Version | `0.8.0` |
 | Release channel | `production` |
 | Service environment | `production` |
 | Publisher | Fotor |
@@ -118,11 +118,11 @@ Verify the destination version and production MCP configuration before signing i
 | Diagnose native authorization, permissions, or the website browser | [Codex authentication](skills/fotor-connect/references/authentication.md) |
 | Connect, discover models, generate media, or check a submitted task | [MCP integration](skills/fotor-connect/references/mcp-integration.md) |
 | Upload local media or prepare references for creation | [Media upload workflow](skills/fotor-connect/references/media-upload.md) |
-| Check existing credits and reported limits | [Credit information](skills/fotor-connect/references/credits.md) |
+| Check your own credit balance | [Credit information](skills/fotor-connect/references/credits.md) |
 
 The service's current schemas determine available models, input types, and parameters. Model-based generation uses model discovery; uploads, dedicated image upscaling, and background removal use their own contracts. A standalone upload ends after confirmed transfer. Creation continues only with usable inputs and the operation requested by the user.
 
-Credit queries are independent of ordinary connection and generation. The [Codex credit policy](skills/fotor-connect/references/credits.md) reports existing balance and known limitations without recharge, purchase, subscription, upgrade or checkout guidance. Returned `top_up_url` fields are not displayed or opened. Verified informational help pages may be provided when needed; ordinary website connection remains separate. Before any `submit_*_task` call, the skill explains that success may consume Fotor credits, then proceeds under an already explicit task request and host permissions.
+Use the [balance lookup](skills/fotor-connect/references/credits.md) only for your own Fotor credit balance. Before any `submit_*_task` call, the skill explains that success may consume Fotor credits, then proceeds under an already explicit task request and host permissions.
 
 ## Verification scope
 
@@ -131,5 +131,7 @@ Package checks cover files, references, and configuration. Verify installation, 
 The package is self-contained: its manifest, MCP declaration, license, skills, assets, and references remain usable when installed independently. Skill names and counts may evolve.
 
 ## Skill-local references
+
+Audio workflows cover soundtrack composition, new tracks, song editing, speech, podcasts and vocal separation. Consult the installed audio skill when available.
 
 Every packaged skill carries four generated documents in its own `references/` directory, including this platform's authentication guide. Read them as needed; complete runtime documentation does not install or configure MCP.
