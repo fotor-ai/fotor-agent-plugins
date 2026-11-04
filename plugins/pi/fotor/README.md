@@ -2,13 +2,13 @@
 
 <img src="assets/logo.svg" width="72" alt="Fotor logo" />
 
-Create images and videos with Fotor through Pi's native MCP tools and shared skills.
+Create images, video and audio with Fotor through Pi's native MCP tools and shared skills.
 
 | Field | Value |
 | --- | --- |
 | Package | `fotor` |
-| Version | `0.6.1` |
-| Release channel | `production` |
+| Version | `0.8.0-test.1` |
+| Release channel | `test` |
 | Service environment | `production` |
 | MCP endpoint | `https://mcp.fotor.com/mcp` |
 | Initial host baseline | Pi CLI 1.3.0 |
@@ -24,12 +24,12 @@ This instruction-only Package contains no Extension or lifecycle script. Install
 
 ### Pi installation
 
-#### Production release
+#### Test release
 
-Install the released plugin from the default `main` branch. No branch selector is required. First verify that the selected revision contains the Pi package and root Pi manifest. Installation loads skills only; register the Fotor MCP separately.
+Install the test build from `release/test` for prerelease validation. First verify that the selected revision contains the Pi package and root Pi manifest. Installation loads skills only; register the Fotor MCP separately.
 
 ```bash
-pi install https://github.com/fotor-ai/fotor-agent-plugins
+pi install https://github.com/fotor-ai/fotor-agent-plugins@release/test
 pi list
 ```
 
@@ -83,7 +83,7 @@ pi list
 
 ## Workflows
 
-Start with [connection and model discovery](skills/fotor-connect/references/mcp-integration.md#runtime-workflow), then follow the skill matching the request. Use [media preparation](skills/fotor-connect/references/media-upload.md) for local references and [credits](skills/fotor-connect/references/credits.md) for balance/pricing requests. Runtime guidance and assets remain inside this independent package.
+Start with [connection and model discovery](skills/fotor-connect/references/mcp-integration.md#runtime-workflow), then follow the skill matching the request. Use [media preparation](skills/fotor-connect/references/media-upload.md) for local references and [credits](skills/fotor-connect/references/credits.md) to query your own Fotor credit balance. Runtime guidance and assets remain inside this independent package.
 
 ## Package contents
 
@@ -98,5 +98,7 @@ Start with [connection and model discovery](skills/fotor-connect/references/mcp-
 [Apache-2.0](LICENSE)
 
 ## Skill-local references
+
+Audio workflows cover soundtrack composition, new tracks, song editing, speech, podcasts and vocal separation. Consult the installed audio skill when available.
 
 Every packaged skill carries four generated documents in its own `references/` directory, including this platform's authentication guide. Read them as needed; complete runtime documentation does not install or configure MCP.

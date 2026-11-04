@@ -2,15 +2,15 @@
 
 <img src="assets/logo.svg" width="72" alt="Fotor logo" />
 
-Create images and videos, upload media, process images, connect to the website, and check credits with Fotor in Cursor IDE, Cursor CLI, and Grok Bot.
+Create images, video and audio, upload media, process images, connect to the website, and check credits with Fotor in Cursor IDE, Cursor CLI, and Grok Bot.
 
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor` |
 | Marketplace | `fotor-ai` |
 | Hosts | Cursor IDE / CLI; Grok Bot through the same package |
-| Version | `0.6.1` |
-| Release channel | `production` |
+| Version | `0.8.0-test.1` |
+| Release channel | `test` |
 | Service environment | `production` |
 | Source | [GitHub](https://github.com/fotor-ai/fotor-agent-plugins) |
 | License | [Apache-2.0](LICENSE) |
@@ -23,12 +23,12 @@ Both channels use production accounts and credits. A test suffix identifies a pl
 
 This guide covers Cursor IDE, Cursor CLI, and Grok Bot through the same Cursor package. Use a complete package with `.cursor-plugin/plugin.json`, `mcp.json`, skills, references, and assets. No interpreter or build step is required. Cursor Cloud Agent acceptance is separate.
 
-#### Production release
+#### Test release
 
-First confirm [main](https://github.com/fotor-ai/fotor-agent-plugins/tree/main) contains the Cursor catalog and `plugins/cursor/fotor/` package. Register the selected Git source with the native CLI, then open `/plugin` (`/plugins` on clients that show that alias), select `fotor-ai` and install Fotor. Registration alone does not install the plugin. Both channels use production MCP and accounts.
+First confirm [release/test](https://github.com/fotor-ai/fotor-agent-plugins/tree/release/test) contains the Cursor catalog and `plugins/cursor/fotor/` package. Register the selected Git source with the native CLI, then open `/plugin` (`/plugins` on clients that show that alias), select `fotor-ai` and install Fotor. Registration alone does not install the plugin. Both channels use production MCP and accounts.
 
 ```bash
-agent plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins
+agent plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins --git-ref release/test
 agent plugin marketplace list --format json
 agent
 ```
@@ -45,12 +45,12 @@ For CLI local loading, start a new native session:
 agent --plugin-dir /absolute/path/to/fotor
 ```
 
-Verify version **0.6.1**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
+Verify version **0.8.0-test.1**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
 
 ### Grok Bot installation and authorization
 
 1. Install Fotor from the `fotor-ai` marketplace in Cursor using the selected Git source above. A marketplace registration alone does not install the plugin. Use an account-level installation; local IDE folders and CLI `--plugin-dir` loads do not establish account sharing.
-2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.6.1** and source when the host exposes them; account sharing alone does not verify the loaded files.
+2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.8.0-test.1** and source when the host exposes them; account sharing alone does not verify the loaded files.
 3. For a connection that needs authorization, choose the native **Authorize / Authenticate** action and complete login and consent in the external normal browser. Return to Grok Bot; during a chat flow, choose Continue and verify the native connection result. Reuse valid authorization when available.
 4. Confirm **Connected**, inspect available tools, and ask **Check only the Fotor MCP connection.** A successful read-only call verifies access. This request does not open a website or query balance.
 
@@ -123,9 +123,9 @@ agent
 - [Connection, model selection, and tasks](skills/fotor-connect/references/mcp-integration.md)
 - [Cursor and Grok Bot native authentication](skills/fotor-connect/references/authentication.md)
 - [Media uploads](skills/fotor-connect/references/media-upload.md)
-- [Credit balance and pricing links](skills/fotor-connect/references/credits.md)
+- [Your own Fotor credit balance](skills/fotor-connect/references/credits.md)
 
-The service's current schemas determine supported models and parameters. Upload success, task submission, and completed results are separate states. Ordinary balance queries do not open a browser. Payment stays under the user's control.
+The service's current schemas determine supported models and parameters. Upload success, task submission, and completed results are separate states. Ordinary balance queries do not open a browser.
 
 ## Verification scope
 
@@ -134,5 +134,7 @@ Package checks cover files, references, and configuration. Verify installation, 
 This package is self-contained and script-free. Local loading and local replacement do not establish marketplace listing or cached updates. Skills and their names may evolve.
 
 ## Skill-local references
+
+Audio workflows cover soundtrack composition, new tracks, song editing, speech, podcasts and vocal separation. Consult the installed audio skill when available.
 
 Every packaged skill carries four generated documents in its own `references/` directory, including this platform's authentication guide. Read them as needed; complete runtime documentation does not install or configure MCP.

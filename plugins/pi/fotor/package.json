@@ -1,7 +1,7 @@
 {
   "name": "fotor",
-  "version": "0.6.1",
-  "description": "Connect to Fotor's production MCP service.",
+  "version": "0.8.0-test.1",
+  "description": "Connect to Fotor's production MCP service for images, video, audio and media uploads.",
   "author": {
     "name": "Fotor"
   },
