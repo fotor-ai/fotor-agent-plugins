@@ -7,8 +7,8 @@
     {
       "name": "fotor",
       "source": "./plugins/claude-code/fotor",
-      "description": "Create images, video and audio with Fotor in Claude Code."
+      "description": "Create images, video and audio with Fotor."
     }
   ],
-  "description": "Fotor media creation, image processing, website connection, and credits for Claude Code."
+  "description": "Create images, video and audio with Fotor."
 }
