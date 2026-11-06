@@ -1,7 +1,7 @@
 {
   "name": "fotor",
-  "version": "0.8.0-test.1",
-  "description": "Connect to Fotor, upload media, create images, video and audio, and check credits.",
+  "version": "0.8.0",
+  "description": "Connect to the Fotor MCP service to create images, video and audio.",
   "author": {
     "name": "Fotor",
     "url": "https://fotor.com"

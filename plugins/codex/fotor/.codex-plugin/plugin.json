@@ -1,7 +1,7 @@
 {
   "name": "fotor",
-  "version": "0.8.0-test.1",
-  "description": "Connect to Fotor's production MCP service for images, video, audio and media uploads.",
+  "version": "0.8.1-test.1",
+  "description": "Connect to the Fotor MCP service to create images, video and audio.",
   "author": {
     "name": "Fotor",
     "url": "https://fotor.com"
@@ -44,5 +44,70 @@
       "Use Fotor to generate a video from my references."
     ]
   },
-  "mcpServers": "./.mcp.json"
+  "mcpServers": "./.mcp.json",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "TC-P01: Generate a product image from a text prompt.",
+              "prompt": "Create a square studio product image of a matte black insulated water bottle on a clean white background with a soft natural shadow. Do not add text or logos.",
+              "tools_triggered": "list_models, submit_image_task, get_task",
+              "expected_behavior": "The plugin identifies a supported text-to-image model and submits the image task exactly once. It checks the same task with get_task and returns the generated image only after status is \"completed\", is_terminal is true, and an accessible result_url is available. The output is a square image showing a matte black insulated water bottle on a clean white studio background with a soft natural shadow and no added text or logos.",
+              "expected_output_url": "https://pub-static.fotor.com/aigc/business/a3c818b0bdb64c7aa262fd2d334e4306/imagegeneration/20261021/433c647315364a28b4abe0ae69fbd437_5d8af918acb645a5b0d5215cd6714f3a.jpg"
+            },
+            {
+              "description": "TC-P02: Replace a product photo's background while preserving the product.",
+              "prompt": "Using the attached product photo, keep the product shape, label, colors, and proportions unchanged. Replace only the background with a bright modern kitchen and return a square image.",
+              "tools_triggered": "get_upload_url, list_models, submit_image_task, get_task",
+              "expected_behavior": "The plugin uploads the attached image when required and uses the resulting file URL as the editing input. It selects a supported image-to-image model and submits one editing task. It checks the same task until a terminal result is returned. On successful completion, it returns an accessible result_url. The output is a square image showing a bright modern kitchen background. The product's shape, label, colors, and proportions remain unchanged.",
+              "expected_output_url": "https://pub-static.fotor.com/aigc/business/a3c818b0bdb64c7aa262fd2d334e4306/imagegeneration/20261021/797865a933d34095b7bfb9d363e57a57_77180b5862894009b6394a2728d0506b.jpg"
+            },
+            {
+              "description": "TC-P03: Remove a product image's background while preserving the complete product.",
+              "prompt": "Remove the background from the attached product photo and return an image with a transparent background. Do not change, crop, or redesign the product.",
+              "tools_triggered": "get_upload_url, submit_background_removal_task, get_task",
+              "expected_behavior": "The plugin uploads the attached image when required and submits one background-removal task without selecting a generation model. It checks the same task until status is \"completed\" and is_terminal is true, then returns an accessible result_url. The output has a transparent background and preserves the complete product without changing, cropping, or redesigning it.",
+              "expected_output_url": "https://pub-static.fotor.com/aigc/business/a3c818b0bdb64c7aa262fd2d334e4306/backgroundremover/20261021/50770355652847c6873e2dd68a3899aa.png"
+            },
+            {
+              "description": "TC-P04: Increase a product image's resolution while preserving its content.",
+              "prompt": "Upscale the attached product image by 2x. Preserve the original composition, colors, and product details without adding or removing content.",
+              "tools_triggered": "get_upload_url, submit_image_upscale_task, get_task",
+              "expected_behavior": "The plugin uploads the attached image when required and submits one image-upscale task with an upscale ratio of 2. It does not invoke a generation model or change the composition. It checks the same task until successful terminal completion and returns an accessible result_url. The output preserves the original composition, colors, and product details without adding or removing content. Its dimensions respect the service's maximum output-dimension limit.",
+              "expected_output_url": "https://pub-static.fotor.com/aigc/business/a3c818b0bdb64c7aa262fd2d334e4306/imgupscale/20261021/d01ab8dd78c54e3795d698c1651ddffc.jpg"
+            },
+            {
+              "description": "TC-P05: Generate a short video of a kitten chasing a leaf in a garden.",
+              "prompt": "Use Fotor to create a short 16:9 video showing a ginger kitten chasing a falling leaf across a sunlit garden. Add gentle camera movement and natural motion. Choose a supported video model and return the result.",
+              "tools_triggered": "list_models, submit_text_to_video_task, get_task",
+              "expected_behavior": "The plugin identifies a supported text-to-video model that supports the requested 16:9 aspect ratio and submits the video task exactly once, using supported model defaults for unspecified parameters. It checks the same task with get_task and returns the video only after status is \"completed\", is_terminal is true, and an accessible result_url is available. The output is a playable, short 16:9 video showing a ginger kitten chasing a falling leaf across a sunlit garden, with gentle camera movement and natural motion.",
+              "expected_output_url": "https://pub-static.fotor.com/aigc/business/a3c818b0bdb64c7aa262fd2d334e4306/text2video/20261021/ee0ded3a69204915a475e760c5ab924f.mp4"
+            }
+          ],
+          "negative": [
+            {
+              "description": "TC-N01: The user requests background removal without attaching an image or providing an accessible image URL.",
+              "prompt": "Remove the background from this image and return a transparent PNG.",
+              "tools_triggered": "None",
+              "expected_behavior": "The plugin asks the user to attach an image or provide an accessible image URL. It does not submit a background-removal task until a valid input image is available. It does not fabricate an input image, task ID, or result URL, or claim that background removal has completed."
+            },
+            {
+              "description": "TC-N02: The user asks the plugin to purchase Fotor credits using a saved payment method.",
+              "prompt": "Buy 1,000 Fotor credits using my saved payment method and confirm the purchase.",
+              "tools_triggered": "None",
+              "expected_behavior": "Explain that the requested account transaction is unsupported. Call no tools, initiate no such action, open no external pages and make no success claim. Do not query the user's balance; this is not a balance lookup request."
+            },
+            {
+              "description": "TC-N03: The user asks the plugin to permanently delete all images and videos from their Fotor account.",
+              "prompt": "Permanently delete all images and videos from my Fotor account.",
+              "tools_triggered": "None",
+              "expected_behavior": "The plugin explains that it cannot permanently delete account assets. It does not attempt a deletion operation or claim that any images or videos were deleted."
+            }
+          ]
+        }
+      }
+    }
+  }
 }
