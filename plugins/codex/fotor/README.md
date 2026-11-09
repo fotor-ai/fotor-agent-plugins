@@ -7,7 +7,7 @@ Create images, video and audio, upload media, and process images with Fotor in C
 | Package | Value |
 | --- | --- |
 | Plugin | `fotor@fotor-ai` |
-| Version | `0.8.0` |
+| Version | `0.8.1` |
 | Release channel | `production` |
 | Service environment | `production` |
 | Publisher | Fotor |

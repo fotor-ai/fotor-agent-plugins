@@ -7,7 +7,7 @@
 <p align="center">Create images, video and audio with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.8.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.8.0" />
+  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.9.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.9.0" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" alt="production channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -20,12 +20,13 @@
   <a href="#pi"><img src="https://img.shields.io/static/v1?label=&amp;message=Pi&amp;color=24292f&amp;style=flat-square" alt="Pi" /></a>
   <a href="#dsh"><img src="https://img.shields.io/static/v1?label=&amp;message=DeepSeek+Harness&amp;color=24292f&amp;style=flat-square" alt="DeepSeek Harness" /></a>
   <a href="#kimi"><img src="https://img.shields.io/static/v1?label=&amp;message=Kimi+Code+Desktop+%2F+CLI&amp;color=24292f&amp;style=flat-square" alt="Kimi Code Desktop / CLI" /></a>
+  <a href="#opencode"><img src="https://img.shields.io/static/v1?label=&amp;message=OpenCode+Desktop+%2F+CLI&amp;color=24292f&amp;style=flat-square" alt="OpenCode Desktop / CLI" /></a>
 </p>
 
 <p align="center">
   <a href="#supported-agents">Agents</a> ·
   <a href="#features">Features</a> ·
-  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> · <a href="#dsh">DeepSeek Harness setup</a> · <a href="#kimi">Kimi Code Desktop / CLI setup</a> ·
+  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> · <a href="#dsh">DeepSeek Harness setup</a> · <a href="#kimi">Kimi Code Desktop / CLI setup</a> · <a href="#opencode">OpenCode Desktop / CLI setup</a> ·
   <a href="#documentation">Documentation</a>
 </p>
 
@@ -33,13 +34,14 @@
 
 | Agent | Plugin Version | Status | Getting started |
 | --- | --- | --- | --- |
-| **Codex** | 0.8.0 | Included | [Install and connect](#codex) |
+| **Codex** | 0.8.1 | Included | [Install and connect](#codex) |
 | **Claude Code** | 0.8.0 | Included | [Install and connect](#claude-code) |
 | **Cursor** | 0.8.0 | Included | [Install and connect](#cursor) |
 | **Grok Bot** | 0.8.0 | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
 | **Pi** | 0.8.0 | Included | [Install and connect](#pi) |
 | **DeepSeek Harness** | 0.8.0 | Separate repository | [Install and connect](#dsh) |
 | **Kimi Code Desktop / CLI** | 0.8.0 | Separate repository | [Install and connect](#kimi) |
+| **OpenCode Desktop / CLI** | 0.9.0 | Separate repository | [Install and connect](#opencode) |
 
 Versions are Fotor package baselines verified for this publication, not agent versions. Separate repositories may publish newer versions; the collection channel does not change each package's own version or channel.
 
@@ -87,7 +89,7 @@ codex plugin add fotor@fotor-ai
    codex plugin list --marketplace fotor-ai --json
    ```
 
-2. Confirm version **0.8.0**, release channel **production**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
+2. Confirm version **0.8.1**, release channel **production**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
 3. Open a new Codex task and ask:
 
    ```text
@@ -497,6 +499,32 @@ cookies are separate. See the independent [installation and risk guide](https://
 for client-specific browser routes, credentials and actual acceptance scope.
 
 
+<a id="opencode"></a>
+
+## OpenCode Desktop / CLI
+
+OpenCode package **0.9.0** is distributed independently through
+[fotor-ai/opencode-fotor-plugin](https://github.com/fotor-ai/opencode-fotor-plugin) and npm
+`@fotor-ai/opencode-fotor-plugin`. Use the following targets only after their
+selected public channels have been verified. Choose one source:
+
+```bash
+opencode plugin add @fotor-ai/opencode-fotor-plugin
+# Alternative Git source:
+opencode plugin add 'git+https://github.com/fotor-ai/opencode-fotor-plugin.git'
+```
+
+See the [independent installation guide](https://github.com/fotor-ai/opencode-fotor-plugin#readme) for native
+update, source switching, consent and removal. npm tags follow registry versions;
+Git follows the selected branch, not the latest GitHub Release. This collection
+does not contain the OpenCode package or advance its channels.
+
+CLI and Desktop share the native server plugin. It registers Fotor skills and
+remote MCP while the host owns OAuth and permissions. The baseline is v2.2.5;
+OpenCode v1 is outside the supported scope. Installation, connection, website
+handoff and media execution require separate acceptance evidence.
+
+
 ## Documentation
 
 - [Codex plugin guide](plugins/codex/fotor/README.md)
@@ -505,6 +533,7 @@ for client-specific browser routes, credentials and actual acceptance scope.
 - [Pi plugin guide](plugins/pi/fotor/README.md)
 - [DeepSeek Harness installation guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md) (separate repository)
 - [Kimi Code Desktop / CLI plugin guide](https://github.com/fotor-ai/kimi-fotor-plugin#readme) (separate repository; verify publication)
+- [OpenCode installation guide](https://github.com/fotor-ai/opencode-fotor-plugin#readme) (separate repository; verify publication)
 
 ### Verification scope
 
