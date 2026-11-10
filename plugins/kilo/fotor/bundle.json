@@ -1,0 +1,14 @@
+{
+  "format_version": 1,
+  "name": "fotor",
+  "version": "0.10.0-test.1",
+  "description": "Connect to the Fotor MCP service to create images, video and audio.",
+  "author": {
+    "name": "Fotor"
+  },
+  "homepage": "https://www.fotor.com/mcp/",
+  "repository": "https://github.com/fotor-ai/fotor-agent-plugins",
+  "license": "Apache-2.0",
+  "skills": "./skills/",
+  "mcp": "./MCP.yaml"
+}

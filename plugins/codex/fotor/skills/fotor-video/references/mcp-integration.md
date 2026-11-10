@@ -2,7 +2,7 @@
 
 ## Connection
 
-This **test release channel** package connects to the **production service** at `https://mcp.fotor.com/mcp` using Streamable HTTP. Both release channels use the production account, website, and credits. Preserve this service throughout a task and its assets.
+This **production release channel** package connects to the **production service** at `https://mcp.fotor.com/mcp` using Streamable HTTP. Both release channels use the production account, website, and credits. Preserve this service throughout a task and its assets.
 
 | Environment | MCP endpoint | Website target | Login handoff endpoint |
 | --- | --- | --- | --- |
