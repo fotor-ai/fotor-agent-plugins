@@ -7,7 +7,7 @@
 <p align="center">Create images, video and audio with Fotor, directly from your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.9.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.9.0" />
+  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.10.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.10.0" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" alt="production channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -18,6 +18,7 @@
   <a href="#cursor"><img src="https://img.shields.io/static/v1?label=&amp;message=Cursor&amp;color=24292f&amp;style=flat-square" alt="Cursor" /></a>
   <a href="#grok-bot-installation-and-authorization"><img src="https://img.shields.io/static/v1?label=&amp;message=Grok+Bot&amp;color=24292f&amp;style=flat-square" alt="Grok Bot" /></a>
   <a href="#pi"><img src="https://img.shields.io/static/v1?label=&amp;message=Pi&amp;color=24292f&amp;style=flat-square" alt="Pi" /></a>
+  <a href="#kilo"><img src="https://img.shields.io/static/v1?label=&amp;message=Kilo+CLI&amp;color=24292f&amp;style=flat-square" alt="Kilo CLI" /></a>
   <a href="#dsh"><img src="https://img.shields.io/static/v1?label=&amp;message=DeepSeek+Harness&amp;color=24292f&amp;style=flat-square" alt="DeepSeek Harness" /></a>
   <a href="#kimi"><img src="https://img.shields.io/static/v1?label=&amp;message=Kimi+Code+Desktop+%2F+CLI&amp;color=24292f&amp;style=flat-square" alt="Kimi Code Desktop / CLI" /></a>
   <a href="#opencode"><img src="https://img.shields.io/static/v1?label=&amp;message=OpenCode+Desktop+%2F+CLI&amp;color=24292f&amp;style=flat-square" alt="OpenCode Desktop / CLI" /></a>
@@ -26,7 +27,7 @@
 <p align="center">
   <a href="#supported-agents">Agents</a> ·
   <a href="#features">Features</a> ·
-  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> · <a href="#dsh">DeepSeek Harness setup</a> · <a href="#kimi">Kimi Code Desktop / CLI setup</a> · <a href="#opencode">OpenCode Desktop / CLI setup</a> ·
+  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> · <a href="#kilo">Kilo CLI setup</a> · <a href="#dsh">DeepSeek Harness setup</a> · <a href="#kimi">Kimi Code Desktop / CLI setup</a> · <a href="#opencode">OpenCode Desktop / CLI setup</a> ·
   <a href="#documentation">Documentation</a>
 </p>
 
@@ -39,13 +40,14 @@
 | **Cursor** | 0.8.0 | Included | [Install and connect](#cursor) |
 | **Grok Bot** | 0.8.0 | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
 | **Pi** | 0.8.0 | Included | [Install and connect](#pi) |
+| **Kilo CLI** | 0.10.0 | Source included; manual CLI setup | [Install and connect](#kilo) |
 | **DeepSeek Harness** | 0.8.0 | Separate repository | [Install and connect](#dsh) |
 | **Kimi Code Desktop / CLI** | 0.8.0 | Separate repository | [Install and connect](#kimi) |
 | **OpenCode Desktop / CLI** | 0.9.0 | Separate repository | [Install and connect](#opencode) |
 
 Versions are Fotor package baselines verified for this publication, not agent versions. Separate repositories may publish newer versions; the collection channel does not change each package's own version or channel.
 
-This snapshot includes Codex and Claude Code and Cursor and Pi. Installation and live-service acceptance are separate checks; see the verification scope below.
+This snapshot includes Codex and Claude Code and Cursor and Pi and Kilo CLI. Installation and live-service acceptance are separate checks; see the verification scope below.
 
 Both release channels connect to Fotor's production service and website. The test channel previews plugin changes; it uses your production account and credits.
 
@@ -435,6 +437,83 @@ pi list
 ```
 
 
+<a id="kilo"></a>
+
+## Kilo CLI
+
+### Installation and source
+
+#### Production release
+
+Obtain this collection from `v0.10.0` only after the public source is available and its version table has been verified. Use a new checkout directory:
+
+```bash
+git clone --single-branch --branch v0.10.0 https://github.com/fotor-ai/fotor-agent-plugins.git fotor-kilo-source
+git -C fotor-kilo-source rev-parse HEAD
+```
+
+The package is `fotor-kilo-source/plugins/kilo/fotor/`. Record the resolved commit and compare its file inventory with the selected release before copying any skills. For prepublication review, replace the Tag selector with the reviewed branch `release/v0.10.0` and verify its supplied commit; candidate availability does not establish a formal release.
+
+Confirm version **0.10.0**, release channel **production**, source commit and file inventory. Downloading a source checkout is not installation: perform the two project-scoped steps below. Local development uses a reviewed fixed-source export. Keep existing configuration and grants. Marketplace and Desktop installation are outside this route.
+
+Use a dedicated project and keep the source checkout outside it. Select the
+complete `plugins/kilo/fotor/` package from that checkout. Check existing
+project/global Fotor services and skill sources first; a same-name conflict stops
+installation for review. Preserve unrelated files and user configuration.
+
+1. Copy the complete directories from the package's `skills/` into the project's
+   `.kilo/skills/`. Keep all references, licenses and `fotor-version.json` files.
+2. Merge this entry into the project's `.kilo/kilo.jsonc`, preserving other keys,
+   comments and permissions:
+
+```json
+{
+  "mcp": {
+    "fotor": {
+      "type": "remote",
+      "url": "https://mcp.fotor.com/mcp",
+      "enabled": true,
+      "oauth": {},
+      "timeout": 300000
+    }
+  }
+}
+```
+
+Kilo CLI 7.8.27's named non-interactive `mcp add` command writes global config;
+the two steps above deliberately manage only the selected project. Record source
+commit, hashes and modes. `MCP.yaml` is future marketplace source, not the runtime
+configuration file. This route creates no marketplace receipts.
+
+### Skills and connection
+
+Start Kilo in that project. Verify **0.10.0** from each installed version
+marker and compare files with the selected package. Use native `/fotor-connect`
+completion or natural-language skill discovery. Read references relative to the
+actual skill directory; no package README or manifest is assumed above it.
+
+From the same project, use `kilo mcp list` for native status. Reuse a valid grant;
+when authorization is required, use `kilo mcp auth fotor` and complete consent in
+the ordinary external browser. Native HTTP/OAuth and complete tool discovery
+remain subject to user permissions. The 300000 ms setting covers native waiting;
+valid progress can reset it, and explicit user settings remain authoritative.
+See the [authentication guide](plugins/kilo/fotor/skills/fotor-connect/references/authentication.md).
+
+### Website, balance and maintenance
+
+Confirm the external browser and its existing login state before requesting a
+website handoff. Open the original returned URL once and have the user confirm
+the final page. The balance skill queries only the user's own Fotor balance.
+
+For MCP disable/enable, change the owned project entry's `enabled` value; local
+skills may remain discoverable. Before updating or removing files, compare them
+with the retained install inventory and stop on unexpected edits. Manage the
+owned skill directories and Fotor configuration separately, preserving unrelated
+resources and native grants. After reinstallation and a full CLI restart, verify
+paths, files and one approved read-only query. These checks are manual deployment
+and reload checks, not native market installation or automatic bundle upgrades.
+
+
 <a id="dsh"></a>
 
 ## DeepSeek Harness
@@ -531,13 +610,14 @@ handoff and media execution require separate acceptance evidence.
 - [Claude Code plugin guide](plugins/claude-code/fotor/README.md)
 - [Cursor plugin guide](plugins/cursor/fotor/README.md)
 - [Pi plugin guide](plugins/pi/fotor/README.md)
+- [Kilo CLI plugin guide](plugins/kilo/fotor/README.md)
 - [DeepSeek Harness installation guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md) (separate repository)
 - [Kimi Code Desktop / CLI plugin guide](https://github.com/fotor-ai/kimi-fotor-plugin#readme) (separate repository; verify publication)
 - [OpenCode installation guide](https://github.com/fotor-ai/opencode-fotor-plugin#readme) (separate repository; verify publication)
 
 ### Verification scope
 
-Package checks cover files, references, and configuration. Verify installation, MCP authorization and calls, website login, credit links, uploads, and media execution separately in the selected host and environment. A release or model query does not establish successful website login or completed media results.
+Package checks and prior isolated core simulations do not establish native CLI conversation, production OAuth, website or media acceptance. Verify the actual installed version and each required host flow separately.
 
 ## License
 

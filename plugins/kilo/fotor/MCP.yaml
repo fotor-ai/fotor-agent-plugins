@@ -1,0 +1,17 @@
+id: fotor
+name: Fotor
+description: Create images, video and audio with Fotor.
+author: Fotor
+url: https://github.com/fotor-ai/fotor-mcp
+category: productivity
+content:
+- name: Remote OAuth
+  content: "{\n  \"type\": \"streamable-http\",\n  \"url\": \"https://mcp.fotor.com/mcp\"\
+    ,\n  \"timeout\": 300000\n}"
+skills:
+- fotor-audio
+- fotor-connect
+- fotor-credits
+- fotor-image
+- fotor-upload
+- fotor-video
