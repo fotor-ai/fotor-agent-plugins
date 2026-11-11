@@ -4,69 +4,69 @@
 
 <h1 align="center">Fotor Plugin for Agents</h1>
 
-<p align="center">Create images, video and audio with Fotor, directly from your AI agent.</p>
+<p align="center">Create images, videos, and audio with Fotor — right in your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.9.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.9.0" />
+  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.10.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.10.0" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" alt="production channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
 
 <p align="center">
-  <a href="#codex"><img src="https://img.shields.io/static/v1?label=&amp;message=Codex&amp;color=24292f&amp;style=flat-square" alt="Codex" /></a>
-  <a href="#claude-code"><img src="https://img.shields.io/static/v1?label=&amp;message=Claude+Code&amp;color=24292f&amp;style=flat-square" alt="Claude Code" /></a>
-  <a href="#cursor"><img src="https://img.shields.io/static/v1?label=&amp;message=Cursor&amp;color=24292f&amp;style=flat-square" alt="Cursor" /></a>
-  <a href="#grok-bot-installation-and-authorization"><img src="https://img.shields.io/static/v1?label=&amp;message=Grok+Bot&amp;color=24292f&amp;style=flat-square" alt="Grok Bot" /></a>
-  <a href="#pi"><img src="https://img.shields.io/static/v1?label=&amp;message=Pi&amp;color=24292f&amp;style=flat-square" alt="Pi" /></a>
-  <a href="#dsh"><img src="https://img.shields.io/static/v1?label=&amp;message=DeepSeek+Harness&amp;color=24292f&amp;style=flat-square" alt="DeepSeek Harness" /></a>
-  <a href="#kimi"><img src="https://img.shields.io/static/v1?label=&amp;message=Kimi+Code+Desktop+%2F+CLI&amp;color=24292f&amp;style=flat-square" alt="Kimi Code Desktop / CLI" /></a>
-  <a href="#opencode"><img src="https://img.shields.io/static/v1?label=&amp;message=OpenCode+Desktop+%2F+CLI&amp;color=24292f&amp;style=flat-square" alt="OpenCode Desktop / CLI" /></a>
-</p>
-
-<p align="center">
-  <a href="#supported-agents">Agents</a> ·
   <a href="#features">Features</a> ·
-  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> · <a href="#dsh">DeepSeek Harness setup</a> · <a href="#kimi">Kimi Code Desktop / CLI setup</a> · <a href="#opencode">OpenCode Desktop / CLI setup</a> ·
-  <a href="#documentation">Documentation</a>
+  <a href="#supported-agents">Agents</a> ·
+  <a href="#codex">Installation</a> ·
+  <a href="#documentation">Documentation</a> ·
+  <a href="#license">License</a>
 </p>
-
-## Supported Agents
-
-| Agent | Plugin Version | Status | Getting started |
-| --- | --- | --- | --- |
-| **Codex** | 0.8.1 | Included | [Install and connect](#codex) |
-| **Claude Code** | 0.8.0 | Included | [Install and connect](#claude-code) |
-| **Cursor** | 0.8.0 | Included | [Install and connect](#cursor) |
-| **Grok Bot** | 0.8.0 | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
-| **Pi** | 0.8.0 | Included | [Install and connect](#pi) |
-| **DeepSeek Harness** | 0.8.0 | Separate repository | [Install and connect](#dsh) |
-| **Kimi Code Desktop / CLI** | 0.8.0 | Separate repository | [Install and connect](#kimi) |
-| **OpenCode Desktop / CLI** | 0.9.0 | Separate repository | [Install and connect](#opencode) |
-
-Versions are Fotor package baselines verified for this publication, not agent versions. Separate repositories may publish newer versions; the collection channel does not change each package's own version or channel.
-
-This snapshot includes Codex and Claude Code and Cursor and Pi. Installation and live-service acceptance are separate checks; see the verification scope below.
-
-Both release channels connect to Fotor's production service and website. The test channel previews plugin changes; it uses your production account and credits.
-
-Each skill includes its own four runtime reference documents. Platform installation, MCP registration and any external bridge setup remain separate prerequisites.
 
 ## Features
+
+Fotor Plugin lets you create images, videos, and audio by talking to the AI assistant you already use. Describe an idea, or provide a photo, video or recording to work with. Your assistant uses Fotor to create or edit the content and brings the results back to your conversation.
+
+For example, you can ask:
+
+- **Edit a photo:** “Remove the background from this photo.”
+- **Make a video:** “Turn this product image into a short video.”
+- **Create audio:** “Read this script aloud.”
+
+<details open>
+<summary>Explore all features</summary>
 
 | Capability | What you can do |
 | --- | --- |
 | **Images** | Generate images or edit them with prompts and references. |
 | **Videos** | Generate from text, frames, or supported media references. |
 | **Audio** | Compose independent soundtracks, generate tracks, edit songs, synthesize speech and podcasts, or separate vocals and accompaniment. |
-| **Media uploads** | Upload local images, videos, and audio for reuse. |
 | **Image processing** | Upscale images and remove backgrounds. |
+| **Media uploads** | Upload local images, videos, and audio for reuse. |
 | **Website connection** | Open Fotor with your authorized MCP identity. |
 | **Credits** | Query your own Fotor credit balance. |
 | **Task results** | Check submitted tasks and retrieve available results. |
 
 Available models, parameters, and operations come from the connected Fotor service.
 
-## Codex
+</details>
+
+## Supported Agents
+
+| Agent | Fotor Plugin Version | Status | Quick Start |
+| --- | --- | --- | --- |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/codex-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/codex.svg" /><img src="assets/agents/codex.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Codex** | 0.8.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#codex) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/claude-code-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/claude-code.svg" /><img src="assets/agents/claude-code.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Claude Code** | 0.8.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#claude-code) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/cursor-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/cursor.svg" /><img src="assets/agents/cursor.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Cursor** | 0.8.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#cursor) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/grok-bot-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/grok-bot.svg" /><img src="assets/agents/grok-bot.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Grok Bot** | 0.8.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#grok-bot-installation-and-authorization) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/pi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/pi.svg" /><img src="assets/agents/pi.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Pi** | 0.8.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#pi) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/dsh-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/dsh.svg" /><img src="assets/agents/dsh.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **DeepSeek Harness** | 0.8.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#dsh) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kimi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kimi.svg" /><img src="assets/agents/kimi.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Kimi Code Desktop / CLI** | 0.8.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#kimi) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/opencode-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/opencode.svg" /><img src="assets/agents/opencode.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **OpenCode Desktop / CLI** | 0.9.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#opencode) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kilo-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kilo.svg" /><img src="assets/agents/kilo.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Kilo CLI** | 0.10.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#kilo) |
+
+<a id="codex"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/codex-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/codex.svg" /><img src="assets/agents/codex.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Codex
+
+This repository includes the Codex package. Install it through Codex's plugin marketplace.
 
 ### Installation
 
@@ -99,6 +99,9 @@ codex plugin add fotor@fotor-ai
 Valid credentials are reused. When authorization is needed, complete Codex's sign-in flow in an external browser, then choose "Signed in and authorized; open Fotor in the in-app browser" in the localized confirmation prompt. You can also choose to keep waiting or cancel. After Codex confirms authorization, the plugin opens the website sign-in link in a visible in-app browser. See the [connection workflow](plugins/codex/fotor/skills/fotor-connect/references/mcp-integration.md#connect-to-the-website) for verification and manual fallback.
 
 For a read-only check without opening the website, ask: **Check only the Fotor MCP connection.**
+
+<details>
+<summary>Updates, migration and troubleshooting</summary>
 
 ### Updates
 
@@ -174,8 +177,14 @@ After switching, open a new task and verify the destination version and producti
 
 </details>
 
+</details>
 
-## Claude Code
+
+<a id="claude-code"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/claude-code-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/claude-code.svg" /><img src="assets/agents/claude-code.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Claude Code
+
+This repository includes the Claude Code package. Install it through Claude Code's plugin marketplace.
 
 [Privacy policy](https://www.fotor.com/privacypolicy) · [Support](https://support.fotor.com/hc/en-us) · [Terms of service](https://www.fotor.com/termsofservice)
 
@@ -207,6 +216,9 @@ claude mcp login plugin:fotor:fotor
 Complete OAuth in an external browser, choose Continue in the localized Continue / Wait / Cancel prompt, and wait for the client to confirm success. In Claude Code CLI, open the verified handoff once in an external browser such as Chrome; if the CLI cannot open it, copy the unused link there manually. In Claude Code Desktop, open the handoff once in its built-in browser after external OAuth. If the selected browser control is unavailable, explain the limitation and provide the unused link with instructions for that browser. Manual delivery is not automatic-login verification; Desktop host acceptance remains separate. See [Claude authentication and browser guidance](plugins/claude-code/fotor/skills/fotor-connect/references/authentication.md).
 
 MCP credentials remain in Claude's supported store. Model questions do not open the website, and connection does not query credits. Check the actual website login state before claiming success.
+
+<details>
+<summary>Updates, migration and release channels</summary>
 
 ### Claude Code updates
 
@@ -272,8 +284,14 @@ claude plugin list --json
 
 Use `claude plugin marketplace list --json` to verify the source and branch, then start a new session. Keep existing valid production authorization; do not copy tokens from another client or create a duplicate standalone Fotor server to work around plugin loading.
 
+</details>
 
-## Cursor
+
+<a id="cursor"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/cursor-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/cursor.svg" /><img src="assets/agents/cursor.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Cursor
+
+This repository includes the Cursor package for Cursor IDE and CLI.
 
 ### Cursor installation
 
@@ -303,7 +321,11 @@ agent --plugin-dir /absolute/path/to/fotor
 
 Verify version **0.8.0**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
 
-### Grok Bot installation and authorization
+<a id="grok-bot-installation-and-authorization"></a>
+
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/grok-bot-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/grok-bot.svg" /><img src="assets/agents/grok-bot.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; Grok Bot installation and authorization
+
+Grok Bot uses the Cursor package through the same Cursor account.
 
 1. Install Fotor from the `fotor-ai` marketplace in Cursor using the selected Git source above. A marketplace registration alone does not install the plugin. Use an account-level installation; local IDE folders and CLI `--plugin-dir` loads do not establish account sharing.
 2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.8.0** and source when the host exposes them; account sharing alone does not verify the loaded files.
@@ -321,6 +343,9 @@ Ask **Connect to Fotor and introduce its main features.** Select the actual conn
 Use IDE MCP controls or CLI `/mcp` to inspect the actual plugin server; Grok Bot uses **Connect Apps** as described above. When the CLI supports them in the same loading context, `agent mcp list`, `agent mcp list-tools <identifier>`, and `agent mcp login <identifier>` provide native inspection and login. Cursor account login and Fotor MCP OAuth are separate.
 
 Reuse valid Fotor credentials. When authorization is required, complete it in an external browser, choose Continue, and wait for client-confirmed success. Website requests use the IDE's visible built-in browser, the CLI's permitted external-browser opener, or Grok Bot's available visible browser. If unavailable, provide the unused link for the specified browser and await confirmation. Verify the final production website and signed-in state. See [Cursor and Grok Bot native guidance](plugins/cursor/fotor/skills/fotor-connect/references/authentication.md).
+
+<details>
+<summary>Updates, migration and release channels</summary>
 
 ### Cursor updates
 
@@ -373,8 +398,14 @@ agent
 
 </details>
 
+</details>
 
-## Pi
+
+<a id="pi"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/pi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/pi.svg" /><img src="assets/agents/pi.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Pi
+
+This repository includes the Pi package. Install the skills, then register Fotor MCP separately.
 
 ### Pi installation
 
@@ -400,6 +431,9 @@ pi mcp add fotor --url https://mcp.fotor.com/mcp --exposure deferred --descripti
 Use Pi's native `/mcp` sign-in or `pi mcp login fotor` when authorization is required. Complete OAuth in an external ordinary browser, choose Continue / Wait / Cancel conversationally, and verify the native callback before proceeding. Pi's model-provider login is separate. Follow [Pi authentication](plugins/pi/fotor/skills/fotor-connect/references/authentication.md) for tool discovery, overrides, and recovery.
 
 Ask "Connect to Fotor and introduce its main features." or invoke `/skill:fotor-connect`. The website flow opens a fresh validated link in an external ordinary browser when the host can target it; otherwise it supplies a link for immediate manual opening. A native opener's success does not prove website login. An explicit MCP-only request does not create a website link.
+
+<details>
+<summary>Updates and release channels</summary>
 
 ### Pi updates
 
@@ -434,10 +468,12 @@ pi install https://github.com/fotor-ai/fotor-agent-plugins@release/test
 pi list
 ```
 
+</details>
+
 
 <a id="dsh"></a>
 
-## DeepSeek Harness
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/dsh-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/dsh.svg" /><img src="assets/agents/dsh.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; DeepSeek Harness
 
 DeepSeek Harness is abbreviated as `dsh` in commands and native identifiers. Its Fotor Bundle is distributed only through the separate **[dsh-fotor-plugin repository](https://github.com/fotor-ai/dsh-fotor-plugin)**. This snapshot contains installation guidance, not a DeepSeek Harness package. The repository root remains the Pi entry.
 
@@ -459,6 +495,9 @@ For npm updates, use `dsh plugin --profile web update "@fotor-ai/dsh-fotor-plugi
 
 The declared host range is `>=0.2.1-rc.2 <0.3.0-0`; current acceptance uses Linux Web 0.2.1-rc.3, with earlier rc.2 results retaining their original scope. A matching version is not automatically tested.
 
+<details>
+<summary>Migrate an existing installation</summary>
+
 ### Migrate an existing subdirectory installation
 
 Existing installations from this repository do not migrate through an ordinary update. Record the source, profile, package-manager store, installed path and external configuration; stop both Fotor components. Natively remove the old Bundle using `dsh plugin --profile web remove fotor --config.ignore-scripts=true`, then add the independent source above in the original profile/store. Version 0.6.1 resolves new runtime paths automatically when no explicit override applies. Preserve valid complete configuration and disabled settings; correct or remove only obsolete path overrides through native configuration. Preserve the old external bridge directory, credential directory, model configuration and connection/security parameters.
@@ -470,9 +509,12 @@ Uninstall retains external credentials and does not revoke server consent. Same-
 
 DeepSeek Harness is independently versioned; this collection does not advance either of its release channels.
 
+</details>
+
+
 <a id="kimi"></a>
 
-## Kimi Code Desktop / CLI
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kimi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kimi.svg" /><img src="assets/agents/kimi.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Kimi Code Desktop / CLI
 
 Kimi uses the independent [fotor-ai/kimi-fotor-plugin](https://github.com/fotor-ai/kimi-fotor-plugin) repository.
 This multi-platform snapshot contains no Kimi package or root Kimi manifest.
@@ -501,7 +543,7 @@ for client-specific browser routes, credentials and actual acceptance scope.
 
 <a id="opencode"></a>
 
-## OpenCode Desktop / CLI
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/opencode-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/opencode.svg" /><img src="assets/agents/opencode.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; OpenCode Desktop / CLI
 
 OpenCode package **0.9.0** is distributed independently through
 [fotor-ai/opencode-fotor-plugin](https://github.com/fotor-ai/opencode-fotor-plugin) and npm
@@ -525,20 +567,111 @@ OpenCode v1 is outside the supported scope. Installation, connection, website
 handoff and media execution require separate acceptance evidence.
 
 
+<a id="kilo"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kilo-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kilo.svg" /><img src="assets/agents/kilo.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Kilo CLI
+
+Kilo CLI uses a manual project installation: copy the six skill folders, then add the native Fotor MCP configuration.
+
+### Installation and source
+
+#### Production release
+
+Obtain this collection from `v0.10.0` only after the public source is available and its version table has been verified. Use a new checkout directory:
+
+```bash
+git clone --single-branch --branch v0.10.0 https://github.com/fotor-ai/fotor-agent-plugins.git fotor-kilo-source
+git -C fotor-kilo-source rev-parse HEAD
+```
+
+The package is `fotor-kilo-source/plugins/kilo/fotor/`. Record the resolved commit and compare its file inventory with the selected release before copying any skills. For prepublication review, replace the Tag selector with the reviewed branch `release/v0.10.0` and verify its supplied commit; candidate availability does not establish a formal release.
+
+Confirm version **0.10.0**, release channel **production**, source commit and file inventory. Downloading a source checkout is not installation: perform the two project-scoped steps below. Local development uses a reviewed fixed-source export. Keep existing configuration and grants. Marketplace and Desktop installation are outside this route.
+
+Use a dedicated project and keep the source checkout outside it. Select the
+complete `plugins/kilo/fotor/` package from that checkout. Check existing
+project/global Fotor services and skill sources first; a same-name conflict stops
+installation for review. Preserve unrelated files and user configuration.
+
+1. Copy the complete directories from the package's `skills/` into the project's
+   `.kilo/skills/`. Keep all references, licenses and `fotor-version.json` files.
+2. Merge this entry into the project's `.kilo/kilo.jsonc`, preserving other keys,
+   comments and permissions:
+
+```json
+{
+  "mcp": {
+    "fotor": {
+      "type": "remote",
+      "url": "https://mcp.fotor.com/mcp",
+      "enabled": true,
+      "oauth": {},
+      "timeout": 300000
+    }
+  }
+}
+```
+
+Kilo CLI 7.8.27's named non-interactive `mcp add` command writes global config;
+the two steps above deliberately manage only the selected project. Record source
+commit, hashes and modes. `MCP.yaml` is future marketplace source, not the runtime
+configuration file. This route creates no marketplace receipts.
+
+### Skills and connection
+
+Start Kilo in that project. Verify **0.10.0** from each installed version
+marker and compare files with the selected package. Use native `/fotor-connect`
+completion or natural-language skill discovery. Read references relative to the
+actual skill directory; no package README or manifest is assumed above it.
+
+From the same project, use `kilo mcp list` for native status. Reuse a valid grant;
+when authorization is required, use `kilo mcp auth fotor` and complete consent in
+the ordinary external browser. Native HTTP/OAuth and complete tool discovery
+remain subject to user permissions. The 300000 ms setting covers native waiting;
+valid progress can reset it, and explicit user settings remain authoritative.
+See the [authentication guide](plugins/kilo/fotor/skills/fotor-connect/references/authentication.md).
+
+### Website, balance and maintenance
+
+Confirm the external browser and its existing login state before requesting a
+website handoff. Open the original returned URL once and have the user confirm
+the final page. The balance skill queries only the user's own Fotor balance.
+
+For MCP disable/enable, change the owned project entry's `enabled` value; local
+skills may remain discoverable. Before updating or removing files, compare them
+with the retained install inventory and stop on unexpected edits. Manage the
+owned skill directories and Fotor configuration separately, preserving unrelated
+resources and native grants. After reinstallation and a full CLI restart, verify
+paths, files and one approved read-only query. These checks are manual deployment
+and reload checks, not native market installation or automatic bundle upgrades.
+
+
 ## Documentation
 
 - [Codex plugin guide](plugins/codex/fotor/README.md)
 - [Claude Code plugin guide](plugins/claude-code/fotor/README.md)
 - [Cursor plugin guide](plugins/cursor/fotor/README.md)
 - [Pi plugin guide](plugins/pi/fotor/README.md)
-- [DeepSeek Harness installation guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md) (separate repository)
-- [Kimi Code Desktop / CLI plugin guide](https://github.com/fotor-ai/kimi-fotor-plugin#readme) (separate repository; verify publication)
-- [OpenCode installation guide](https://github.com/fotor-ai/opencode-fotor-plugin#readme) (separate repository; verify publication)
+- [DeepSeek Harness installation guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md)
+- [Kimi Code Desktop / CLI plugin guide](https://github.com/fotor-ai/kimi-fotor-plugin#readme)
+- [OpenCode installation guide](https://github.com/fotor-ai/opencode-fotor-plugin#readme)
+- [Kilo CLI plugin guide](plugins/kilo/fotor/README.md)
+
+<details>
+<summary>Release channels and verification</summary>
+
+Both release channels connect to Fotor’s production service and website. Test builds use your real Fotor account and credits. Each skill includes its own four runtime reference documents.
 
 ### Verification scope
 
-Package checks cover files, references, and configuration. Verify installation, MCP authorization and calls, website login, credit links, uploads, and media execution separately in the selected host and environment. A release or model query does not establish successful website login or completed media results.
+Package checks and prior isolated core simulations do not establish native CLI conversation, production OAuth, website or media acceptance. Verify the actual installed version and each required host flow separately.
+
+</details>
 
 ## License
 
 [Apache-2.0](LICENSE)
+
+Agent product names, logos and trademarks shown in this README belong to their respective owners. They are used only to identify supported products and do not imply endorsement or affiliation.
+
+Third-party SVG artwork retains its original license and [attribution](assets/agents/NOTICE.md).
