@@ -40,10 +40,10 @@
 | **Cursor** | 0.8.0 | Included | [Install and connect](#cursor) |
 | **Grok Bot** | 0.8.0 | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
 | **Pi** | 0.8.0 | Included | [Install and connect](#pi) |
-| **Kilo CLI** | 0.10.0 | Source included; manual CLI setup | [Install and connect](#kilo) |
 | **DeepSeek Harness** | 0.8.0 | Separate repository | [Install and connect](#dsh) |
 | **Kimi Code Desktop / CLI** | 0.8.0 | Separate repository | [Install and connect](#kimi) |
 | **OpenCode Desktop / CLI** | 0.9.0 | Separate repository | [Install and connect](#opencode) |
+| **Kilo CLI** | 0.10.0 | Source included; manual CLI setup | [Install and connect](#kilo) |
 
 Versions are Fotor package baselines verified for this publication, not agent versions. Separate repositories may publish newer versions; the collection channel does not change each package's own version or channel.
 
