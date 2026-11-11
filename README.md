@@ -13,37 +13,26 @@
 </p>
 
 <p align="center">
-  <a href="#codex"><img src="https://img.shields.io/static/v1?label=&amp;message=Codex&amp;color=24292f&amp;style=flat-square" alt="Codex" /></a>
-  <a href="#claude-code"><img src="https://img.shields.io/static/v1?label=&amp;message=Claude+Code&amp;color=24292f&amp;style=flat-square" alt="Claude Code" /></a>
-  <a href="#cursor"><img src="https://img.shields.io/static/v1?label=&amp;message=Cursor&amp;color=24292f&amp;style=flat-square" alt="Cursor" /></a>
-  <a href="#grok-bot-installation-and-authorization"><img src="https://img.shields.io/static/v1?label=&amp;message=Grok+Bot&amp;color=24292f&amp;style=flat-square" alt="Grok Bot" /></a>
-  <a href="#pi"><img src="https://img.shields.io/static/v1?label=&amp;message=Pi&amp;color=24292f&amp;style=flat-square" alt="Pi" /></a>
-  <a href="#kilo"><img src="https://img.shields.io/static/v1?label=&amp;message=Kilo+CLI&amp;color=24292f&amp;style=flat-square" alt="Kilo CLI" /></a>
-  <a href="#dsh"><img src="https://img.shields.io/static/v1?label=&amp;message=DeepSeek+Harness&amp;color=24292f&amp;style=flat-square" alt="DeepSeek Harness" /></a>
-  <a href="#kimi"><img src="https://img.shields.io/static/v1?label=&amp;message=Kimi+Code+Desktop+%2F+CLI&amp;color=24292f&amp;style=flat-square" alt="Kimi Code Desktop / CLI" /></a>
-  <a href="#opencode"><img src="https://img.shields.io/static/v1?label=&amp;message=OpenCode+Desktop+%2F+CLI&amp;color=24292f&amp;style=flat-square" alt="OpenCode Desktop / CLI" /></a>
-</p>
-
-<p align="center">
   <a href="#supported-agents">Agents</a> ·
   <a href="#features">Features</a> ·
-  <a href="#codex">Codex setup</a> · <a href="#claude-code">Claude Code setup</a> · <a href="#cursor">Cursor setup</a> · <a href="#pi">Pi setup</a> · <a href="#kilo">Kilo CLI setup</a> · <a href="#dsh">DeepSeek Harness setup</a> · <a href="#kimi">Kimi Code Desktop / CLI setup</a> · <a href="#opencode">OpenCode Desktop / CLI setup</a> ·
-  <a href="#documentation">Documentation</a>
+  <a href="#codex">Installation</a> ·
+  <a href="#documentation">Documentation</a> ·
+  <a href="#license">License</a>
 </p>
 
 ## Supported Agents
 
 | Agent | Plugin Version | Status | Getting started |
 | --- | --- | --- | --- |
-| **Codex** | 0.8.1 | Included | [Install and connect](#codex) |
-| **Claude Code** | 0.8.0 | Included | [Install and connect](#claude-code) |
-| **Cursor** | 0.8.0 | Included | [Install and connect](#cursor) |
-| **Grok Bot** | 0.8.0 | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
-| **Pi** | 0.8.0 | Included | [Install and connect](#pi) |
-| **DeepSeek Harness** | 0.8.0 | Separate repository | [Install and connect](#dsh) |
-| **Kimi Code Desktop / CLI** | 0.8.0 | Separate repository | [Install and connect](#kimi) |
-| **OpenCode Desktop / CLI** | 0.9.0 | Separate repository | [Install and connect](#opencode) |
-| **Kilo CLI** | 0.10.0 | Source included; manual CLI setup | [Install and connect](#kilo) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/codex-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/codex.svg" /><img src="assets/agents/codex.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Codex** | 0.8.1 | Included | [Install and connect](#codex) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/claude-code-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/claude-code.svg" /><img src="assets/agents/claude-code.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Claude Code** | 0.8.0 | Included | [Install and connect](#claude-code) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/cursor-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/cursor.svg" /><img src="assets/agents/cursor.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Cursor** | 0.8.0 | Included | [Install and connect](#cursor) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/grok-bot-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/grok-bot.svg" /><img src="assets/agents/grok-bot.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Grok Bot** | 0.8.0 | Via Cursor package | [Install and connect](#grok-bot-installation-and-authorization) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/pi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/pi.svg" /><img src="assets/agents/pi.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Pi** | 0.8.0 | Included | [Install and connect](#pi) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/dsh-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/dsh.svg" /><img src="assets/agents/dsh.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **DeepSeek Harness** | 0.8.0 | Separate repository | [Install and connect](#dsh) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kimi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kimi.svg" /><img src="assets/agents/kimi.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Kimi Code Desktop / CLI** | 0.8.0 | Separate repository | [Install and connect](#kimi) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/opencode-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/opencode.svg" /><img src="assets/agents/opencode.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **OpenCode Desktop / CLI** | 0.9.0 | Separate repository | [Install and connect](#opencode) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kilo-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kilo.svg" /><img src="assets/agents/kilo.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Kilo CLI** | 0.10.0 | Source included; manual CLI setup | [Install and connect](#kilo) |
 
 Versions are Fotor package baselines verified for this publication, not agent versions. Separate repositories may publish newer versions; the collection channel does not change each package's own version or channel.
 
@@ -68,7 +57,9 @@ Each skill includes its own four runtime reference documents. Platform installat
 
 Available models, parameters, and operations come from the connected Fotor service.
 
-## Codex
+<a id="codex"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/codex-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/codex.svg" /><img src="assets/agents/codex.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Codex
 
 ### Installation
 
@@ -177,7 +168,9 @@ After switching, open a new task and verify the destination version and producti
 </details>
 
 
-## Claude Code
+<a id="claude-code"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/claude-code-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/claude-code.svg" /><img src="assets/agents/claude-code.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Claude Code
 
 [Privacy policy](https://www.fotor.com/privacypolicy) · [Support](https://support.fotor.com/hc/en-us) · [Terms of service](https://www.fotor.com/termsofservice)
 
@@ -275,7 +268,9 @@ claude plugin list --json
 Use `claude plugin marketplace list --json` to verify the source and branch, then start a new session. Keep existing valid production authorization; do not copy tokens from another client or create a duplicate standalone Fotor server to work around plugin loading.
 
 
-## Cursor
+<a id="cursor"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/cursor-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/cursor.svg" /><img src="assets/agents/cursor.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Cursor
 
 ### Cursor installation
 
@@ -305,7 +300,9 @@ agent --plugin-dir /absolute/path/to/fotor
 
 Verify version **0.8.0**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
 
-### Grok Bot installation and authorization
+<a id="grok-bot-installation-and-authorization"></a>
+
+### <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/grok-bot-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/grok-bot.svg" /><img src="assets/agents/grok-bot.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; Grok Bot installation and authorization
 
 1. Install Fotor from the `fotor-ai` marketplace in Cursor using the selected Git source above. A marketplace registration alone does not install the plugin. Use an account-level installation; local IDE folders and CLI `--plugin-dir` loads do not establish account sharing.
 2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.8.0** and source when the host exposes them; account sharing alone does not verify the loaded files.
@@ -376,7 +373,9 @@ agent
 </details>
 
 
-## Pi
+<a id="pi"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/pi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/pi.svg" /><img src="assets/agents/pi.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Pi
 
 ### Pi installation
 
@@ -437,9 +436,99 @@ pi list
 ```
 
 
+<a id="dsh"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/dsh-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/dsh.svg" /><img src="assets/agents/dsh.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; DeepSeek Harness
+
+DeepSeek Harness is abbreviated as `dsh` in commands and native identifiers. Its Fotor Bundle is distributed only through the separate **[dsh-fotor-plugin repository](https://github.com/fotor-ai/dsh-fotor-plugin)**. This snapshot contains installation guidance, not a DeepSeek Harness package. The repository root remains the Pi entry.
+
+### DeepSeek Harness installation
+
+#### Production release
+
+First verify that the selected revision contains the DeepSeek Harness Bundle. Install this scoped package and its pinned bridge dependency to the chosen profile. Select Web **Enable now** or load the CLI profile; both components then configure automatically unless explicit user settings disable them.
+
+```bash
+dsh plugin --profile web add "git+https://github.com/fotor-ai/dsh-fotor-plugin.git" --ignore-scripts
+```
+
+From 0.6.0, the identity is `@fotor-ai/dsh-fotor-plugin`. Installing Fotor automatically obtains mcp-remote 0.15.2: Git sources download the dependency and npm artifacts carry its complete runtime tree. Stable Node 24.2.0 or later within 24.x, or stable Node 26.x, is required. The npm alternatives, after publication, are `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin" --ignore-scripts` and `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin@next" --ignore-scripts`. Verify the actual target version: bare-name installation follows `latest`.
+
+From 0.6.1, select Web **Enable now** after installation, or load the CLI profile. Host activation automatically configures and enables skills and MCP unless explicit user overrides disable them. Existing accepted authorization is reused; otherwise the bridge opens browser consent. Downloading the package alone runs no hook. Follow the [complete guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md), [optional full configuration example](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/configuration.example.yml) and [authorization instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md#6-authorize-then-enable-the-connection). Preserve the external credential directory and daily browser state. Model login and website access are separate steps.
+
+For npm updates, use `dsh plugin --profile web update "@fotor-ai/dsh-fotor-plugin@<target-version>" --ignore-scripts` with an explicitly published target. Immediate `@next` upgrade did not pass in 0.6.0-test.2; exact-version native updates did. Do not infer `@latest` success or promise that a 24-hour wait fixes it. Retain the original profile and custom `--store-dir` for updates/removal, preserve release-age protection, complete valid configuration and explicit disabled states, and verify the actual installed version and new-process skill paths. See the [maintenance instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md#7-use-update-or-remove-fotor).
+
+The declared host range is `>=0.2.1-rc.2 <0.3.0-0`; current acceptance uses Linux Web 0.2.1-rc.3, with earlier rc.2 results retaining their original scope. A matching version is not automatically tested.
+
+### Migrate an existing subdirectory installation
+
+Existing installations from this repository do not migrate through an ordinary update. Record the source, profile, package-manager store, installed path and external configuration; stop both Fotor components. Natively remove the old Bundle using `dsh plugin --profile web remove fotor --config.ignore-scripts=true`, then add the independent source above in the original profile/store. Version 0.6.1 resolves new runtime paths automatically when no explicit override applies. Preserve valid complete configuration and disabled settings; correct or remove only obsolete path overrides through native configuration. Preserve the old external bridge directory, credential directory, model configuration and connection/security parameters.
+
+Retain exactly one `@fotor-ai/dsh-fotor-plugin` source and one component pair. Future native updates follow the independent repository. Historical v0.5.0 snapshots remain unchanged; the old subdirectory is not a continuing installation or update channel. See [maintenance instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md#7-use-update-or-remove-fotor).
+
+Uninstall retains external credentials and does not revoke server consent. Same-profile reinstall can reuse accepted authorization, while a changed profile or rejected cache may require consent. Confirm the new connection through actual discovery and a read-only query.
+
+
+DeepSeek Harness is independently versioned; this collection does not advance either of its release channels.
+
+<a id="kimi"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kimi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kimi.svg" /><img src="assets/agents/kimi.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Kimi Code Desktop / CLI
+
+Kimi uses the independent [fotor-ai/kimi-fotor-plugin](https://github.com/fotor-ai/kimi-fotor-plugin) repository.
+This multi-platform snapshot contains no Kimi package or root Kimi manifest.
+Install only after the independent channel exists and contains its native root
+manifest; this collection does not publish or advance that channel.
+
+In a native CLI session, use the published production source:
+
+```text
+/plugins install https://github.com/fotor-ai/kimi-fotor-plugin
+```
+
+For an explicitly published test branch, use:
+
+```text
+/plugins install https://github.com/fotor-ai/kimi-fotor-plugin/tree/release/test
+```
+
+Desktop's Settings → Plugins → Add plugin accepts the same sources. Review native
+trust/enable controls and keep one Fotor installation. A bare source follows the
+latest GitHub Release, with default-branch fallback only when none exists; explicit
+Tags/commits do not follow updates. Native authorization, model login and website
+cookies are separate. See the independent [installation and risk guide](https://github.com/fotor-ai/kimi-fotor-plugin#readme)
+for client-specific browser routes, credentials and actual acceptance scope.
+
+
+<a id="opencode"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/opencode-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/opencode.svg" /><img src="assets/agents/opencode.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; OpenCode Desktop / CLI
+
+OpenCode package **0.9.0** is distributed independently through
+[fotor-ai/opencode-fotor-plugin](https://github.com/fotor-ai/opencode-fotor-plugin) and npm
+`@fotor-ai/opencode-fotor-plugin`. Use the following targets only after their
+selected public channels have been verified. Choose one source:
+
+```bash
+opencode plugin add @fotor-ai/opencode-fotor-plugin
+# Alternative Git source:
+opencode plugin add 'git+https://github.com/fotor-ai/opencode-fotor-plugin.git'
+```
+
+See the [independent installation guide](https://github.com/fotor-ai/opencode-fotor-plugin#readme) for native
+update, source switching, consent and removal. npm tags follow registry versions;
+Git follows the selected branch, not the latest GitHub Release. This collection
+does not contain the OpenCode package or advance its channels.
+
+CLI and Desktop share the native server plugin. It registers Fotor skills and
+remote MCP while the host owns OAuth and permissions. The baseline is v2.2.5;
+OpenCode v1 is outside the supported scope. Installation, connection, website
+handoff and media execution require separate acceptance evidence.
+
+
 <a id="kilo"></a>
 
-## Kilo CLI
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kilo-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kilo.svg" /><img src="assets/agents/kilo.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Kilo CLI
 
 ### Installation and source
 
@@ -514,96 +603,6 @@ paths, files and one approved read-only query. These checks are manual deploymen
 and reload checks, not native market installation or automatic bundle upgrades.
 
 
-<a id="dsh"></a>
-
-## DeepSeek Harness
-
-DeepSeek Harness is abbreviated as `dsh` in commands and native identifiers. Its Fotor Bundle is distributed only through the separate **[dsh-fotor-plugin repository](https://github.com/fotor-ai/dsh-fotor-plugin)**. This snapshot contains installation guidance, not a DeepSeek Harness package. The repository root remains the Pi entry.
-
-### DeepSeek Harness installation
-
-#### Production release
-
-First verify that the selected revision contains the DeepSeek Harness Bundle. Install this scoped package and its pinned bridge dependency to the chosen profile. Select Web **Enable now** or load the CLI profile; both components then configure automatically unless explicit user settings disable them.
-
-```bash
-dsh plugin --profile web add "git+https://github.com/fotor-ai/dsh-fotor-plugin.git" --ignore-scripts
-```
-
-From 0.6.0, the identity is `@fotor-ai/dsh-fotor-plugin`. Installing Fotor automatically obtains mcp-remote 0.15.2: Git sources download the dependency and npm artifacts carry its complete runtime tree. Stable Node 24.2.0 or later within 24.x, or stable Node 26.x, is required. The npm alternatives, after publication, are `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin" --ignore-scripts` and `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin@next" --ignore-scripts`. Verify the actual target version: bare-name installation follows `latest`.
-
-From 0.6.1, select Web **Enable now** after installation, or load the CLI profile. Host activation automatically configures and enables skills and MCP unless explicit user overrides disable them. Existing accepted authorization is reused; otherwise the bridge opens browser consent. Downloading the package alone runs no hook. Follow the [complete guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md), [optional full configuration example](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/configuration.example.yml) and [authorization instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md#6-authorize-then-enable-the-connection). Preserve the external credential directory and daily browser state. Model login and website access are separate steps.
-
-For npm updates, use `dsh plugin --profile web update "@fotor-ai/dsh-fotor-plugin@<target-version>" --ignore-scripts` with an explicitly published target. Immediate `@next` upgrade did not pass in 0.6.0-test.2; exact-version native updates did. Do not infer `@latest` success or promise that a 24-hour wait fixes it. Retain the original profile and custom `--store-dir` for updates/removal, preserve release-age protection, complete valid configuration and explicit disabled states, and verify the actual installed version and new-process skill paths. See the [maintenance instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md#7-use-update-or-remove-fotor).
-
-The declared host range is `>=0.2.1-rc.2 <0.3.0-0`; current acceptance uses Linux Web 0.2.1-rc.3, with earlier rc.2 results retaining their original scope. A matching version is not automatically tested.
-
-### Migrate an existing subdirectory installation
-
-Existing installations from this repository do not migrate through an ordinary update. Record the source, profile, package-manager store, installed path and external configuration; stop both Fotor components. Natively remove the old Bundle using `dsh plugin --profile web remove fotor --config.ignore-scripts=true`, then add the independent source above in the original profile/store. Version 0.6.1 resolves new runtime paths automatically when no explicit override applies. Preserve valid complete configuration and disabled settings; correct or remove only obsolete path overrides through native configuration. Preserve the old external bridge directory, credential directory, model configuration and connection/security parameters.
-
-Retain exactly one `@fotor-ai/dsh-fotor-plugin` source and one component pair. Future native updates follow the independent repository. Historical v0.5.0 snapshots remain unchanged; the old subdirectory is not a continuing installation or update channel. See [maintenance instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md#7-use-update-or-remove-fotor).
-
-Uninstall retains external credentials and does not revoke server consent. Same-profile reinstall can reuse accepted authorization, while a changed profile or rejected cache may require consent. Confirm the new connection through actual discovery and a read-only query.
-
-
-DeepSeek Harness is independently versioned; this collection does not advance either of its release channels.
-
-<a id="kimi"></a>
-
-## Kimi Code Desktop / CLI
-
-Kimi uses the independent [fotor-ai/kimi-fotor-plugin](https://github.com/fotor-ai/kimi-fotor-plugin) repository.
-This multi-platform snapshot contains no Kimi package or root Kimi manifest.
-Install only after the independent channel exists and contains its native root
-manifest; this collection does not publish or advance that channel.
-
-In a native CLI session, use the published production source:
-
-```text
-/plugins install https://github.com/fotor-ai/kimi-fotor-plugin
-```
-
-For an explicitly published test branch, use:
-
-```text
-/plugins install https://github.com/fotor-ai/kimi-fotor-plugin/tree/release/test
-```
-
-Desktop's Settings → Plugins → Add plugin accepts the same sources. Review native
-trust/enable controls and keep one Fotor installation. A bare source follows the
-latest GitHub Release, with default-branch fallback only when none exists; explicit
-Tags/commits do not follow updates. Native authorization, model login and website
-cookies are separate. See the independent [installation and risk guide](https://github.com/fotor-ai/kimi-fotor-plugin#readme)
-for client-specific browser routes, credentials and actual acceptance scope.
-
-
-<a id="opencode"></a>
-
-## OpenCode Desktop / CLI
-
-OpenCode package **0.9.0** is distributed independently through
-[fotor-ai/opencode-fotor-plugin](https://github.com/fotor-ai/opencode-fotor-plugin) and npm
-`@fotor-ai/opencode-fotor-plugin`. Use the following targets only after their
-selected public channels have been verified. Choose one source:
-
-```bash
-opencode plugin add @fotor-ai/opencode-fotor-plugin
-# Alternative Git source:
-opencode plugin add 'git+https://github.com/fotor-ai/opencode-fotor-plugin.git'
-```
-
-See the [independent installation guide](https://github.com/fotor-ai/opencode-fotor-plugin#readme) for native
-update, source switching, consent and removal. npm tags follow registry versions;
-Git follows the selected branch, not the latest GitHub Release. This collection
-does not contain the OpenCode package or advance its channels.
-
-CLI and Desktop share the native server plugin. It registers Fotor skills and
-remote MCP while the host owns OAuth and permissions. The baseline is v2.2.5;
-OpenCode v1 is outside the supported scope. Installation, connection, website
-handoff and media execution require separate acceptance evidence.
-
-
 ## Documentation
 
 - [Codex plugin guide](plugins/codex/fotor/README.md)
@@ -611,9 +610,9 @@ handoff and media execution require separate acceptance evidence.
 - [Cursor plugin guide](plugins/cursor/fotor/README.md)
 - [Pi plugin guide](plugins/pi/fotor/README.md)
 - [Kilo CLI plugin guide](plugins/kilo/fotor/README.md)
-- [DeepSeek Harness installation guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md) (separate repository)
-- [Kimi Code Desktop / CLI plugin guide](https://github.com/fotor-ai/kimi-fotor-plugin#readme) (separate repository; verify publication)
-- [OpenCode installation guide](https://github.com/fotor-ai/opencode-fotor-plugin#readme) (separate repository; verify publication)
+- [DeepSeek Harness installation guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md)
+- [Kimi Code Desktop / CLI plugin guide](https://github.com/fotor-ai/kimi-fotor-plugin#readme)
+- [OpenCode installation guide](https://github.com/fotor-ai/opencode-fotor-plugin#readme)
 
 ### Verification scope
 
@@ -622,3 +621,7 @@ Package checks and prior isolated core simulations do not establish native CLI c
 ## License
 
 [Apache-2.0](LICENSE)
+
+Agent product names, logos and trademarks shown in this README belong to their respective owners. They are used only to identify supported products and do not imply endorsement or affiliation.
+
+Third-party SVG artwork retains its original license and [attribution](assets/agents/NOTICE.md).
