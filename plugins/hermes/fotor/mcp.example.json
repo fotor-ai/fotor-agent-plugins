@@ -1,0 +1,10 @@
+{
+  "mcp_servers": {
+    "fotor": {
+      "url": "https://mcp.fotor.com/mcp",
+      "auth": "oauth",
+      "enabled": false,
+      "trust": "untrusted"
+    }
+  }
+}

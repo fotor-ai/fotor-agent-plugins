@@ -67,3 +67,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Hermes Agent artwork
+
+The Hermes Agent mark is supplied from the local Agent artwork collection
+(`hermes-agent.svg`), in the LobeHub SVG format. It identifies Nous Research's
+Hermes Agent; product names and trademarks remain with their respective owners.
+The original vector geometry is retained, with monochrome foregrounds for each
+README theme. The supplied LobeHub artwork is covered by the MIT license above.
