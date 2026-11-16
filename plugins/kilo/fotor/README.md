@@ -3,8 +3,8 @@
 <p align="center"><img src="assets/logo.svg" width="72" alt="Fotor logo" /></p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.10.0-test.1&amp;color=087f8c&amp;style=flat-square" alt="Version" />
-  <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" alt="Release channel" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.10.0&amp;color=087f8c&amp;style=flat-square" alt="Version" />
+  <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" alt="Release channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
 
@@ -16,8 +16,8 @@ No runtime plugin, npm dependency, installation hook or bridge is included.
 | Field | Value |
 | --- | --- |
 | Bundle | `fotor` |
-| Version | `0.10.0-test.1` |
-| Release channel | `test` |
+| Version | `0.10.0` |
+| Release channel | `production` |
 | MCP endpoint | `https://mcp.fotor.com/mcp` |
 | Host baseline | Kilo CLI 7.8.27 |
 
@@ -40,11 +40,11 @@ See the [Kilo authentication reference](skills/fotor-connect/references/authenti
 
 ### Installation and source
 
-#### Test release
+#### Production release
 
-Use the [collection installation guide](https://github.com/fotor-ai/fotor-agent-plugins/tree/release/test#kilo) to select an available public source and a new checkout. Collection Tags identify collection versions, not this independently versioned Kilo package. The test source is `release/test`; production uses the verified collection Tag whose version table contains this package. An unpublished candidate uses the exact branch supplied for review.
+Use the [collection installation guide](https://github.com/fotor-ai/fotor-agent-plugins#kilo) to select an available public source and a new checkout. Collection Tags identify collection versions, not this independently versioned Kilo package. The test source is `release/test`; production uses the verified collection Tag whose version table contains this package. An unpublished candidate uses the exact branch supplied for review.
 
-Confirm version **0.10.0-test.1**, release channel **test**, source commit and file inventory. Downloading a source checkout is not installation: perform the two project-scoped steps below. Local development uses a reviewed fixed-source export. Keep existing configuration and grants. Marketplace and Desktop installation are outside this route.
+Confirm version **0.10.0**, release channel **production**, source commit and file inventory. Downloading a source checkout is not installation: perform the two project-scoped steps below. Local development uses a reviewed fixed-source export. Keep existing configuration and grants. Marketplace and Desktop installation are outside this route.
 
 Use a dedicated project and keep the source checkout outside it. Select the
 complete `plugins/kilo/fotor/` package from that checkout. Check existing
@@ -77,7 +77,7 @@ configuration file. This route creates no marketplace receipts.
 
 ### Skills and connection
 
-Start Kilo in that project. Verify **0.10.0-test.1** from each installed version
+Start Kilo in that project. Verify **0.10.0** from each installed version
 marker and compare files with the selected package. Use native `/fotor-connect`
 completion or natural-language skill discovery. Read references relative to the
 actual skill directory; no package README or manifest is assumed above it.
