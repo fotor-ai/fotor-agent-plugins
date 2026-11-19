@@ -3,7 +3,7 @@
 <p align="center"><img src="assets/logo.svg" width="72" alt="Fotor logo" /></p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.11.0&amp;color=087f8c&amp;style=flat-square" alt="Version" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.11.1&amp;color=087f8c&amp;style=flat-square" alt="Version" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" alt="Release channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -16,7 +16,7 @@ resources, with no runtime code, dependencies or installation hooks.
 | Field | Value |
 | --- | --- |
 | Plugin | `fotor` |
-| Version | `0.11.0` |
+| Version | `0.11.1` |
 | Release channel | `production` |
 | MCP endpoint | `https://mcp.fotor.com/mcp` |
 | Implementation baseline | Hermes Agent 0.23.1 |
@@ -51,7 +51,7 @@ git clone --single-branch --branch "$public_ref" https://github.com/fotor-ai/fot
 public_sha=$(git -C "$source_checkout" rev-parse HEAD)
 ```
 
-Compare that commit and `plugins/hermes/fotor/` with the reviewed source. Confirm plugin version **0.11.0** and release channel **production**. Downloading is not installation; install from the public URL pinned to this commit:
+Compare that commit and `plugins/hermes/fotor/` with the reviewed source. Confirm plugin version **0.11.1** and release channel **production**. Downloading is not installation; install from the public URL pinned to this commit:
 
 ```bash
 hermes -p "$hermes_profile" plugins install "https://github.com/fotor-ai/fotor-agent-plugins.git#plugins/hermes/fotor" --ref "$public_sha" --no-enable

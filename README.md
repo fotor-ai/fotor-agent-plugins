@@ -7,7 +7,7 @@
 <p align="center">Create images, videos, and audio with Fotor — right in your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.11.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.11.0" />
+  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.12.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.12.0" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" alt="production channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -52,16 +52,17 @@ Available models, parameters, and operations come from the connected Fotor servi
 
 | Agent | Fotor Plugin Version | Status | Quick Start |
 | --- | --- | --- | --- |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/codex-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/codex.svg" /><img src="assets/agents/codex.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Codex** | 0.8.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#codex) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/claude-code-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/claude-code.svg" /><img src="assets/agents/claude-code.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Claude Code** | 0.8.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#claude-code) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/cursor-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/cursor.svg" /><img src="assets/agents/cursor.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Cursor** | 0.8.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#cursor) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/grok-bot-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/grok-bot.svg" /><img src="assets/agents/grok-bot.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Grok Bot** | 0.8.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#grok-bot-installation-and-authorization) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/pi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/pi.svg" /><img src="assets/agents/pi.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Pi** | 0.8.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#pi) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/dsh-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/dsh.svg" /><img src="assets/agents/dsh.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **DeepSeek Harness** | 0.8.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#dsh) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kimi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kimi.svg" /><img src="assets/agents/kimi.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Kimi Code Desktop / CLI** | 0.8.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#kimi) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/opencode-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/opencode.svg" /><img src="assets/agents/opencode.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **OpenCode Desktop / CLI** | 0.9.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#opencode) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kilo-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kilo.svg" /><img src="assets/agents/kilo.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Kilo CLI** | 0.10.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#kilo) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/hermes-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/hermes.svg" /><img src="assets/agents/hermes.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Hermes Agent Desktop / CLI** | 0.11.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#hermes) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/codex-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/codex.svg" /><img src="assets/agents/codex.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Codex** | 0.8.2 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#codex) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/claude-code-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/claude-code.svg" /><img src="assets/agents/claude-code.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Claude Code** | 0.8.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#claude-code) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/cursor-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/cursor.svg" /><img src="assets/agents/cursor.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Cursor** | 0.8.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#cursor) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/grok-bot-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/grok-bot.svg" /><img src="assets/agents/grok-bot.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Grok Bot** | 0.8.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#grok-bot-installation-and-authorization) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/pi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/pi.svg" /><img src="assets/agents/pi.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Pi** | 0.8.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#pi) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/dsh-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/dsh.svg" /><img src="assets/agents/dsh.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **DeepSeek Harness** | 0.8.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#dsh) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kimi-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kimi.svg" /><img src="assets/agents/kimi.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Kimi Code Desktop / CLI** | 0.8.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#kimi) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/opencode-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/opencode.svg" /><img src="assets/agents/opencode.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **OpenCode Desktop / CLI** | 0.9.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#opencode) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kilo-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kilo.svg" /><img src="assets/agents/kilo.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Kilo CLI** | 0.10.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#kilo) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/hermes-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/hermes.svg" /><img src="assets/agents/hermes.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Hermes Agent Desktop / CLI** | 0.11.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#hermes) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/omp-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/omp.svg" /><img src="assets/agents/omp.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **omp (oh-my-pi)** | 0.12.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#omp) |
 
 <a id="codex"></a>
 
@@ -90,7 +91,7 @@ codex plugin add fotor@fotor-ai
    codex plugin list --marketplace fotor-ai --json
    ```
 
-2. Confirm version **0.8.1**, release channel **production**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
+2. Confirm version **0.8.2**, release channel **production**, and the **production** MCP endpoint `https://mcp.fotor.com/mcp` in the installed package. Check any standalone Fotor MCP override before authorization; it must use the same production endpoint.
 3. Open a new Codex task and ask:
 
    ```text
@@ -202,7 +203,7 @@ claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.gi
 claude plugin install fotor@fotor-ai --scope user
 ```
 
-Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.8.0**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
+Start a new Claude Code session. Check `claude plugin list --json` for `fotor@fotor-ai`, version **0.8.1**, and its enabled state. Verify the installed `.mcp.json` uses `https://mcp.fotor.com/mcp` and resolve conflicting host overrides before connecting.
 
 ### Claude Code connection
 
@@ -320,7 +321,7 @@ For CLI local loading, start a new native session:
 agent --plugin-dir /absolute/path/to/fotor
 ```
 
-Verify version **0.8.0**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
+Verify version **0.8.1**, enabled state, discovered skills, and the `https://mcp.fotor.com/mcp` URL in the installed `mcp.json`. Resolve conflicting host overrides before connecting. Marketplace installation and local loading are separate routes; do not substitute Codex or Claude commands.
 
 <a id="grok-bot-installation-and-authorization"></a>
 
@@ -329,7 +330,7 @@ Verify version **0.8.0**, enabled state, discovered skills, and the `https://mcp
 Grok Bot uses the Cursor package through the same Cursor account.
 
 1. Install Fotor from the `fotor-ai` marketplace in Cursor using the selected Git source above. A marketplace registration alone does not install the plugin. Use an account-level installation; local IDE folders and CLI `--plugin-dir` loads do not establish account sharing.
-2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.8.0** and source when the host exposes them; account sharing alone does not verify the loaded files.
+2. Sign in to Grok Bot with that same Cursor account. Open **Connect Apps**, select the installed/connected list, and find **Fotor** from `fotor-ai`. Check version **0.8.1** and source when the host exposes them; account sharing alone does not verify the loaded files.
 3. For a connection that needs authorization, choose the native **Authorize / Authenticate** action and complete login and consent in the external normal browser. Return to Grok Bot; during a chat flow, choose Continue and verify the native connection result. Reuse valid authorization when available.
 4. Confirm **Connected**, inspect available tools, and ask **Check only the Fotor MCP connection.** A successful read-only call verifies access. This request does not open a website or query balance.
 
@@ -546,7 +547,7 @@ for client-specific browser routes, credentials and actual acceptance scope.
 
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/opencode-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/opencode.svg" /><img src="assets/agents/opencode.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; OpenCode Desktop / CLI
 
-OpenCode package **0.9.0** is distributed independently through
+OpenCode package **0.9.1** is distributed independently through
 [fotor-ai/opencode-fotor-plugin](https://github.com/fotor-ai/opencode-fotor-plugin) and npm
 `@fotor-ai/opencode-fotor-plugin`. Use the following targets only after their
 selected public channels have been verified. Choose one source:
@@ -578,16 +579,16 @@ Kilo CLI uses a manual project installation: copy the six skill folders, then ad
 
 #### Production release
 
-Obtain this collection from `v0.11.0` only after the public source is available and its version table has been verified. Use a new checkout directory:
+Obtain this collection from `v0.12.0` only after the public source is available and its version table has been verified. Use a new checkout directory:
 
 ```bash
-git clone --single-branch --branch v0.11.0 https://github.com/fotor-ai/fotor-agent-plugins.git fotor-kilo-source
+git clone --single-branch --branch v0.12.0 https://github.com/fotor-ai/fotor-agent-plugins.git fotor-kilo-source
 git -C fotor-kilo-source rev-parse HEAD
 ```
 
-The package is `fotor-kilo-source/plugins/kilo/fotor/`. Record the resolved commit and compare its file inventory with the selected release before copying any skills. For prepublication review, replace the Tag selector with the reviewed branch `release/v0.11.0` and verify its supplied commit; candidate availability does not establish a formal release.
+The package is `fotor-kilo-source/plugins/kilo/fotor/`. Record the resolved commit and compare its file inventory with the selected release before copying any skills. For prepublication review, replace the Tag selector with the reviewed branch `release/v0.12.0` and verify its supplied commit; candidate availability does not establish a formal release.
 
-Confirm version **0.10.0**, release channel **production**, source commit and file inventory. Downloading a source checkout is not installation: perform the two project-scoped steps below. Local development uses a reviewed fixed-source export. Keep existing configuration and grants. Marketplace and Desktop installation are outside this route.
+Confirm version **0.10.1**, release channel **production**, source commit and file inventory. Downloading a source checkout is not installation: perform the two project-scoped steps below. Local development uses a reviewed fixed-source export. Keep existing configuration and grants. Marketplace and Desktop installation are outside this route.
 
 Use a dedicated project and keep the source checkout outside it. Select the
 complete `plugins/kilo/fotor/` package from that checkout. Check existing
@@ -620,7 +621,7 @@ configuration file. This route creates no marketplace receipts.
 
 ### Skills and connection
 
-Start Kilo in that project. Verify **0.10.0** from each installed version
+Start Kilo in that project. Verify **0.10.1** from each installed version
 marker and compare files with the selected package. Use native `/fotor-connect`
 completion or natural-language skill discovery. Read references relative to the
 actual skill directory; no package README or manifest is assumed above it.
@@ -655,7 +656,7 @@ and reload checks, not native market installation or automatic bundle upgrades.
 
 #### Production release
 
-Select `v0.11.0` once that public source is verified. For prepublication review, select `release/v0.11.0` and verify the supplied candidate commit; this does not establish a formal release.
+Select `v0.12.0` once that public source is verified. For prepublication review, select `release/v0.12.0` and verify the supplied candidate commit; this does not establish a formal release.
 
 Set `public_ref` to that branch or Tag, `source_checkout` to a new directory, and `hermes_profile` to your existing target profile. Download and resolve the full 40-character commit:
 
@@ -664,7 +665,7 @@ git clone --single-branch --branch "$public_ref" https://github.com/fotor-ai/fot
 public_sha=$(git -C "$source_checkout" rev-parse HEAD)
 ```
 
-Compare that commit and `plugins/hermes/fotor/` with the reviewed source. Confirm plugin version **0.11.0** and release channel **production**. Downloading is not installation; install from the public URL pinned to this commit:
+Compare that commit and `plugins/hermes/fotor/` with the reviewed source. Confirm plugin version **0.11.1** and release channel **production**. Downloading is not installation; install from the public URL pinned to this commit:
 
 ```bash
 hermes -p "$hermes_profile" plugins install "https://github.com/fotor-ai/fotor-agent-plugins.git#plugins/hermes/fotor" --ref "$public_sha" --no-enable
@@ -752,6 +753,52 @@ a new session. CLI and Desktop sharing one installation is not two independent
 installations. A local fixed-source reinstall is not a public-channel upgrade.
 
 
+<a id="omp"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/omp-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/omp.svg" /><img src="assets/agents/omp.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; omp (oh-my-pi)
+
+#### Production release
+
+Once collection `v0.12.0` is published, run these commands in
+your target Git project. The GitHub shorthand uses the repository's default
+branch. The marketplace registration belongs to the active profile. If
+`fotor-ai` already points to this GitHub source, skip registration. If it
+points elsewhere, review the projects using it before changing the source.
+
+```bash
+omp plugin marketplace add fotor-ai/fotor-agent-plugins
+omp plugin install fotor@fotor-ai --scope project
+omp plugin list --json
+omp skill list --json
+```
+
+For this release, verify that the fetched commit matches the commit tagged
+`v0.12.0`, that `.omp-plugin/marketplace.json` selects
+`./plugins/omp/fotor`, and that Fotor **0.12.0** (production channel)
+is installed at project scope.
+
+#### Review the candidate before publication
+
+Set `source_checkout` to a new absolute path outside your target project.
+Download the candidate and compare its full commit with the one supplied for review.
+
+```bash
+git clone --single-branch --branch release/v0.12.0 https://github.com/fotor-ai/fotor-agent-plugins.git "$source_checkout"
+git -C "$source_checkout" rev-parse HEAD
+```
+
+After verifying the catalog path and any existing registration, use
+`omp plugin marketplace add "$source_checkout"` in the target project,
+then run the project install and list commands above. Keep the checkout
+available while using this source.
+
+Use `/skill:fotor-connect` and `/mcp list` in the active session. Check the
+source, not just the name: older Fotor catalogs resolve the same plugin ID to
+the Claude Code package. The omp package contributes six skills and the native
+`fotor:fotor` HTTP server. Preserve the profile's approval policy and use
+native OAuth when needed.
+
+
 ## Documentation
 
 - [Codex plugin guide](plugins/codex/fotor/README.md)
@@ -763,6 +810,7 @@ installations. A local fixed-source reinstall is not a public-channel upgrade.
 - [OpenCode installation guide](https://github.com/fotor-ai/opencode-fotor-plugin#readme)
 - [Kilo CLI plugin guide](plugins/kilo/fotor/README.md)
 - [Hermes Agent plugin guide](plugins/hermes/fotor/README.md)
+- [omp (oh-my-pi) plugin guide](plugins/omp/fotor/README.md)
 
 <details>
 <summary>Release channels and verification</summary>
