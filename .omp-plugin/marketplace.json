@@ -1,0 +1,13 @@
+{
+  "name": "fotor-ai",
+  "owner": {
+    "name": "Fotor"
+  },
+  "plugins": [
+    {
+      "name": "fotor",
+      "source": "./plugins/omp/fotor",
+      "description": "Create images, videos and audio with Fotor in omp."
+    }
+  ]
+}
