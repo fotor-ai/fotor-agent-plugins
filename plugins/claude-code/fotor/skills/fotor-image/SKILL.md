@@ -20,13 +20,25 @@ Discover the required tool before proceeding. Standalone image processing does n
 
 ## Match the operation's limits
 
-For generation/editing, preserve the requested subject, composition, style, and consistency constraints. Select `resolution`, `aspect_ratio`, and `quality` from the model details, using reported defaults for unspecified settings. The optional `extra` fields support background and output-format preferences only when supported by the current schema and model. Explain unsupported masks, arbitrary dimensions, or other constraints before changing the request.
+For generation/editing, preserve the requested subject, composition, style, and consistency constraints. The optional `extra` fields support background and output-format preferences only when supported by the current schema and model. Explain unsupported masks, arbitrary dimensions, or other constraints before changing the request.
 
 For standalone upscaling, `upscale_ratio` defaults to `2.0` and must be finite and positive. The current tool caps output width and height at 2048 pixels. Explain requests exceeding that limit before submitting; a requested multiplier does not guarantee dimensions beyond the cap. Background removal takes only the source URL and returns an asynchronous task for a transparent result. Do not invent provider, resolution, or output-format controls for these fixed operations.
 
+## Choose generation quality before submitting
+
+Compare the parameters you actually intend to send with the selected model and operation's recommended defaults. For a draft, mock-up, sample or ordinary request, keep the requested content, aspect ratio, duration and other independent constraints. Apply reported defaults for unspecified quality settings; if none is published, omit optional fields and ask only for missing required inputs. A style such as “cinematic” does not by itself select a higher tier. A default draft can still consume Fotor credits.
+
+If the planned settings raise quality above the model's default and no applicable consent exists, pause **before** submitting. In the user's language name the concrete change and say it may use more Fotor credits. Use exactly these three choices in this order: **(1) Do not generate** (first, and the sole preselected option); **(2) Generate at the proposed setting**; **(3) Use model defaults for a draft**. Both generation choices start unselected. Name only the single proposed upgrade, leaving unrelated settings at their defaults. In a native form, explicitly mark only the first, no-submission choice as checked or selected; verify this before sending the form. If the host cannot express a safe default or has no selection UI, offer the same three choices in text and wait for a new user reply. Cancellation, timeout (even with a preselected value), silence or an unclear answer never authorizes a submission. An explicit choice authorizes exactly the selected operation; avoid a second confirmation for the same choice and retain native tool permissions.
+
+Reuse a user's explicit batch or standing instruction only for the covered medium and settings. A new instruction such as “draft this one” overrides it. In another conversation reuse only an explicit instruction already available there; do not write memory or settings. Never invent a price, query a balance as a prerequisite, or change model or parameters to simulate a quality tier the operation does not offer.
+
+Use the actual model resolution or quality tier in the choice, for example 4K versus its reported default. Standalone upscaling and background removal keep their existing submission workflow.
+
 ## Submit and deliver
 
-Before any `submit_*_task` call, follow the [credit-consumption notice](references/mcp-integration.md#credit-consumption-before-submission). A successful call may consume Fotor credits. Briefly tell the user before submitting; an already authorized request needs no additional blanket confirmation.
+Build the final `submit_image_task` arguments from the selected model's defaults for `resolution`, `quality`, and `aspect_ratio`. Apply each requested or approved change to its own field. “Always use 4K for my images” sets only `resolution`. If the user also specifies a shape or ratio, use it. Otherwise compose the scene within the model's default frame. Omit optional `aspect_ratio` when omission applies that default, or pass the reported default if a value is required.
+
+Put the [credit notice](references/mcp-integration.md#credit-consumption-before-submission) in **visible chat text immediately before the submission tool call**. For an ordinary image or a draft, say one sentence in the user's language, such as “Generating this image may use Fotor credits.” Follow it with the authorized call in the same turn. When a one-off draft overrides a batch's approved resolution, give the brief notice for that draft. An informed batch instruction or an earlier quality choice covers the images and settings it names.
 
 Submit the requested operation once, retain its returned task ID and model or operation, and use `get_task` according to the shared lifecycle. `submission_uncertain` may mean the task was created and charged; preserve any known ID and avoid automatic resubmission. Report `credits_increment` only as returned, including zero or unknown values.
 

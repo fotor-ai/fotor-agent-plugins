@@ -7,7 +7,7 @@ Create images, video and audio with Fotor through Pi's native MCP tools and shar
 | Field | Value |
 | --- | --- |
 | Package | `fotor` |
-| Version | `0.8.0` |
+| Version | `0.8.1` |
 | Release channel | `production` |
 | Service environment | `production` |
 | MCP endpoint | `https://mcp.fotor.com/mcp` |

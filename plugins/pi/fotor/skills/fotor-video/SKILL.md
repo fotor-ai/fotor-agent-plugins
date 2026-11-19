@@ -49,9 +49,19 @@ Example for a model supporting two images, one video, and one audio reference:
 Use the character in <<<image_1>>> and the setting in <<<image_2>>>. Follow the camera motion in <<<video_1>>> and the rhythm of <<<audio_1>>>.
 ```
 
+## Choose generation quality before submitting
+
+Compare the parameters you actually intend to send with the selected model and operation's recommended defaults. For a draft, mock-up, sample or ordinary request, keep the requested content, aspect ratio, duration and other independent constraints. Apply reported defaults for unspecified quality settings; if none is published, omit optional fields and ask only for missing required inputs. A style such as “cinematic” does not by itself select a higher tier. A default draft can still consume Fotor credits.
+
+If the planned settings raise quality above the model's default and no applicable consent exists, pause **before** submitting. In the user's language name the concrete change and say it may use more Fotor credits. Use exactly these three choices in this order: **(1) Do not generate** (first, and the sole preselected option); **(2) Generate at the proposed setting**; **(3) Use model defaults for a draft**. Both generation choices start unselected. Name only the single proposed upgrade, leaving unrelated settings at their defaults. In a native form, explicitly mark only the first, no-submission choice as checked or selected; verify this before sending the form. If the host cannot express a safe default or has no selection UI, offer the same three choices in text and wait for a new user reply. Cancellation, timeout (even with a preselected value), silence or an unclear answer never authorizes a submission. An explicit choice authorizes exactly the selected operation; avoid a second confirmation for the same choice and retain native tool permissions.
+
+Reuse a user's explicit batch or standing instruction only for the covered medium and settings. A new instruction such as “draft this one” overrides it. In another conversation reuse only an explicit instruction already available there; do not write memory or settings. Never invent a price, query a balance as a prerequisite, or change model or parameters to simulate a quality tier the operation does not offer.
+
+Compare supported render resolution or quality for the selected video mode. Keep an explicitly requested shot length, frame orientation and reference inputs when the user opts for draft quality.
+
 ## Finish the request
 
-Before any `submit_*_task` call, follow the [credit-consumption notice](references/mcp-integration.md#credit-consumption-before-submission). A successful call may consume Fotor credits. Briefly tell the user before submitting; an already authorized request needs no additional blanket confirmation.
+For an ordinary video or a draft, put the [credit notice](references/mcp-integration.md#credit-consumption-before-submission) in **visible chat text immediately before the submission tool call**. Say one sentence in the user's language, such as “Generating this video may use Fotor credits.” Follow it with the call in the same turn. A notice already shown for this operation, including in a higher-quality choice, covers this step.
 
 Submit once, retain the returned ID, and follow the shared `get_task` lifecycle, including `submission_uncertain` recovery and the returned `credits_increment`. Upload success alone does not establish generation success. Deliver the actual completed result; a submitted or processing task is not a finished video. Report audio/visual quality only after inspection.
 
