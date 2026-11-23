@@ -7,7 +7,7 @@
 <p align="center">Create images, videos, and audio with Fotor — right in your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.13.0-test.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.13.0-test.1" />
+  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.13.0-test.2&amp;color=087f8c&amp;style=flat-square" alt="Version 0.13.0-test.2" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" alt="test channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -63,7 +63,7 @@ Available models, parameters, and operations come from the connected Fotor servi
 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kilo-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kilo.svg" /><img src="assets/agents/kilo.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Kilo CLI** | 0.10.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#kilo) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/hermes-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/hermes.svg" /><img src="assets/agents/hermes.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Hermes Agent Desktop / CLI** | 0.11.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#hermes) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/omp-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/omp.svg" /><img src="assets/agents/omp.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **omp (oh-my-pi)** | 0.12.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#omp) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/antigravity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/antigravity.svg" /><img src="assets/agents/antigravity.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Google Antigravity App / CLI** | 0.13.0-test.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/unreleased-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/unreleased.svg" /><img src="assets/status/unreleased.svg" width="100" height="24" alt="Unreleased" align="absmiddle" /></picture> | [Install](#antigravity) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/antigravity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/antigravity.svg" /><img src="assets/agents/antigravity.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Google Antigravity App / CLI** | 0.13.0-test.2 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/unreleased-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/unreleased.svg" /><img src="assets/status/unreleased.svg" width="100" height="24" alt="Unreleased" align="absmiddle" /></picture> | [Install](#antigravity) |
 
 <a id="codex"></a>
 
@@ -490,11 +490,11 @@ First verify that the selected revision contains the DeepSeek Harness Bundle. In
 dsh plugin --profile web add "git+https://github.com/fotor-ai/dsh-fotor-plugin.git" --ignore-scripts
 ```
 
-From 0.6.0, the identity is `@fotor-ai/dsh-fotor-plugin`. Installing Fotor automatically obtains mcp-remote 0.15.2: Git sources download the dependency and npm artifacts carry its complete runtime tree. Stable Node 24.2.0 or later within 24.x, or stable Node 26.x, is required. The npm alternatives, after publication, are `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin" --ignore-scripts` and `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin@next" --ignore-scripts`. Verify the actual target version: bare-name installation follows `latest`.
+From 0.6.0, the identity is `@fotor-ai/dsh-fotor-plugin`. Installing Fotor automatically obtains mcp-remote 0.15.2: Git sources download the dependency and npm artifacts carry its complete runtime tree. Stable Node 24.2.0 or later within 24.x, or stable Node 26.x, is required. To install this release from npm, run `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin" --ignore-scripts`. Verify the installed version in the selected profile.
 
 From 0.6.1, select Web **Enable now** after installation, or load the CLI profile. Host activation automatically configures and enables skills and MCP unless explicit user overrides disable them. Existing accepted authorization is reused; otherwise the bridge opens browser consent. Downloading the package alone runs no hook. Follow the [complete guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md), [optional full configuration example](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/configuration.example.yml) and [authorization instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md#6-authorize-then-enable-the-connection). Preserve the external credential directory and daily browser state. Model login and website access are separate steps.
 
-For npm updates, use `dsh plugin --profile web update "@fotor-ai/dsh-fotor-plugin@<target-version>" --ignore-scripts` with an explicitly published target. Immediate `@next` upgrade did not pass in 0.6.0-test.2; exact-version native updates did. Do not infer `@latest` success or promise that a 24-hour wait fixes it. Retain the original profile and custom `--store-dir` for updates/removal, preserve release-age protection, complete valid configuration and explicit disabled states, and verify the actual installed version and new-process skill paths. See the [maintenance instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md#7-use-update-or-remove-fotor).
+For npm updates, use `dsh plugin --profile web update "@fotor-ai/dsh-fotor-plugin@<target-version>" --ignore-scripts` with an explicitly published target. Retain the original profile and custom `--store-dir` for updates/removal, preserve release-age protection, complete valid configuration and explicit disabled states, and verify the actual installed version and new-process skill paths. See the [maintenance instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md#7-use-update-or-remove-fotor).
 
 The declared host range is `>=0.2.1-rc.2 <0.3.0-0`; current acceptance uses Linux Web 0.2.1-rc.3, with earlier rc.2 results retaining their original scope. A matching version is not automatically tested.
 
@@ -524,19 +524,13 @@ This multi-platform snapshot contains no Kimi package or root Kimi manifest.
 Install only after the independent channel exists and contains its native root
 manifest; this collection does not publish or advance that channel.
 
-In a native CLI session, use the published production source:
+In a native CLI session, install from the listed repository source.
 
 ```text
 /plugins install https://github.com/fotor-ai/kimi-fotor-plugin
 ```
 
-For an explicitly published test branch, use:
-
-```text
-/plugins install https://github.com/fotor-ai/kimi-fotor-plugin/tree/release/test
-```
-
-Desktop's Settings → Plugins → Add plugin accepts the same sources. Review native
+Desktop's Settings → Plugins → Add plugin accepts the same source. Review native
 trust/enable controls and keep one Fotor installation. A bare source follows the
 latest GitHub Release, with default-branch fallback only when none exists; explicit
 Tags/commits do not follow updates. Native authorization, model login and website
@@ -793,23 +787,55 @@ native OAuth when needed.
 
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/antigravity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/antigravity.svg" /><img src="assets/agents/antigravity.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Google Antigravity App / CLI
 
-Choose the [public collection](https://github.com/fotor-ai/fotor-agent-plugins) containing [Fotor **0.13.0-test.1**](plugins/antigravity/fotor/README.md)
-on the **test** package channel. Set `public_ref` to the published
-`release/test` branch for testing, the reviewed `release/v0.13.0`
-branch for candidate review, or the published `v0.13.0` tag for a formal release.
-Use the **collection version** in the branch or tag name.
+Fotor **0.13.0-test.2** is distributed on the **test** package channel.
+The App and CLI share one installation when they use the same operating-system account.
 
-Set `public_sha` to the full commit you verified for that ref on GitHub (for an
-annotated tag, use the commit it points to). Set `checkout` to a new directory.
-Run `agy plugin list --json` first. If Fotor is already installed, verify its
-source and files before replacing it. Stop if another plugin, workspace skill
-or MCP entry already supplies Fotor.
+[App installation](#install-for-the-antigravity-app) · [CLI installation](#install-for-the-antigravity-cli)
+
+### Install for the Antigravity App
+
+1. On the computer running the App, open a terminal under the same user account
+   and run the [Antigravity installation command](#antigravity-installation-command)
+   below. If this version is already installed with `agy`, continue with step 2.
+2. Open **Customizations → Installed → Fotor** in the App. Check that Fotor is
+   enabled and its version is **0.13.0-test.2**.
+3. If sign-in is required, open **Accounts** and select **Sign in** for
+   `fotor` at `mcp.fotor.com`. Complete authorization in your browser and
+   enter a code in the App if prompted.
+4. Open **MCP** and look for a connected Fotor service with `list_models`.
+   In a new project conversation, ask “Which image models are available in Fotor?”
+
+### Install for the Antigravity CLI
+
+1. Run the [Antigravity installation command](#antigravity-installation-command)
+   below in a terminal. If you already installed Fotor for the App under this
+   account, run `agy plugin list --json` to check its version and enabled state.
+2. Start `agy` in your project. Open `/plugin`, select **Installed → Fotor**,
+   and choose **Sign in** if prompted. Complete authorization in your browser
+   and enter any requested code in the CLI.
+3. Open `/mcp` to check that `fotor_fotor` is connected. Type `/fotor` and
+   select `/fotor:fotor-connect` to use the connection skill.
+
+### Antigravity installation command
+
+You need Git and the [Antigravity CLI (`agy`)](https://antigravity.google/docs/getting-started/).
+
+Open the [public test branch](https://github.com/fotor-ai/fotor-agent-plugins/tree/release/test) and check its version table.
+
+In your terminal, enter `public_sha='…'`, replacing the ellipsis with the full
+40-character commit shown on GitHub. Run the block from a directory where
+`fotor-antigravity` does not yet exist.
+
+If `agy plugin list --json` already shows Fotor, check its source and files
+before replacing it. Resolve any same-name workspace skill or MCP service first.
 
 ```bash
 (
   set -eu
-  git clone --single-branch --branch "$public_ref" https://github.com/fotor-ai/fotor-agent-plugins.git "$checkout"
-  cd -- "$checkout"
+  test -n "$public_sha"
+  git clone --single-branch --branch release/test \
+    https://github.com/fotor-ai/fotor-agent-plugins.git fotor-antigravity
+  cd fotor-antigravity
   test "$(git rev-parse HEAD)" = "$public_sha" || exit 1
   git checkout --detach "$public_sha"
   agy plugin validate --strict --json ./plugins/antigravity/fotor
@@ -818,13 +844,8 @@ or MCP entry already supplies Fotor.
 )
 ```
 
-The CLI installs one user-wide package. Open the target project in the CLI
-and choose `/fotor:fotor-connect`, or open it in the App and find Fotor under
-**Customizations → Installed**. To authorize in the App, choose
-**Fotor → Accounts → Sign in**. The **MCP** tab shows the connected service
-and its tools. See the [Antigravity authorization guide](plugins/antigravity/fotor/skills/fotor-connect/references/authentication.md)
-for approvals and recovery. Manage an owned installation with
-`agy plugin disable fotor`, `agy plugin enable fotor` or `agy plugin uninstall fotor`.
+If Fotor shows an account but MCP reports `Unauthorized`, use Fotor’s account
+controls in the affected client to sign out and sign in again. [Antigravity authorization guide](plugins/antigravity/fotor/skills/fotor-connect/references/authentication.md)
 
 
 ## Documentation
@@ -842,9 +863,9 @@ for approvals and recovery. Manage an owned installation with
 - [Google Antigravity App / CLI plugin guide](plugins/antigravity/fotor/README.md)
 
 <details>
-<summary>Release channels and verification</summary>
+<summary>Service and verification</summary>
 
-Both release channels connect to Fotor’s production service and website. Test builds use your real Fotor account and credits. Each skill includes its own four runtime reference documents.
+This test build connects to Fotor's production service and website using your Fotor account. Each skill includes its own four runtime reference documents.
 
 ### Verification scope
 

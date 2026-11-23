@@ -1,39 +1,76 @@
 # Fotor for Google Antigravity
 
-<img src="assets/logo.svg" alt="Fotor logo" width="96" />
+<p align="center"><img src="assets/logo.svg" width="72" alt="Fotor logo" /></p>
 
-Fotor plugin **0.13.0-test.1** · test channel · [License](LICENSE)
+<p align="center">
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.13.0-test.2&amp;color=087f8c&amp;style=flat-square" alt="Version" />
+  <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" alt="Release channel" />
+  <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
+</p>
 
-Create and edit images, videos and audio with Fotor in the Antigravity App
-and CLI. Six skills and the remote MCP service install together. The
-[manifest](plugin.json) identifies the package. Antigravity manages sign-in
-and tool approvals for the endpoint in [mcp_config.json](mcp_config.json).
+Create and edit images, videos, and audio in an Antigravity conversation.
+The [plugin](plugin.json) bundles six skills and connects to Fotor through
+its [MCP configuration](mcp_config.json).
 
-For the first Antigravity collection, the candidate branch is
-`release/v0.13.0` and the formal tag is `v0.13.0`. Check that the selected
-ref is available before installing.
+| Field | Value |
+| --- | --- |
+| Plugin | `fotor` |
+| Version | `0.13.0-test.2` |
+| Release channel | `test` |
+| MCP endpoint | `https://mcp.fotor.com/mcp` |
+| Supported agent versions | Antigravity App `>=2.33.0` · Antigravity CLI `>=1.5.13` |
 
-<a id="antigravity"></a>
+## Installation
 
-## Google Antigravity App / CLI
+Fotor **0.13.0-test.2** is distributed on the **test** package channel.
+The App and CLI share one installation when they use the same operating-system account.
 
-Choose the [public collection](https://github.com/fotor-ai/fotor-agent-plugins) containing [Fotor **0.13.0-test.1**](README.md)
-on the **test** package channel. Set `public_ref` to the published
-`release/test` branch for testing, the reviewed `release/v<collection-version>`
-branch for candidate review, or the published `v<collection-version>` tag for a formal release.
-Use the **collection version** in the branch or tag name.
+[App installation](#install-for-the-antigravity-app) · [CLI installation](#install-for-the-antigravity-cli)
 
-Set `public_sha` to the full commit you verified for that ref on GitHub (for an
-annotated tag, use the commit it points to). Set `checkout` to a new directory.
-Run `agy plugin list --json` first. If Fotor is already installed, verify its
-source and files before replacing it. Stop if another plugin, workspace skill
-or MCP entry already supplies Fotor.
+### Install for the Antigravity App
+
+1. On the computer running the App, open a terminal under the same user account
+   and run the [Antigravity installation command](#antigravity-installation-command)
+   below. If this version is already installed with `agy`, continue with step 2.
+2. Open **Customizations → Installed → Fotor** in the App. Check that Fotor is
+   enabled and its version is **0.13.0-test.2**.
+3. If sign-in is required, open **Accounts** and select **Sign in** for
+   `fotor` at `mcp.fotor.com`. Complete authorization in your browser and
+   enter a code in the App if prompted.
+4. Open **MCP** and look for a connected Fotor service with `list_models`.
+   In a new project conversation, ask “Which image models are available in Fotor?”
+
+### Install for the Antigravity CLI
+
+1. Run the [Antigravity installation command](#antigravity-installation-command)
+   below in a terminal. If you already installed Fotor for the App under this
+   account, run `agy plugin list --json` to check its version and enabled state.
+2. Start `agy` in your project. Open `/plugin`, select **Installed → Fotor**,
+   and choose **Sign in** if prompted. Complete authorization in your browser
+   and enter any requested code in the CLI.
+3. Open `/mcp` to check that `fotor_fotor` is connected. Type `/fotor` and
+   select `/fotor:fotor-connect` to use the connection skill.
+
+### Antigravity installation command
+
+You need Git and the [Antigravity CLI (`agy`)](https://antigravity.google/docs/getting-started/).
+
+Open the [public test branch](https://github.com/fotor-ai/fotor-agent-plugins/tree/release/test) and check its version table.
+
+In your terminal, enter `public_sha='…'`, replacing the ellipsis with the full
+40-character commit shown on GitHub. Run the block from a directory where
+`fotor-antigravity` does not yet exist.
+
+If `agy plugin list --json` already shows Fotor, check its source and files
+before replacing it. Resolve any same-name workspace skill or MCP service first.
 
 ```bash
 (
   set -eu
-  git clone --single-branch --branch "$public_ref" https://github.com/fotor-ai/fotor-agent-plugins.git "$checkout"
-  cd -- "$checkout"
+  test -n "$public_sha"
+  git clone --single-branch --branch release/test \
+    https://github.com/fotor-ai/fotor-agent-plugins.git fotor-antigravity
+  cd fotor-antigravity
   test "$(git rev-parse HEAD)" = "$public_sha" || exit 1
   git checkout --detach "$public_sha"
   agy plugin validate --strict --json ./plugins/antigravity/fotor
@@ -42,17 +79,23 @@ or MCP entry already supplies Fotor.
 )
 ```
 
-The CLI installs one user-wide package. Open the target project in the CLI
-and choose `/fotor:fotor-connect`, or open it in the App and find Fotor under
-**Customizations → Installed**. To authorize in the App, choose
-**Fotor → Accounts → Sign in**. The **MCP** tab shows the connected service
-and its tools. See the [Antigravity authorization guide](skills/fotor-connect/references/authentication.md)
-for approvals and recovery. Manage an owned installation with
-`agy plugin disable fotor`, `agy plugin enable fotor` or `agy plugin uninstall fotor`.
+If Fotor shows an account but MCP reports `Unauthorized`, use Fotor’s account
+controls in the affected client to sign out and sign in again. [Antigravity authorization guide](skills/fotor-connect/references/authentication.md)
 
+## Manage the plugin
 
-Fotor receives the prompts, parameters and selected reference media needed
-for the operations you request. Generation or processing may use account
-credits. The credits skill only queries your own balance. Review the
-[service workflow](skills/fotor-connect/references/mcp-integration.md)
-for task results, website handoff and bounded recovery.
+In the App, open **Customizations → Installed** and use Fotor’s menu. From a
+terminal, use `agy plugin disable fotor`, `agy plugin enable fotor`, or
+`agy plugin uninstall fotor` for an installation you own. Before updating or
+removing Fotor, check the installed source and preserve any local edits.
+
+## Account and data
+
+Antigravity manages sign-in and tool approvals. Fotor receives the prompts,
+parameters, and reference media needed for the operations you request.
+Generation and processing may use Fotor credits. The credits skill checks
+only your own balance. [Service workflow](skills/fotor-connect/references/mcp-integration.md)
+
+## License
+
+[Apache License 2.0](LICENSE)
