@@ -7,7 +7,7 @@
 <p align="center">Create images, videos, and audio with Fotor — right in your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.12.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.12.0" />
+  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.13.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.13.0" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" alt="production channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -63,6 +63,7 @@ Available models, parameters, and operations come from the connected Fotor servi
 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kilo-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kilo.svg" /><img src="assets/agents/kilo.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Kilo CLI** | 0.10.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#kilo) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/hermes-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/hermes.svg" /><img src="assets/agents/hermes.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Hermes Agent Desktop / CLI** | 0.11.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#hermes) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/omp-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/omp.svg" /><img src="assets/agents/omp.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **omp (oh-my-pi)** | 0.12.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#omp) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/antigravity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/antigravity.svg" /><img src="assets/agents/antigravity.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Google Antigravity App / CLI** | 0.13.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#antigravity) |
 
 <a id="codex"></a>
 
@@ -136,10 +137,10 @@ Credential reuse across the identity change requires separate verification; do n
 
 ### Switch release channel
 
-Use one source for the `fotor-ai` marketplace. Choose the destination first, then run **one** of the replacement sequences below. Run source changes outside another checkout containing the same marketplace catalog.
+Use one source for the `fotor-ai` marketplace. Run the replacement sequence below to use the published source. Run source changes outside another checkout containing the same marketplace catalog.
 
 <details>
-<summary>Choose the production or test release channel</summary>
+<summary>Register the published source</summary>
 
 #### Production release
 
@@ -148,17 +149,6 @@ Install the released plugin from the default `main` branch. No branch selector i
 ```bash
 codex plugin marketplace remove fotor-ai
 codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git
-codex plugin add fotor@fotor-ai
-codex plugin list --marketplace fotor-ai --json
-```
-
-#### Test release
-
-Install the test build from `release/test` for prerelease validation.
-
-```bash
-codex plugin marketplace remove fotor-ai
-codex plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --ref release/test
 codex plugin add fotor@fotor-ai
 codex plugin list --marketplace fotor-ai --json
 ```
@@ -253,7 +243,7 @@ If migration fails, remove any partial new installation using the same data-pres
 
 ### Claude Code channel
 
-Both channels use production MCP and credits. A test source pins `release/test`; the stable source uses `main`. Ordinary upgrades retain the selected branch.
+The published marketplace uses `main`. Ordinary upgrades retain the registered branch.
 
 <details>
 <summary>Explicitly replace a user-scoped marketplace source</summary>
@@ -267,17 +257,6 @@ Install the released plugin from the default `main` branch. No branch selector i
 ```bash
 claude plugin marketplace remove fotor-ai --scope user
 claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git --scope user
-claude plugin install fotor@fotor-ai --scope user
-claude plugin list --json
-```
-
-#### Test release
-
-Install the test build from `release/test` for prerelease validation.
-
-```bash
-claude plugin marketplace remove fotor-ai --scope user
-claude plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins.git#release/test --scope user
 claude plugin install fotor@fotor-ai --scope user
 claude plugin list --json
 ```
@@ -301,7 +280,7 @@ This guide covers Cursor IDE, Cursor CLI, and Grok Bot through the same Cursor p
 
 #### Production release
 
-First confirm [main](https://github.com/fotor-ai/fotor-agent-plugins/tree/main) contains the Cursor catalog and `plugins/cursor/fotor/` package. Register the selected Git source with the native CLI, then open `/plugin` (`/plugins` on clients that show that alias), select `fotor-ai` and install Fotor. Registration alone does not install the plugin. Both channels use production MCP and accounts.
+First confirm [main](https://github.com/fotor-ai/fotor-agent-plugins/tree/main) contains the Cursor catalog and `plugins/cursor/fotor/` package. Register the selected Git source with the native CLI, then open `/plugin` (`/plugins` on clients that show that alias), select `fotor-ai` and install Fotor. Registration alone does not install the plugin. Fotor uses your production account.
 
 ```bash
 agent plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins
@@ -373,27 +352,17 @@ For a real old marketplace registration, first verify the destination catalog, r
 
 ### Cursor channel
 
-Both channels use production MCP and credits. Select one Git marketplace source or one local package, then verify a fresh session uses the intended revision. A channel change is not an MCP environment change.
+Select one published Git marketplace source or one local package. Verify its revision in a fresh session.
 
 <details>
-<summary>Choose the production or test release channel</summary>
+<summary>Register the published source</summary>
 
 #### Production release
 
-First confirm [main](https://github.com/fotor-ai/fotor-agent-plugins/tree/main) contains the Cursor catalog and `plugins/cursor/fotor/` package. Register the selected Git source with the native CLI, then open `/plugin` (`/plugins` on clients that show that alias), select `fotor-ai` and install Fotor. Registration alone does not install the plugin. Both channels use production MCP and accounts. Record the current source and installation scope before switching. Keep one selected Fotor source; if re-registration is rejected or keeps the old commit, uninstall that Fotor installation through native controls, remove only your previous user-owned Fotor marketplace and register the selected source again. Preserve credentials and verify the newly installed files in a fresh session.
+First confirm [main](https://github.com/fotor-ai/fotor-agent-plugins/tree/main) contains the Cursor catalog and `plugins/cursor/fotor/` package. Register the selected Git source with the native CLI, then open `/plugin` (`/plugins` on clients that show that alias), select `fotor-ai` and install Fotor. Registration alone does not install the plugin. Fotor uses your production account. Record the current source and installation scope before switching. Keep one selected Fotor source; if re-registration is rejected or keeps the old commit, uninstall that Fotor installation through native controls, remove only your previous user-owned Fotor marketplace and register the selected source again. Preserve credentials and verify the newly installed files in a fresh session.
 
 ```bash
 agent plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins
-agent plugin marketplace list --format json
-agent
-```
-
-#### Test release
-
-First confirm [release/test](https://github.com/fotor-ai/fotor-agent-plugins/tree/release/test) contains the Cursor catalog and `plugins/cursor/fotor/` package. Register the selected Git source with the native CLI, then open `/plugin` (`/plugins` on clients that show that alias), select `fotor-ai` and install Fotor. Registration alone does not install the plugin. Both channels use production MCP and accounts. Record the current source and installation scope before switching. Keep one selected Fotor source; if re-registration is rejected or keeps the old commit, uninstall that Fotor installation through native controls, remove only your previous user-owned Fotor marketplace and register the selected source again. Preserve credentials and verify the newly installed files in a fresh session.
-
-```bash
-agent plugin marketplace add https://github.com/fotor-ai/fotor-agent-plugins --git-ref release/test
 agent plugin marketplace list --format json
 agent
 ```
@@ -461,15 +430,6 @@ pi install https://github.com/fotor-ai/fotor-agent-plugins
 pi list
 ```
 
-#### Test release
-
-Install the test build from `release/test` for prerelease validation. First verify that the selected revision contains the Pi package and root Pi manifest. Installation loads skills only; register the Fotor MCP separately. Record the current source and scope, remove that package with `pi remove <recorded-source>`, then install the selected source in the same scope. Keep MCP configuration and credentials; verify one active Fotor package in a new session.
-
-```bash
-pi install https://github.com/fotor-ai/fotor-agent-plugins@release/test
-pi list
-```
-
 </details>
 
 
@@ -489,11 +449,11 @@ First verify that the selected revision contains the DeepSeek Harness Bundle. In
 dsh plugin --profile web add "git+https://github.com/fotor-ai/dsh-fotor-plugin.git" --ignore-scripts
 ```
 
-From 0.6.0, the identity is `@fotor-ai/dsh-fotor-plugin`. Installing Fotor automatically obtains mcp-remote 0.15.2: Git sources download the dependency and npm artifacts carry its complete runtime tree. Stable Node 24.2.0 or later within 24.x, or stable Node 26.x, is required. The npm alternatives, after publication, are `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin" --ignore-scripts` and `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin@next" --ignore-scripts`. Verify the actual target version: bare-name installation follows `latest`.
+From 0.6.0, the identity is `@fotor-ai/dsh-fotor-plugin`. Installing Fotor automatically obtains mcp-remote 0.15.2: Git sources download the dependency and npm artifacts carry its complete runtime tree. Stable Node 24.2.0 or later within 24.x, or stable Node 26.x, is required. To install this release from npm, run `dsh plugin --profile web add "@fotor-ai/dsh-fotor-plugin" --ignore-scripts`. Verify the installed version in the selected profile.
 
 From 0.6.1, select Web **Enable now** after installation, or load the CLI profile. Host activation automatically configures and enables skills and MCP unless explicit user overrides disable them. Existing accepted authorization is reused; otherwise the bridge opens browser consent. Downloading the package alone runs no hook. Follow the [complete guide](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md), [optional full configuration example](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/configuration.example.yml) and [authorization instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md#6-authorize-then-enable-the-connection). Preserve the external credential directory and daily browser state. Model login and website access are separate steps.
 
-For npm updates, use `dsh plugin --profile web update "@fotor-ai/dsh-fotor-plugin@<target-version>" --ignore-scripts` with an explicitly published target. Immediate `@next` upgrade did not pass in 0.6.0-test.2; exact-version native updates did. Do not infer `@latest` success or promise that a 24-hour wait fixes it. Retain the original profile and custom `--store-dir` for updates/removal, preserve release-age protection, complete valid configuration and explicit disabled states, and verify the actual installed version and new-process skill paths. See the [maintenance instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md#7-use-update-or-remove-fotor).
+For npm updates, use `dsh plugin --profile web update "@fotor-ai/dsh-fotor-plugin@<target-version>" --ignore-scripts` with an explicitly published target. Retain the original profile and custom `--store-dir` for updates/removal, preserve release-age protection, complete valid configuration and explicit disabled states, and verify the actual installed version and new-process skill paths. See the [maintenance instructions](https://github.com/fotor-ai/dsh-fotor-plugin/blob/HEAD/INSTALL.md#7-use-update-or-remove-fotor).
 
 The declared host range is `>=0.2.1-rc.2 <0.3.0-0`; current acceptance uses Linux Web 0.2.1-rc.3, with earlier rc.2 results retaining their original scope. A matching version is not automatically tested.
 
@@ -523,19 +483,13 @@ This multi-platform snapshot contains no Kimi package or root Kimi manifest.
 Install only after the independent channel exists and contains its native root
 manifest; this collection does not publish or advance that channel.
 
-In a native CLI session, use the published production source:
+In a native CLI session, install from the listed repository source.
 
 ```text
 /plugins install https://github.com/fotor-ai/kimi-fotor-plugin
 ```
 
-For an explicitly published test branch, use:
-
-```text
-/plugins install https://github.com/fotor-ai/kimi-fotor-plugin/tree/release/test
-```
-
-Desktop's Settings → Plugins → Add plugin accepts the same sources. Review native
+Desktop's Settings → Plugins → Add plugin accepts the same source. Review native
 trust/enable controls and keep one Fotor installation. A bare source follows the
 latest GitHub Release, with default-branch fallback only when none exists; explicit
 Tags/commits do not follow updates. Native authorization, model login and website
@@ -579,16 +533,16 @@ Kilo CLI uses a manual project installation: copy the six skill folders, then ad
 
 #### Production release
 
-Obtain this collection from `v0.12.0` only after the public source is available and its version table has been verified. Use a new checkout directory:
+Obtain this collection from `v0.13.0` only after the public source is available and its version table has been verified. Use a new checkout directory:
 
 ```bash
-git clone --single-branch --branch v0.12.0 https://github.com/fotor-ai/fotor-agent-plugins.git fotor-kilo-source
+git clone --single-branch --branch v0.13.0 https://github.com/fotor-ai/fotor-agent-plugins.git fotor-kilo-source
 git -C fotor-kilo-source rev-parse HEAD
 ```
 
-The package is `fotor-kilo-source/plugins/kilo/fotor/`. Record the resolved commit and compare its file inventory with the selected release before copying any skills. For prepublication review, replace the Tag selector with the reviewed branch `release/v0.12.0` and verify its supplied commit; candidate availability does not establish a formal release.
+The package is `fotor-kilo-source/plugins/kilo/fotor/`. Record the resolved commit and compare its file inventory with the selected release before copying any skills.
 
-Confirm version **0.10.1**, release channel **production**, source commit and file inventory. Downloading a source checkout is not installation: perform the two project-scoped steps below. Local development uses a reviewed fixed-source export. Keep existing configuration and grants. Marketplace and Desktop installation are outside this route.
+Confirm version **0.10.1**, release channel **production**, source commit and file inventory. Downloading a source checkout is not installation: perform the two project-scoped steps below. Keep existing configuration and grants. Marketplace and Desktop installation are outside this route.
 
 Use a dedicated project and keep the source checkout outside it. Select the
 complete `plugins/kilo/fotor/` package from that checkout. Check existing
@@ -656,7 +610,7 @@ and reload checks, not native market installation or automatic bundle upgrades.
 
 #### Production release
 
-Select `v0.12.0` once that public source is verified. For prepublication review, select `release/v0.12.0` and verify the supplied candidate commit; this does not establish a formal release.
+Select `v0.13.0` once that public source is verified.
 
 Set `public_ref` to that branch or Tag, `source_checkout` to a new directory, and `hermes_profile` to your existing target profile. Download and resolve the full 40-character commit:
 
@@ -759,8 +713,7 @@ installations. A local fixed-source reinstall is not a public-channel upgrade.
 
 #### Production release
 
-Once collection `v0.12.0` is published, run these commands in
-your target Git project. The GitHub shorthand uses the repository's default
+Run these commands in your target Git project. The GitHub shorthand uses the repository's default
 branch. The marketplace registration belongs to the active profile. If
 `fotor-ai` already points to this GitHub source, skip registration. If it
 points elsewhere, review the projects using it before changing the source.
@@ -773,30 +726,80 @@ omp skill list --json
 ```
 
 For this release, verify that the fetched commit matches the commit tagged
-`v0.12.0`, that `.omp-plugin/marketplace.json` selects
+`v0.13.0`, that `.omp-plugin/marketplace.json` selects
 `./plugins/omp/fotor`, and that Fotor **0.12.0** (production channel)
 is installed at project scope.
-
-#### Review the candidate before publication
-
-Set `source_checkout` to a new absolute path outside your target project.
-Download the candidate and compare its full commit with the one supplied for review.
-
-```bash
-git clone --single-branch --branch release/v0.12.0 https://github.com/fotor-ai/fotor-agent-plugins.git "$source_checkout"
-git -C "$source_checkout" rev-parse HEAD
-```
-
-After verifying the catalog path and any existing registration, use
-`omp plugin marketplace add "$source_checkout"` in the target project,
-then run the project install and list commands above. Keep the checkout
-available while using this source.
 
 Use `/skill:fotor-connect` and `/mcp list` in the active session. Check the
 source, not just the name: older Fotor catalogs resolve the same plugin ID to
 the Claude Code package. The omp package contributes six skills and the native
 `fotor:fotor` HTTP server. Preserve the profile's approval policy and use
 native OAuth when needed.
+
+
+<a id="antigravity"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/antigravity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/antigravity.svg" /><img src="assets/agents/antigravity.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Google Antigravity App / CLI
+
+Fotor **0.13.0** is distributed on the **production** package channel.
+The App and CLI share one installation when they use the same operating-system account.
+
+[App installation](#install-for-the-antigravity-app) · [CLI installation](#install-for-the-antigravity-cli)
+
+### Install for the Antigravity App
+
+1. On the computer running the App, open a terminal under the same user account
+   and run the [Antigravity installation command](#antigravity-installation-command)
+   below. If this version is already installed with `agy`, continue with step 2.
+2. Open **Customizations → Installed → Fotor** in the App. Check that Fotor is
+   enabled and its version is **0.13.0**.
+3. If sign-in is required, open **Accounts** and select **Sign in** for
+   `fotor` at `mcp.fotor.com`. Complete authorization in your browser and
+   enter a code in the App if prompted.
+4. Open **MCP** and look for a connected Fotor service with `list_models`.
+   In a new project conversation, ask “Which image models are available in Fotor?”
+
+### Install for the Antigravity CLI
+
+1. Run the [Antigravity installation command](#antigravity-installation-command)
+   below in a terminal. If you already installed Fotor for the App under this
+   account, run `agy plugin list --json` to check its version and enabled state.
+2. Start `agy` in your project. Open `/plugin`, select **Installed → Fotor**,
+   and choose **Sign in** if prompted. Complete authorization in your browser
+   and enter any requested code in the CLI.
+3. Open `/mcp` to check that `fotor_fotor` is connected. Type `/fotor` and
+   select `/fotor:fotor-connect` to use the connection skill.
+
+### Antigravity installation command
+
+You need Git and the [Antigravity CLI (`agy`)](https://antigravity.google/docs/getting-started/).
+
+Open the [collection release `v0.13.0`](https://github.com/fotor-ai/fotor-agent-plugins/releases/tag/v0.13.0).
+
+In your terminal, enter `public_sha='…'`, replacing the ellipsis with the full
+40-character commit shown on GitHub. Run the block from a directory where
+`fotor-antigravity` does not yet exist.
+
+If `agy plugin list --json` already shows Fotor, check its source and files
+before replacing it. Resolve any same-name workspace skill or MCP service first.
+
+```bash
+(
+  set -eu
+  test -n "$public_sha"
+  git clone --single-branch --branch v0.13.0 \
+    https://github.com/fotor-ai/fotor-agent-plugins.git fotor-antigravity
+  cd fotor-antigravity
+  test "$(git rev-parse HEAD)" = "$public_sha" || exit 1
+  git checkout --detach "$public_sha"
+  agy plugin validate --strict --json ./plugins/antigravity/fotor
+  agy plugin install ./plugins/antigravity/fotor
+  agy plugin list --json
+)
+```
+
+If Fotor shows an account but MCP reports `Unauthorized`, use Fotor’s account
+controls in the affected client to sign out and sign in again. [Antigravity authorization guide](plugins/antigravity/fotor/skills/fotor-connect/references/authentication.md)
 
 
 ## Documentation
@@ -811,11 +814,12 @@ native OAuth when needed.
 - [Kilo CLI plugin guide](plugins/kilo/fotor/README.md)
 - [Hermes Agent plugin guide](plugins/hermes/fotor/README.md)
 - [omp (oh-my-pi) plugin guide](plugins/omp/fotor/README.md)
+- [Google Antigravity App / CLI plugin guide](plugins/antigravity/fotor/README.md)
 
 <details>
-<summary>Release channels and verification</summary>
+<summary>Service and verification</summary>
 
-Both release channels connect to Fotor’s production service and website. Test builds use your real Fotor account and credits. Each skill includes its own four runtime reference documents.
+Fotor connects to its production service and website using your Fotor account. Each skill includes its own four runtime reference documents.
 
 ### Verification scope
 

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "fotor",
+  "displayName": "Fotor",
+  "version": "0.13.0",
+  "description": "Connect to the Fotor MCP service to create images, video and audio.",
+  "author": {
+    "name": "Fotor",
+    "url": "https://www.fotor.com/"
+  },
+  "homepage": "https://www.fotor.com/mcp",
+  "repository": "https://github.com/fotor-ai/fotor-agent-plugins",
+  "license": "Apache-2.0",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Which image models are available in Fotor?",
+    "Help me create a draft product image with Fotor.",
+    "What audio workflows can I use with Fotor?"
+  ]
+}
