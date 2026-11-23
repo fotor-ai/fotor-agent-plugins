@@ -7,7 +7,7 @@
 <p align="center">Create images, videos, and audio with Fotor — right in your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.12.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.12.0" />
+  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.13.0&amp;color=087f8c&amp;style=flat-square" alt="Version 0.13.0" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" alt="production channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -63,6 +63,7 @@ Available models, parameters, and operations come from the connected Fotor servi
 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kilo-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kilo.svg" /><img src="assets/agents/kilo.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Kilo CLI** | 0.10.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#kilo) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/hermes-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/hermes.svg" /><img src="assets/agents/hermes.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Hermes Agent Desktop / CLI** | 0.11.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#hermes) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/omp-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/omp.svg" /><img src="assets/agents/omp.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **omp (oh-my-pi)** | 0.12.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#omp) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/antigravity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/antigravity.svg" /><img src="assets/agents/antigravity.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Google Antigravity App / CLI** | 0.13.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#antigravity) |
 
 <a id="codex"></a>
 
@@ -579,14 +580,14 @@ Kilo CLI uses a manual project installation: copy the six skill folders, then ad
 
 #### Production release
 
-Obtain this collection from `v0.12.0` only after the public source is available and its version table has been verified. Use a new checkout directory:
+Obtain this collection from `v0.13.0` only after the public source is available and its version table has been verified. Use a new checkout directory:
 
 ```bash
-git clone --single-branch --branch v0.12.0 https://github.com/fotor-ai/fotor-agent-plugins.git fotor-kilo-source
+git clone --single-branch --branch v0.13.0 https://github.com/fotor-ai/fotor-agent-plugins.git fotor-kilo-source
 git -C fotor-kilo-source rev-parse HEAD
 ```
 
-The package is `fotor-kilo-source/plugins/kilo/fotor/`. Record the resolved commit and compare its file inventory with the selected release before copying any skills. For prepublication review, replace the Tag selector with the reviewed branch `release/v0.12.0` and verify its supplied commit; candidate availability does not establish a formal release.
+The package is `fotor-kilo-source/plugins/kilo/fotor/`. Record the resolved commit and compare its file inventory with the selected release before copying any skills. For prepublication review, replace the Tag selector with the reviewed branch `release/v0.13.0` and verify its supplied commit; candidate availability does not establish a formal release.
 
 Confirm version **0.10.1**, release channel **production**, source commit and file inventory. Downloading a source checkout is not installation: perform the two project-scoped steps below. Local development uses a reviewed fixed-source export. Keep existing configuration and grants. Marketplace and Desktop installation are outside this route.
 
@@ -656,7 +657,7 @@ and reload checks, not native market installation or automatic bundle upgrades.
 
 #### Production release
 
-Select `v0.12.0` once that public source is verified. For prepublication review, select `release/v0.12.0` and verify the supplied candidate commit; this does not establish a formal release.
+Select `v0.13.0` once that public source is verified. For prepublication review, select `release/v0.13.0` and verify the supplied candidate commit; this does not establish a formal release.
 
 Set `public_ref` to that branch or Tag, `source_checkout` to a new directory, and `hermes_profile` to your existing target profile. Download and resolve the full 40-character commit:
 
@@ -759,7 +760,7 @@ installations. A local fixed-source reinstall is not a public-channel upgrade.
 
 #### Production release
 
-Once collection `v0.12.0` is published, run these commands in
+Once collection `v0.13.0` is published, run these commands in
 your target Git project. The GitHub shorthand uses the repository's default
 branch. The marketplace registration belongs to the active profile. If
 `fotor-ai` already points to this GitHub source, skip registration. If it
@@ -773,7 +774,7 @@ omp skill list --json
 ```
 
 For this release, verify that the fetched commit matches the commit tagged
-`v0.12.0`, that `.omp-plugin/marketplace.json` selects
+`v0.13.0`, that `.omp-plugin/marketplace.json` selects
 `./plugins/omp/fotor`, and that Fotor **0.12.0** (production channel)
 is installed at project scope.
 
@@ -783,7 +784,7 @@ Set `source_checkout` to a new absolute path outside your target project.
 Download the candidate and compare its full commit with the one supplied for review.
 
 ```bash
-git clone --single-branch --branch release/v0.12.0 https://github.com/fotor-ai/fotor-agent-plugins.git "$source_checkout"
+git clone --single-branch --branch release/v0.13.0 https://github.com/fotor-ai/fotor-agent-plugins.git "$source_checkout"
 git -C "$source_checkout" rev-parse HEAD
 ```
 
@@ -799,6 +800,44 @@ the Claude Code package. The omp package contributes six skills and the native
 native OAuth when needed.
 
 
+<a id="antigravity"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/antigravity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/antigravity.svg" /><img src="assets/agents/antigravity.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Google Antigravity App / CLI
+
+Choose the [public collection](https://github.com/fotor-ai/fotor-agent-plugins) containing [Fotor **0.13.0**](plugins/antigravity/fotor/README.md)
+on the **production** package channel. Set `public_ref` to the published
+`release/test` branch for testing, the reviewed `release/v0.13.0`
+branch for candidate review, or the published `v0.13.0` tag for a formal release.
+Use the **collection version** in the branch or tag name.
+
+Set `public_sha` to the full commit you verified for that ref on GitHub (for an
+annotated tag, use the commit it points to). Set `checkout` to a new directory.
+Run `agy plugin list --json` first. If Fotor is already installed, verify its
+source and files before replacing it. Stop if another plugin, workspace skill
+or MCP entry already supplies Fotor.
+
+```bash
+(
+  set -eu
+  git clone --single-branch --branch "$public_ref" https://github.com/fotor-ai/fotor-agent-plugins.git "$checkout"
+  cd -- "$checkout"
+  test "$(git rev-parse HEAD)" = "$public_sha" || exit 1
+  git checkout --detach "$public_sha"
+  agy plugin validate --strict --json ./plugins/antigravity/fotor
+  agy plugin install ./plugins/antigravity/fotor
+  agy plugin list --json
+)
+```
+
+The CLI installs one user-wide package. Open the target project in the CLI
+and choose `/fotor:fotor-connect`, or open it in the App and find Fotor under
+**Customizations → Installed**. To authorize in the App, choose
+**Fotor → Accounts → Sign in**. The **MCP** tab shows the connected service
+and its tools. See the [Antigravity authorization guide](plugins/antigravity/fotor/skills/fotor-connect/references/authentication.md)
+for approvals and recovery. Manage an owned installation with
+`agy plugin disable fotor`, `agy plugin enable fotor` or `agy plugin uninstall fotor`.
+
+
 ## Documentation
 
 - [Codex plugin guide](plugins/codex/fotor/README.md)
@@ -811,6 +850,7 @@ native OAuth when needed.
 - [Kilo CLI plugin guide](plugins/kilo/fotor/README.md)
 - [Hermes Agent plugin guide](plugins/hermes/fotor/README.md)
 - [omp (oh-my-pi) plugin guide](plugins/omp/fotor/README.md)
+- [Google Antigravity App / CLI plugin guide](plugins/antigravity/fotor/README.md)
 
 <details>
 <summary>Release channels and verification</summary>
