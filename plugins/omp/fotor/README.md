@@ -2,7 +2,7 @@
 
 <img src="assets/logo.svg" alt="Fotor logo" width="96" />
 
-Fotor plugin **0.12.0-test.1** · test channel · [License](LICENSE)
+Fotor plugin **0.12.0** · production channel · [License](LICENSE)
 
 Generate images, videos and audio with Fotor from omp CLI. The six skills and
 bundled HTTP MCP service install together. Both channels connect to production.
@@ -14,9 +14,9 @@ the change and offer a draft instead.
 
 ## omp (oh-my-pi)
 
-#### Test release
+#### Production release
 
-Select a verified `release/test` checkout that contains `.omp-plugin/marketplace.json` pointing to `plugins/omp/fotor`. Before public release, use only the fixed candidate checkout supplied for review. Keep the checkout available while using this local catalog. Run in your target Git project. If this profile already has a Fotor catalog, package, skill or server from another source, stop. Do not replace or force-reinstall it. For the same known catalog omit the add step.
+Select a verified `main` checkout that contains `.omp-plugin/marketplace.json` pointing to `plugins/omp/fotor`. Before public release, use only the fixed candidate checkout supplied for review. Keep the checkout available while using this local catalog. Run in your target Git project. If this profile already has a Fotor catalog, package, skill or server from another source, stop. Do not replace or force-reinstall it. For the same known catalog omit the add step.
 
 ```bash
 omp plugin marketplace add "$source_checkout"
