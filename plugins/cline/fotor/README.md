@@ -3,7 +3,7 @@
 <p align="center"><img src="assets/logo.svg" width="72" alt="Fotor logo" /></p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.14.0-test.2&amp;color=087f8c&amp;style=flat-square" height="20" alt="Version" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.14.0-test.3&amp;color=087f8c&amp;style=flat-square" height="20" alt="Version" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" height="20" alt="Release channel" />
   <img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" height="20" alt="Apache-2.0 license" />
 </p>
@@ -15,7 +15,7 @@ Fotor credit balance.
 | Field | Value |
 | --- | --- |
 | Plugin | `fotor` |
-| Version | `0.14.0-test.2` |
+| Version | `0.14.0-test.3` |
 | Release channel | `test` |
 | Client baseline | Cline Desktop 0.0.50 · Cline CLI 3.0.75 |
 | Remote service | `https://mcp.fotor.com/mcp` |
@@ -77,7 +77,7 @@ verification and recovery.
 ```
 
 The Cline package is `plugins/cline/fotor/` in this checkout. Check that its
-`plugin.json` names `fotor` and version **0.14.0-test.2** (test channel).
+`plugin.json` names `fotor` and version **0.14.0-test.3** (test channel).
 
 ### Install or update the six skills
 

@@ -1,1 +1,1 @@
-export default { name: "fotor", manifest: { capabilities: [] } };
+export default { name: "fotor", manifest: { capabilities: ["skills"] } };
