@@ -14,6 +14,7 @@ come from [@lobehub/icons-static-svg 1.102.0](https://www.npmjs.com/package/@lob
 The source filenames are codex.svg, claudecode.svg, cursor.svg,
 grokbot.svg, pi.svg, deepseek.svg, opencode.svg and kilocode.svg.
 DeepSeek Harness uses the monochrome DeepSeek mark. The Google Antigravity mark comes from antigravity.svg in [@lobehub/icons-static-svg 1.104.0](https://www.npmjs.com/package/@lobehub/icons-static-svg/v/1.104.0), under the same MIT license.
+The Cline mark uses the geometry of [LobeHub’s cline.svg](https://github.com/lobehub/lobe-icons/blob/master/packages/static-svg/icons/cline.svg) under the same license.
 The package declares MIT; the license below is retained from the
 [upstream license](https://github.com/lobehub/lobe-icons/blob/master/LICENSE).
 

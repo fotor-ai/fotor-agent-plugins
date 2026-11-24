@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "fotor": {
+      "transport": {
+        "type": "streamableHttp",
+        "url": "https://mcp.fotor.com/mcp"
+      }
+    }
+  }
+}
