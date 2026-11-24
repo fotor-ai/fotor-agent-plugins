@@ -7,7 +7,7 @@
 <p align="center">Create images, videos, and audio with Fotor — right in your AI agent.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.13.0-test.4&amp;color=087f8c&amp;style=flat-square" alt="Version 0.13.0-test.4" />
+  <img src="https://img.shields.io/static/v1?label=collection&amp;message=0.14.0-test.1&amp;color=087f8c&amp;style=flat-square" alt="Version 0.14.0-test.1" />
   <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" alt="test channel" />
   <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" alt="Apache-2.0 license" /></a>
 </p>
@@ -63,7 +63,8 @@ Available models, parameters, and operations come from the connected Fotor servi
 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/kilo-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/kilo.svg" /><img src="assets/agents/kilo.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Kilo CLI** | 0.10.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#kilo) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/hermes-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/hermes.svg" /><img src="assets/agents/hermes.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Hermes Agent Desktop / CLI** | 0.11.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#hermes) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/omp-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/omp.svg" /><img src="assets/agents/omp.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **omp (oh-my-pi)** | 0.12.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#omp) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/antigravity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/antigravity.svg" /><img src="assets/agents/antigravity.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Google Antigravity App / CLI** | 0.13.0-test.4 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/unreleased-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/unreleased.svg" /><img src="assets/status/unreleased.svg" width="100" height="24" alt="Unreleased" align="absmiddle" /></picture> | [Install](#antigravity) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/antigravity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/antigravity.svg" /><img src="assets/agents/antigravity.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Google Antigravity App / CLI** | 0.13.0 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/released-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/released.svg" /><img src="assets/status/released.svg" width="88" height="24" alt="Released" align="absmiddle" /></picture> | [Install](#antigravity) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/cline-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/cline.svg" /><img src="assets/agents/cline.svg" width="20" height="20" alt="" align="absmiddle" /></picture>&nbsp; **Cline Desktop / CLI** | 0.14.0-test.1 | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/status/unreleased-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/status/unreleased.svg" /><img src="assets/status/unreleased.svg" width="100" height="24" alt="Unreleased" align="absmiddle" /></picture> | [Install](#cline) |
 
 <a id="codex"></a>
 
@@ -787,7 +788,7 @@ native OAuth when needed.
 
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/antigravity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/antigravity.svg" /><img src="assets/agents/antigravity.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Google Antigravity App / CLI
 
-Fotor **0.13.0-test.4** is distributed on the **test** package channel.
+Fotor **0.13.0** is distributed on the **production** package channel.
 The App and CLI share one installation when they use the same operating-system account.
 
 [App installation](#install-for-the-antigravity-app) · [CLI installation](#install-for-the-antigravity-cli)
@@ -798,7 +799,7 @@ The App and CLI share one installation when they use the same operating-system a
    and run the [Antigravity installation command](#antigravity-installation-command)
    below. If this version is already installed with `agy`, continue with step 2.
 2. Open **Customizations → Installed → Fotor** in the App. Check that Fotor is
-   enabled and its version is **0.13.0-test.4**.
+   enabled and its version is **0.13.0**.
 3. If sign-in is required, open **Accounts** and select **Sign in** for
    `fotor` at `mcp.fotor.com`. Complete authorization in your browser and
    enter a code in the App if prompted.
@@ -848,6 +849,77 @@ If Fotor shows an account but MCP reports `Unauthorized`, use Fotor’s account
 controls in the affected client to sign out and sign in again. [Antigravity authorization guide](plugins/antigravity/fotor/skills/fotor-connect/references/authentication.md)
 
 
+<a id="cline"></a>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="assets/agents/cline-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="assets/agents/cline.svg" /><img src="assets/agents/cline.svg" width="24" height="24" alt="" align="absmiddle" /></picture>&nbsp; Cline Desktop / CLI
+
+### Get the Cline package
+
+Open the collection's [`release/test`](https://github.com/fotor-ai/fotor-agent-plugins/tree/release/test) on GitHub. Copy the full 40-character **commit** shown on GitHub. In Bash
+on the Hub host, set `public_sha` to that value and `checkout` to a new
+absolute directory outside `~/.agents/plugins/`. Keep this checkout for
+verification and recovery.
+
+```bash
+(
+  set -eu
+  umask 022
+  test -n "$public_sha"
+  test ! -e "$checkout" && test ! -L "$checkout" || exit 1
+  git clone --single-branch --branch release/test \
+    https://github.com/fotor-ai/fotor-agent-plugins.git "$checkout"
+  test "$(git -C "$checkout" rev-parse HEAD)" = "$public_sha"
+  git -C "$checkout" checkout --detach "$public_sha"
+)
+```
+
+The Cline package is `plugins/cline/fotor/` in this checkout. Check that its
+`plugin.json` names `fotor` and version **0.14.0-test.1** (test channel).
+
+### Install or update the six skills
+
+CLI and Desktop use one copy at `~/.agents/plugins/fotor/` on the same Hub.
+
+- **First installation.** Check for another portable package or ordinary skill
+  supplying the same names. Follow the [verified installation steps](plugins/cline/fotor/README.md#verified-installation-and-rollback)
+  with the target directory absent.
+- **Existing installation.** Locate the verified package used for the current
+  install. Follow the [replacement and rollback steps](plugins/cline/fotor/README.md#verified-installation-and-rollback) to
+  compare every file and its permissions, stage the new package outside the
+  discovery directory and retain the previous copy. Resolve any local edits
+  or ownership conflict before switching.
+
+### Connect from the CLI
+
+Run `cline config mcp --json` locally. Reuse the enabled `fotor` service at
+`https://mcp.fotor.com/mcp` and its grant. Only for a new registration, open the interactive wizard:
+
+```bash
+cline mcp add fotor https://mcp.fotor.com/mcp --transport http
+```
+
+Select **Remote (HTTP)** and **OAuth**. Leave the client ID empty for dynamic
+registration. If a registered service needs a fresh grant, open `cline mcp`
+and choose **Authorize OAuth** for that entry. A fresh Fotor MCP sign-in expires the previous MCP login for
+the same account. Confirm before continuing and complete consent in your
+browser. Start `cline` in your project. In **Settings → Skills**, look for six
+enabled Fotor skills. Ask Cline to open `fotor:fotor-connect` and list the
+available image models.
+
+### Connect from Desktop
+
+Open your project on the local Hub used by the CLI. In **Customize → Installed**, confirm
+Fotor and its six skills. Inspect the existing `fotor` entry in MCP settings.
+If Desktop is the first client used to register the service, select **Add MCP
+Server → Remote → Streamable HTTP**, enter `fotor` and `https://mcp.fotor.com/mcp`, then
+authorize using the native OAuth action with your consent. Start a new
+conversation and ask “Which image models does Fotor offer?”
+
+Package replacement preserves Cline's separately managed registration, native
+grant, tool approvals and timeouts. The Agent Plugins switch controls the
+skills. [Cline authentication guide](plugins/cline/fotor/skills/fotor-connect/references/authentication.md)
+
+
 ## Documentation
 
 - [Codex plugin guide](plugins/codex/fotor/README.md)
@@ -861,6 +933,7 @@ controls in the affected client to sign out and sign in again. [Antigravity auth
 - [Hermes Agent plugin guide](plugins/hermes/fotor/README.md)
 - [omp (oh-my-pi) plugin guide](plugins/omp/fotor/README.md)
 - [Google Antigravity App / CLI plugin guide](plugins/antigravity/fotor/README.md)
+- [Cline Desktop / CLI plugin guide](plugins/cline/fotor/README.md)
 
 <details>
 <summary>Service and verification</summary>

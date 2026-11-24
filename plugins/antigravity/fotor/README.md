@@ -3,8 +3,8 @@
 <p align="center"><img src="assets/logo.svg" width="72" alt="Fotor logo" /></p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.13.0-test.4&amp;color=087f8c&amp;style=flat-square" height="20" alt="Version" />
-  <img src="https://img.shields.io/static/v1?label=channel&amp;message=test&amp;color=a56800&amp;style=flat-square" height="20" alt="Release channel" />
+  <img src="https://img.shields.io/static/v1?label=version&amp;message=0.13.0&amp;color=087f8c&amp;style=flat-square" height="20" alt="Version" />
+  <img src="https://img.shields.io/static/v1?label=channel&amp;message=production&amp;color=238636&amp;style=flat-square" height="20" alt="Release channel" />
   <img src="https://img.shields.io/static/v1?label=license&amp;message=Apache-2.0&amp;color=57606a&amp;style=flat-square" height="20" alt="Apache-2.0 license" />
 </p>
 
@@ -15,14 +15,14 @@ its [MCP configuration](mcp_config.json).
 | Field | Value |
 | --- | --- |
 | Plugin | `fotor` |
-| Version | `0.13.0-test.4` |
-| Release channel | `test` |
+| Version | `0.13.0` |
+| Release channel | `production` |
 | MCP endpoint | `https://mcp.fotor.com/mcp` |
 | Supported agent versions | Antigravity App `>=2.33.0` · Antigravity CLI `>=1.5.13` |
 
 ## Installation
 
-Fotor **0.13.0-test.4** is distributed on the **test** package channel.
+Fotor **0.13.0** is distributed on the **production** package channel.
 The App and CLI share one installation when they use the same operating-system account.
 
 [App installation](#install-for-the-antigravity-app) · [CLI installation](#install-for-the-antigravity-cli)
@@ -33,7 +33,7 @@ The App and CLI share one installation when they use the same operating-system a
    and run the [Antigravity installation command](#antigravity-installation-command)
    below. If this version is already installed with `agy`, continue with step 2.
 2. Open **Customizations → Installed → Fotor** in the App. Check that Fotor is
-   enabled and its version is **0.13.0-test.4**.
+   enabled and its version is **0.13.0**.
 3. If sign-in is required, open **Accounts** and select **Sign in** for
    `fotor` at `mcp.fotor.com`. Complete authorization in your browser and
    enter a code in the App if prompted.
@@ -55,7 +55,7 @@ The App and CLI share one installation when they use the same operating-system a
 
 You need Git and the [Antigravity CLI (`agy`)](https://antigravity.google/docs/getting-started/).
 
-Open the [public test branch](https://github.com/fotor-ai/fotor-agent-plugins/tree/release/test) and check its version table.
+On [GitHub Releases](https://github.com/fotor-ai/fotor-agent-plugins/releases), choose a published collection whose version table lists Antigravity **0.13.0**. In your terminal, enter `release_tag='…'`, replacing the ellipsis with that release’s tag.
 
 In your terminal, enter `public_sha='…'`, replacing the ellipsis with the full
 40-character commit shown on GitHub. Run the block from a directory where
@@ -68,7 +68,7 @@ before replacing it. Resolve any same-name workspace skill or MCP service first.
 (
   set -eu
   test -n "$public_sha"
-  git clone --single-branch --branch release/test \
+  git clone --single-branch --branch "$release_tag" \
     https://github.com/fotor-ai/fotor-agent-plugins.git fotor-antigravity
   cd fotor-antigravity
   test "$(git rev-parse HEAD)" = "$public_sha" || exit 1
