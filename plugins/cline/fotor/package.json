@@ -1,0 +1,15 @@
+{
+  "name": "fotor",
+  "version": "0.14.0",
+  "private": true,
+  "type": "module",
+  "cline": {
+    "plugins": [
+      {
+        "paths": [
+          "./index.js"
+        ]
+      }
+    ]
+  }
+}

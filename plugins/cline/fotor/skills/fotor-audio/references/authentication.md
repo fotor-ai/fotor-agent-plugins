@@ -6,11 +6,13 @@ platform: cline
 
 ## Find the installed skill
 
-In the intended project, ask Cline to open its `fotor:fotor-connect` skill.
-Portable skills appear in the Hub's Agent Plugins inventory. Desktop exposes
-the installed package under **Customize → Installed**. The CLI command
-`cline config skills --json` lists ordinary skills and can be empty while
-portable skills are available.
+In the intended project, open `fotor-connect` for a native Cline Git install.
+Use `cline config plugins --json` and `cline config skills --json` to identify
+the registered module and its bundled skills. A portable installation under
+`~/.agents/plugins/fotor/` exposes `fotor:fotor-connect` through Agent Plugins.
+In Desktop inspect the installed source in **Customize → Installed**.
+Use the name the current session exposes. If both sources are active, ask
+the user to choose the installation before using a Fotor skill.
 
 Read `SKILL.md` and the four references from the directory Cline returns. From
 that skill directory, the package manifest is two levels up at `plugin.json`.

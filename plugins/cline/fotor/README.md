@@ -24,6 +24,40 @@ Fotor credit balance.
 
 ## Cline Desktop / CLI
 
+### Install from Git with Cline
+
+On the Hub host used by CLI and Desktop, install the six skills once. If
+Fotor is already installed, check its source in `cline config plugins --json`
+and its skills in `cline config skills --json` first. Also check for an
+existing portable copy at `~/.agents/plugins/fotor/`. Keep one active Fotor
+skill source per Hub.
+
+Set `release_tag` to the published collection tag containing this Cline version.
+
+```bash
+cline plugin install "https://github.com/fotor-ai/fotor-agent-plugins.git@$release_tag"
+```
+
+Open a new session. Check that `cline config plugins --json` includes
+`fotor` and `cline config skills --json` lists its six `fotor-*` skills.
+The installed files, including each skill's references, live under Cline's
+plugin store. Continue with the connection steps for your client.
+
+**Changing sources.** Retain the old source and check for local edits. For
+a native Git installation, confirm that `cline config plugins --json` shows
+exactly one `fotor` and that its path belongs to the source you intend to
+replace. Run `cline plugin uninstall fotor` before installing another ref.
+For a portable copy, check ownership and compare it to its retained package.
+Move the verified directory outside `~/.agents/plugins/` and keep it for
+rollback. Resolve modifications or use by another client before moving it.
+If the new install fails, inspect the active sources. Restore the verified
+portable backup to its original location or reinstall the previous native Git
+commit, then check the Fotor skill paths. Leave the registered `fotor` MCP
+service and its grant in place.
+
+<details>
+<summary>Alternative installation from a verified local checkout</summary>
+
 ### Get the Cline package
 
 On [GitHub Tags](https://github.com/fotor-ai/fotor-agent-plugins/tags), choose a formal collection tag whose version table lists Cline **0.14.0**. Set `release_tag` to that tag's exact name. Copy the full 40-character **commit** shown on GitHub. In Bash
@@ -60,6 +94,8 @@ CLI and Desktop use one copy at `~/.agents/plugins/fotor/` on the same Hub.
   discovery directory and retain the previous copy. Resolve any local edits
   or ownership conflict before switching.
 
+</details>
+
 ### Connect from the CLI
 
 Run `cline config mcp --json` locally. Reuse the enabled `fotor` service at
@@ -74,8 +110,8 @@ registration. If a registered service needs a fresh grant, open `cline mcp`
 and choose **Authorize OAuth** for that entry. A fresh Fotor MCP sign-in expires the previous MCP login for
 the same account. Confirm before continuing and complete consent in your
 browser. Start `cline` in your project. In **Settings → Skills**, look for six
-enabled Fotor skills. Ask Cline to open `fotor:fotor-connect` and list the
-available image models.
+enabled Fotor skills. Open `fotor-connect` for a native installation or
+`fotor:fotor-connect` for a portable copy, then ask for image models.
 
 ### Connect from Desktop
 
@@ -87,11 +123,11 @@ authorize using the native OAuth action with your consent. Start a new
 conversation and ask “Which image models does Fotor offer?”
 
 Package replacement preserves Cline's separately managed registration, native
-grant, tool approvals and timeouts. The Agent Plugins switch controls the
-skills. [Cline authentication guide](skills/fotor-connect/references/authentication.md)
+grant, tool approvals and timeouts. Use Cline's plugin controls for the installed source. [Cline authentication guide](skills/fotor-connect/references/authentication.md)
 
 ## Verified installation and rollback
 
+The following copy and rollback procedure applies to the portable installation.
 Run these steps on the Hub host in the same Bash terminal as the download.
 They use Git, tar and a SHA-256 utility (`sha256sum` or `shasum`).
 
