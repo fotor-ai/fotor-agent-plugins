@@ -40,6 +40,14 @@ does not establish official catalog admission.
 
 ### Hermes plugin installation
 
+#### Install from the Desktop catalog
+
+In Hermes Agent Desktop, select your profile and open **Capabilities → Plugins**.
+Search for `fotor` with the tier filter set to **All** or **Community**.
+On the **Fotor** card, check the listed version and click **Install** (**+**).
+Enable the plugin if needed, then follow the
+[MCP connection steps](#hermes-mcp-registration-and-connection) in the same profile.
+
 #### Production release
 
 Select an available collection source whose version table contains this Hermes package. For a test build use `release/test`; for production use its verified collection Tag. Before publication, use only the candidate branch and commit supplied for review.
@@ -78,10 +86,7 @@ hermes -p "$hermes_profile" plugins enable fotor
 hermes -p "$hermes_profile" plugins list --user --json
 ```
 
-Omit `--ref` for this route so Hermes records the reviewed catalog origin.
-Desktop may install the same entry through its native catalog UI; select the
-intended profile and verify the actual source. Shared loading is distinct from
-a separate UI installation. Keep the independent MCP registration below.
+Omit `--ref` when installing by name so Hermes records the reviewed catalog origin.
 
 ### Hermes MCP registration and connection
 
